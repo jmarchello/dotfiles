@@ -1,14 +1,10 @@
-cd ~/dotfiles
-
 # VIM
-ln -sfiv ./vim/.vimrc ~/
-mv ~/.vim ~/.old_vim
-ln -sfiv ./vim/.vim ~/
+ln -sfiv ~/dotfiles/vim/.vimrc ~
 
 # Tmux
-ln -sfiv ./tmux/.tmux.conf ~/
+ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
 
 # ZSH
-ln -sfiv ./zsh/.zshrc ~/
-mv ~/.oh-my-zsh/custom ~/.oh-my-zsh/old_custom
-ln -sfiv ./zsh/custom ~/.oh-my-zsh
+ln -sfiv ~/dotfiles/zsh/.zshrc ~
+ln -sfiv ~/dotfiles/zsh/custom/josh.zsh ~/.oh-my-zsh/custom
+ln -sfiv ~/dotfiles/zsh/custom/aliases.zsh ~/.oh-my-zsh/custom

@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/jmarchello/development/Rails/mersoft/mtestp-web/app/models'
 let g:netrw_dirhist_2='/Users/jmarchello/Downloads/jssip'
 let g:netrw_dirhist_3='/Users/jmarchello/Downloads/jssip/lib'
+let g:netrw_dirhist_4='/Users/jmarchello/Downloads/jssip'
+let g:netrw_dirhist_5='/Users/jmarchello/Downloads/jssip/lib'
