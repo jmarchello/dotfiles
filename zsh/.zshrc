@@ -5,7 +5,7 @@ export ZSH=/Users/jmarchello/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="arrow"
+ZSH_THEME="gallois"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +53,8 @@ plugins=(git bundler brew gem heroku ruby rails rvm)
 
 # User configuration
 
-export PATH="/Users/jmarchello/.rvm/gems/ruby-2.2.1/bin:/Users/jmarchello/.rvm/gems/ruby-2.2.1@global/bin:/Users/jmarchello/.rvm/rubies/ruby-2.2.1/bin:/Users/jmarchello/.jenv/shims:/Users/jmarchello/.jenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jmarchello/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+# export PATH="/Users/jmarchello/.rvm/gems/ruby-2.2.1/bin:/Users/jmarchello/.rvm/gems/ruby-2.2.1@global/bin:/Users/jmarchello/.rvm/rubies/ruby-2.2.1/bin:/Users/jmarchello/.jenv/shims:/Users/jmarchello/.jenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jmarchello/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+export PATH="/Users/jmarchello/.jenv/shims:/Users/jmarchello/.jenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jmarchello/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

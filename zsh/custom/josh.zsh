@@ -2,7 +2,7 @@ source ~/.git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 
-set -o vi
+# set -o vi
 
 # MYPROMPT -> '|\A| $(__git_ps1 "(%s) [\W]") >> '
 # COLORS -> '\[\e[0;33m\] PROMPT \[\e[m\]'
@@ -12,8 +12,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
-export EDITOR=mvim
-ssh-add ~/.ssh/bitbucket_id_rsa
+export EDITOR=subl
 stty erase '^?'
 
 # Postgres.app binaries
@@ -24,7 +23,8 @@ alias workIcor="cd ~/development/rails/mersoft/icor"
 alias workTest="cd ~/development/rails/mersoft/mtestp-web"
 alias startMailcatcher='rvm use 2.2.2@mailcatcher && mailcatcher -f'
 
-# export TERM="xterm-256color"
+export TERM="xterm-256color"
+
 PATH=/opt/local/bin:$PATH
 
 ###############################
@@ -48,11 +48,6 @@ alias rc="rails c"
 alias rs="rails s -b 0.0.0.0"
 alias bi="bundle install"
 
-# git completion
-# if [ -f ~/.git-completion.bash ]; then
-#   . ~/.git-completion.bash
-# fi
-
 # npm completion
 if [ -f ~/.npm-completion.bash ]; then
   . ~/.npm-completion.bash
@@ -62,8 +57,4 @@ fi
 # complete -C aws_completer aws
 
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# NVM
-export NVM_DIR="/Users/jmarchello/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

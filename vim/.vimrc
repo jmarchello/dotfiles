@@ -7,11 +7,11 @@ set shiftwidth=2
 set softtabstop=2
 
 " UI
+set term=screen-256color
 syntax enable
-" set background=light
-colorscheme zenburn
-set guifont=Source\ Code\ Pro:h12
-set number "show line numbers
+colorscheme zenburn 
+set guifont=DejaVu\ Sans\ Mono:h14
+" set number "show line numbers
 
 " netrw
 let g:netrw_liststyle=3
@@ -59,17 +59,28 @@ call vundle#begin()
 " " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'jelera/vim-javascript-syntax.git'
-Plugin 'pangloss/vim-javascript.git'
-Plugin 'nathanaelkane/vim-indent-guides.git'
-Plugin 'terryma/vim-multiple-cursors.git'
+"" General
 Plugin 'wincent/command-t.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-fugitive.git'
-Plugin 'Valloric/YouCompleteMe.git'
-Plugin 'Raimondi/delimitMate.git'
-Plugin 'scrooloose/syntastic.git'
-Plugin 'craigemery/vim-autotag'
+Plugin 'ekalinin/dockerfile.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-endwise'
+" Plugin 'Valloric/YouCompleteMe.git'
+" Plugin 'Raimondi/delimitMate.git'
+" Plugin 'scrooloose/syntastic.git'
+" Plugin 'craigemery/vim-autotag'
+
+"" Ruby
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-bundler'
+
+"" JavaScript
+Plugin 'jelera/vim-javascript-syntax.git'
+Plugin 'pangloss/vim-javascript.git'
+
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
