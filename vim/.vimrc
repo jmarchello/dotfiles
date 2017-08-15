@@ -9,9 +9,12 @@ set softtabstop=2
 " UI
 set term=screen-256color
 syntax enable
-colorscheme zenburn 
+colorscheme github 
 set guifont=DejaVu\ Sans\ Mono:h14
 " set number "show line numbers
+
+" Statusline
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " netrw
 let g:netrw_liststyle=3
@@ -29,17 +32,6 @@ set ttymouse=xterm2
 "status line
 set laststatus=2
 set ruler
-
-" Syntasic settings
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -68,9 +60,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-endwise'
 " Plugin 'Valloric/YouCompleteMe.git'
-" Plugin 'Raimondi/delimitMate.git'
-" Plugin 'scrooloose/syntastic.git'
-" Plugin 'craigemery/vim-autotag'
+Plugin 'Raimondi/delimitMate.git'
+Plugin 'sirver/ultisnips'
 
 "" Ruby
 Plugin 'tpope/vim-rails'
