@@ -11,7 +11,7 @@ set term=screen-256color
 syntax enable
 colorscheme github 
 set guifont=DejaVu\ Sans\ Mono:h14
-" set number "show line numbers
+set number "show line numbers
 
 " Statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -59,6 +59,8 @@ Plugin 'ekalinin/dockerfile.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-endwise'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'Valloric/YouCompleteMe.git'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'sirver/ultisnips'

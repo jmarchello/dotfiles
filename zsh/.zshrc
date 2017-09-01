@@ -5,7 +5,26 @@ export ZSH=/Users/jmarchello/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gallois"
+ZSH_THEME="bullet-train"
+
+# Define order and content of prompt
+if [ ! -n "${BULLETTRAIN_PROMPT_ORDER+1}" ]; then
+  BULLETTRAIN_PROMPT_ORDER=(
+    time
+    status
+    dir
+    perl
+    ruby
+    virtualenv
+    nvm
+    aws
+    go
+    elixir
+    git
+    hg
+    cmd_exec_time
+  )
+fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

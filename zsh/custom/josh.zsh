@@ -1,4 +1,4 @@
-source ~/.git-prompt.sh
+# source ~/.git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 
@@ -8,11 +8,11 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 # COLORS -> '\[\e[0;33m\] PROMPT \[\e[m\]'
 # PS1="\[\e[0;33m\] |\A| $(__git_ps1 "(%s)") [\W] >> \[\e[m\]"
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
-export EDITOR=subl
+# export EDITOR=subl
 stty erase '^?'
 
 # Postgres.app binaries
