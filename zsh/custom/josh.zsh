@@ -12,7 +12,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 # eval "$(jenv init -)"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
-# export EDITOR=subl
+export EDITOR=vim
 stty erase '^?'
 
 # Postgres.app binaries
