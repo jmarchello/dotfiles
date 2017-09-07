@@ -14,7 +14,7 @@ set guifont=DejaVu\ Sans\ Mono:h14
 set number "show line numbers
 
 " Statusline
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " netrw
 let g:netrw_liststyle=3
@@ -59,8 +59,8 @@ Plugin 'ekalinin/dockerfile.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-endwise'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe.git'
@@ -82,3 +82,8 @@ filetype plugin indent on    " required
 
 " Custom keybindings
 inoremap ;; <esc>
+
+" Powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
