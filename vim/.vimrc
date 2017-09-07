@@ -63,7 +63,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
-" Plugin 'Valloric/YouCompleteMe.git'
+Plugin 'Valloric/YouCompleteMe.git'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'sirver/ultisnips'
 
