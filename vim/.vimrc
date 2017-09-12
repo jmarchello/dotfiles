@@ -9,9 +9,10 @@ set softtabstop=2
 " UI
 set term=screen-256color
 syntax enable
-colorscheme github 
+" colorscheme github
+colorscheme zenburn
 set guifont=DejaVu\ Sans\ Mono:h14
-set number "show line numbers
+" set number "show line numbers
 
 " Statusline
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -59,13 +60,11 @@ Plugin 'ekalinin/dockerfile.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-endwise'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
-Plugin 'Valloric/YouCompleteMe.git'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'sirver/ultisnips'
+Plugin 'christoomey/vim-tmux-navigator'
 
 "" Ruby
 Plugin 'tpope/vim-rails'

@@ -56,5 +56,6 @@ fi
 # aws cli completion
 # complete -C aws_completer aws
 
+export PATH="$HOME/.cargo/bin:$PATH"
 # Load RVM into a shell session *as a function*
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

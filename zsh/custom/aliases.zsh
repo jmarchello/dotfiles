@@ -9,3 +9,4 @@ alias dprune='docker container prune'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dcom='docker-compose'
+alias nom="rm -rf node_modules && npm cache clear && npm i"
