@@ -43,6 +43,11 @@ set foldlevel=1         "this is just what i use
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"vim-jsx settings
+"make jsx support work in files other than .jsx
+let g:jsx_ext_required = 0
+
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -65,6 +70,8 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'Raimondi/delimitMate.git'
 Plugin 'sirver/ultisnips'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'mattn/emmet-vim'
+Plugin 'mileszs/ack.vim'
 
 "" Ruby
 Plugin 'tpope/vim-rails'
@@ -74,6 +81,7 @@ Plugin 'tpope/vim-bundler'
 "" JavaScript
 Plugin 'jelera/vim-javascript-syntax.git'
 Plugin 'pangloss/vim-javascript.git'
+Plugin 'mxw/vim-jsx'
 
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
