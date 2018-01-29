@@ -5,7 +5,8 @@ export ZSH=/Users/jmarchello/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="bullet-train"
+# ZSH_THEME="gallois"
+ZSH_THEME="jnrowe"
 
 # if [ ! -n "${BULLETTRAIN_PROMPT_ORDER+1}" ]; then
 #   BULLETTRAIN_PROMPT_ORDER=(
@@ -72,7 +73,7 @@ plugins=(git bundler brew gem heroku ruby rails rvm)
 # User configuration
 
 # export PATH="/Users/jmarchello/.rvm/gems/ruby-2.2.1/bin:/Users/jmarchello/.rvm/gems/ruby-2.2.1@global/bin:/Users/jmarchello/.rvm/rubies/ruby-2.2.1/bin:/Users/jmarchello/.jenv/shims:/Users/jmarchello/.jenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jmarchello/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
-export PATH="/Users/jmarchello/.jenv/shims:/Users/jmarchello/.jenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jmarchello/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jmarchello/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -102,10 +103,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 #Powerline
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

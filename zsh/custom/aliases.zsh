@@ -1,5 +1,5 @@
 alias cdHighwire='cd ~/dev/mersoft/javascript/iris/highwire'
-alias e='subl'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 
 # Docker
 alias drun='docker run -it --rm'

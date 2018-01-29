@@ -31,8 +31,12 @@ set mouse=a
 set ttymouse=xterm2
 
 "status line
-set laststatus=2
-set ruler
+" set laststatus=2
+" set ruler
+
+" Airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='zenburn'
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -47,6 +51,8 @@ filetype off                  " required
 "make jsx support work in files other than .jsx
 let g:jsx_ext_required = 0
 
+" Add fzf
+set rtp+=/usr/local/opt/fzf
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -58,7 +64,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "" General
-Plugin 'wincent/command-t.git'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'ekalinin/dockerfile.vim'
@@ -68,10 +73,9 @@ Plugin 'tpope/vim-endwise'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Raimondi/delimitMate.git'
-Plugin 'sirver/ultisnips'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'mattn/emmet-vim'
-Plugin 'mileszs/ack.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 "" Ruby
 Plugin 'tpope/vim-rails'
@@ -88,9 +92,11 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Custom keybindings
-inoremap ;; <esc>
+" inoremap ;; <esc>
 
-" Powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" FZF binding
+nmap <Leader>t :FZF<CR>
+
+" Copy current filename to clipboard
+nmap ,cs :let @*=expand("%")<CR>
+nmap ,cl :let @*=expand("%:p")<CR>
