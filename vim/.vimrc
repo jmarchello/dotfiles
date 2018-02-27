@@ -7,18 +7,27 @@ set shiftwidth=2
 set softtabstop=2
 
 " UI
-set term=screen-256color
+" set term=screen-256color
 syntax enable
 " colorscheme github
 colorscheme zenburn
 set guifont=DejaVu\ Sans\ Mono:h14
 " set number "show line numbers
 
+
+"Wrap at column 80 in Markdown files
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
 " Statusline
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " netrw
 let g:netrw_liststyle=3
+
+" NERDtree
+let NERDTreeShowBookmarks=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
 
 " Send more characters for redraws
 set ttyfast
@@ -76,6 +85,8 @@ Plugin 'Raimondi/delimitMate.git'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
 
 "" Ruby
 Plugin 'tpope/vim-rails'
@@ -94,9 +105,15 @@ filetype plugin indent on    " required
 " Custom keybindings
 " inoremap ;; <esc>
 
-" FZF binding
-nmap <Leader>t :FZF<CR>
+" CtrlP binding
+let g:ctrlp_map = '<Leader>t'
 
 " Copy current filename to clipboard
 nmap ,cs :let @*=expand("%")<CR>
 nmap ,cl :let @*=expand("%:p")<CR>
+
+" NERDtree mapping
+map <Leader>e :NERDTreeFind<CR>
+
+" Remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
