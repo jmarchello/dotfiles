@@ -7,16 +7,20 @@ set shiftwidth=2
 set softtabstop=2
 
 " UI
-" set term=screen-256color
 syntax enable
 " colorscheme github
 colorscheme zenburn
 set guifont=DejaVu\ Sans\ Mono:h14
 " set number "show line numbers
 
+set colorcolumn=120
+
 
 "Wrap at column 80 in Markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
+
+"Look for .rvmrc and use it
+Rvm
 
 " Statusline
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -37,14 +41,16 @@ set mouse=a
 "
 " Set this to the name of your terminal that supports mouse codes.
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 "status line
 " set laststatus=2
 " set ruler
 
 " Airline settings
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_theme='zenburn'
 
 "folding settings
@@ -85,13 +91,14 @@ Plugin 'Raimondi/delimitMate.git'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
 
 "" Ruby
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rvm'
 
 "" JavaScript
 Plugin 'jelera/vim-javascript-syntax.git'
@@ -114,6 +121,8 @@ nmap ,cl :let @*=expand("%:p")<CR>
 
 " NERDtree mapping
 map <Leader>e :NERDTreeFind<CR>
+
+map <Leader>/ :noh<CR>
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
