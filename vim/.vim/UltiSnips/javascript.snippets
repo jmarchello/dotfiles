@@ -1,0 +1,61 @@
+snippet rctfunc
+import React from 'react';
+
+const $1 = () => (
+    $0
+);
+
+export default $1;
+endsnippet
+
+snippet rctclass
+import React from 'react';
+
+class $1 extends React.Component {
+    state = {}
+
+    render() {
+	return (
+	    $0
+	);
+    }
+}
+
+export default $1;
+endsnippet
+
+snippet reducerroot
+import { combineReducers } from 'redux';
+
+const $1 = combineReducers({
+    $0
+});
+
+export default $1;
+endsnippet
+
+snippet reducer
+const initialState = $1
+
+const $2 = (state = initialState, action) => {
+    switch (action.type) {
+    case $0
+    default:
+        return state;
+    }
+};
+
+export default $2;
+endsnippet
+
+snippet imp
+import $1 from '$2';$0
+endsnippet
+
+snippet type
+PropTypes$0
+endsnippet
+
+snippet imppro
+import PropTypes from 'prop-types';$0
+endsnippet
