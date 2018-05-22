@@ -2,7 +2,7 @@
 ln -sfiv ~/dotfiles/vim/.vimrc ~
 
 # Tmux
-ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
+# ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
 
 # ZSH
 ln -sfiv ~/dotfiles/zsh/.zshrc ~

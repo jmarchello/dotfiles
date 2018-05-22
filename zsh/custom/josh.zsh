@@ -2,6 +2,11 @@
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+# start the ssh-agent
+ssh-agent
+
 # set -o vi
 
 # MYPROMPT -> '|\A| $(__git_ps1 "(%s) [\W]") >> '
@@ -10,8 +15,8 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
-export JAVA_HOME=$(/usr/libexec/java_home)
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
+# export JAVA_HOME=$(/usr/libexec/java_home)
+# export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
 export EDITOR=vim
 stty erase '^?'
 
@@ -27,27 +32,6 @@ export TERM="xterm-256color"
 
 PATH=/opt/local/bin:$PATH
 
-###############################
-# Tool aliases
-###############################
-
-# VIM
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
-
-# Git
-# alias gtree='git log --graph --oneline --all --decorate'
-# alias gst='git status'
-# alias gaa='git add --all'
-# alias ga='git add'
-# alias gcm='git commit -m'
-# alias gcam='git commit -a -m'
-
-# Ruby/Rails
-alias rc="rails c"
-alias rs="rails s -b 0.0.0.0"
-alias bi="bundle install"
-
 # npm completion
 if [ -f ~/.npm-completion.bash ]; then
   . ~/.npm-completion.bash
@@ -58,4 +42,5 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 # Load RVM into a shell session *as a function*
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin

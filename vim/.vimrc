@@ -3,12 +3,13 @@ let mapleader=","
 
 " Tabs
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 
 " UI
 syntax enable
-" colorscheme github
+" set background=light
+" colorscheme solarized
 colorscheme zenburn
 set guifont=DejaVu\ Sans\ Mono:h14
 " set number "show line numbers
@@ -27,6 +28,12 @@ set guicursor+=n-v-c:blinkon0
 
 set colorcolumn=120
 
+"Ultisnips configuration
+let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "Wrap at column 80 in Markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -60,13 +67,12 @@ endif
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_theme='zenburn'
 
 "folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
+set foldmethod=manual
+" set foldmethod=indent
+" set foldnestmax=10      "deepest fold is 10 levels
+" set nofoldenable        "dont fold by default
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -91,18 +97,20 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'ekalinin/dockerfile.vim'
-Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-endwise'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
-Plugin 'Raimondi/delimitMate.git'
+" Plugin 'Raimondi/delimitMate.git'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf.vim'
-'
+Plugin 'w0rp/ale'
+Plugin 'SirVer/ultisnips'
+
 "" Ruby
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
@@ -110,7 +118,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rvm'
 
 "" JavaScript
-Plugin 'jelera/vim-javascript-syntax.git'
+" Plugin 'jelera/vim-javascript-syntax.git'
 Plugin 'pangloss/vim-javascript.git'
 Plugin 'mxw/vim-jsx'
 
@@ -124,14 +132,34 @@ filetype plugin indent on    " required
 " FZF
 nmap <Leader>t :FZF<CR>
 nmap <Leader>b :Buffers<CR>
+map <Leader>s :Snippets<CR>
+
 " Copy current filename to clipboard
 nmap ,cs :let @*=expand("%")<CR>
 nmap ,cl :let @*=expand("%:p")<CR>
 
 " NERDtree mapping
 map <Leader>e :NERDTreeFind<CR>
+map <Leader>c :NERDTreeClose<CR>
+let NERDTreeIgnore=['\.swp']
 
 map <Leader>/ :noh<CR>
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Find TODOs and FIXMEs
+command! Todo noautocmd grep /TODO\|FIXME/j ** | cw
+
+" use ag for grepping
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
+  set grepformat^=%f:%l:%c:%m   " file:line:column:message
+endif
+
+" Wildignore
+set wildignore+=**/node_modules/**
+set wildignore+=**/build/**
+
+set exrc
+set secure
