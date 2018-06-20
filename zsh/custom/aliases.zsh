@@ -15,7 +15,8 @@ alias knode='killall node'
 
 # VIM
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+# alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vi='nvim'
 
 # Git
 # alias gtree='git log --graph --oneline --all --decorate'

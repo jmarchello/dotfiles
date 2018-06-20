@@ -5,7 +5,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # start the ssh-agent
-ssh-agent
+eval `ssh-agent -s`
 
 # set -o vi
 
@@ -17,16 +17,13 @@ ssh-agent
 # eval "$(jenv init -)"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
-export EDITOR=vim
+export EDITOR=nvim
 stty erase '^?'
+
+export GREP_OPTIONS='--exclude-dir=build --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=log'
 
 # Postgres.app binaries
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-
-# workspace aliases
-alias workIcor="cd ~/development/rails/mersoft/icor"
-alias workTest="cd ~/development/rails/mersoft/mtestp-web"
-alias startMailcatcher='rvm use 2.2.2@mailcatcher && mailcatcher -f'
 
 export TERM="xterm-256color"
 

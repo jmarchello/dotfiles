@@ -29,7 +29,7 @@ set guicursor+=n-v-c:blinkon0
 set colorcolumn=120
 
 "Ultisnips configuration
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -151,15 +151,21 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Find TODOs and FIXMEs
 command! Todo noautocmd grep /TODO\|FIXME/j ** | cw
 
-" use ag for grepping
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
-  set grepformat^=%f:%l:%c:%m   " file:line:column:message
-endif
+" " use ag for grepping
+" if executable('ag')
+"   set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
+"   set grepformat^=%f:%l:%c:%m   " file:line:column:message
+" endif
+
+set conceallevel=0
 
 " Wildignore
 set wildignore+=**/node_modules/**
 set wildignore+=**/build/**
 
-set exrc
-set secure
+let g:ale_fixers = {
+\   'javascript': [
+\       'eslint',
+\   ],
+\}
+let g:ale_fix_on_save = 1
