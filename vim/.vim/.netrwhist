@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/jmarchello/dotfiles/vim'
-let g:netrw_dirhist_2='/Users/jmarchello/dotfiles'
-let g:netrw_dirhist_3='/Users/jmarchello/dotfiles/zsh'
-let g:netrw_dirhist_4='/Users/jmarchello/dotfiles/zsh/custom'
