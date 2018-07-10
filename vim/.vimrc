@@ -8,19 +8,22 @@ set softtabstop=4
 
 " UI
 syntax enable
-" set background=light
+set background=dark
 " colorscheme solarized
-colorscheme zenburn
+" colorscheme zenburn
+colorscheme PaperColor
 set guifont=DejaVu\ Sans\ Mono:h14
-" set number "show line numbers
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
-:set guioptions-=L  "remove left-hand scroll bar
+set number "show line numbers
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 " Cursor settings
-highlight Cursor guibg=lightgreen
-highlight iCursor guifg=white guibg=gray
+if !has('nvim')
+    highlight Cursor guibg=lightgreen
+    highlight iCursor guifg=white guibg=gray
+endif
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver25-iCursor
 set guicursor+=n-v-c:blinkon0
@@ -28,12 +31,19 @@ set guicursor+=n-v-c:blinkon0
 
 set colorcolumn=120
 
+set signcolumn=yes
+
 "Ultisnips configuration
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "Wrap at column 80 in Markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -49,8 +59,6 @@ let NERDTreeShowBookmarks=1
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 
-" Send more characters for redraws
-set ttyfast
 "
 " Enable mouse use in all modes
 set mouse=a
@@ -59,7 +67,28 @@ set mouse=a
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 if !has('nvim')
   set ttymouse=xterm2
+  " Send more characters for redraws
+  set ttyfast
 endif
+
+" neovim terminal keybindings
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <A-h> <C-\><C-N><C-w>h
+    tnoremap <A-j> <C-\><C-N><C-w>j
+    tnoremap <A-k> <C-\><C-N><C-w>k
+    tnoremap <A-l> <C-\><C-N><C-w>l
+    inoremap <A-h> <C-\><C-N><C-w>h
+    inoremap <A-j> <C-\><C-N><C-w>j
+    inoremap <A-k> <C-\><C-N><C-w>k
+    inoremap <A-l> <C-\><C-N><C-w>l
+endif
+
+" window movement simplified
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 "status line
 " set laststatus=2
@@ -110,6 +139,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
 Plugin 'SirVer/ultisnips'
+Plugin 'Shougo/deoplete.nvim'
+
 
 "" Ruby
 Plugin 'tpope/vim-rails'
@@ -118,7 +149,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rvm'
 
 "" JavaScript
-" Plugin 'jelera/vim-javascript-syntax.git'
+Plugin 'Quramy/tsuquyomi'
 Plugin 'pangloss/vim-javascript.git'
 Plugin 'mxw/vim-jsx'
 
