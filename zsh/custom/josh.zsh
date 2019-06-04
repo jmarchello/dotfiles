@@ -25,7 +25,7 @@ export GREP_OPTIONS='--exclude-dir=build --exclude-dir=node_modules --exclude-di
 # Postgres.app binaries
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 
 PATH=/opt/local/bin:$PATH
 
@@ -38,6 +38,10 @@ fi
 # complete -C aws_completer aws
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+export PATH="/Users/jmarchello/Library/Python/3.6/bin:$PATH"
+export PATH="/usr/local/share/dotnet:$PATH"
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin

@@ -9,9 +9,9 @@ set softtabstop=4
 " UI
 syntax enable
 set background=dark
-" colorscheme solarized
 " colorscheme zenburn
-colorscheme PaperColor
+colorscheme gruvbox
+set termguicolors
 set guifont=DejaVu\ Sans\ Mono:h14
 set number "show line numbers
 set guioptions-=m  "remove menu bar
@@ -35,7 +35,7 @@ set signcolumn=yes
 
 "Ultisnips configuration
 let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<alt-tab>"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -96,6 +96,9 @@ nnoremap <A-l> <C-w>l
 
 " Airline settings
 let g:airline#extensions#tabline#enabled = 0
+" let g:airline_powerline_fonts = 1
+" let g:airline_left_sep='>'
+" let g:airline_right_sep='<'
 
 "folding settings
 set foldmethod=manual
@@ -140,6 +143,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
 Plugin 'SirVer/ultisnips'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'godlygeek/tabular'
+Plugin 'ap/vim-css-color'
 
 
 "" Ruby
@@ -169,6 +174,10 @@ map <Leader>s :Snippets<CR>
 nmap ,cs :let @*=expand("%")<CR>
 nmap ,cl :let @*=expand("%:p")<CR>
 
+" cnext and cprevious
+map <Leader>cn :cnext<CR>
+map <Leader>cp :cprevious<CR>
+
 " NERDtree mapping
 map <Leader>e :NERDTreeFind<CR>
 map <Leader>c :NERDTreeClose<CR>
@@ -182,12 +191,15 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Find TODOs and FIXMEs
 command! Todo noautocmd grep /TODO\|FIXME/j ** | cw
 
+command! -nargs=+ Grep execute 'silent grep <args>' | copen
+
 " " use ag for grepping
 " if executable('ag')
 "   set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
 "   set grepformat^=%f:%l:%c:%m   " file:line:column:message
 " endif
 
+let g:indentLine_conceallevel=0
 set conceallevel=0
 
 " Wildignore
