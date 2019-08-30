@@ -18,8 +18,7 @@ alias knode='killall node'
 
 # VIM
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-# alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias vi='nvim'
+alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 # Git
 # alias gtree='git log --graph --oneline --all --decorate'
@@ -30,6 +29,7 @@ alias vi='nvim'
 # alias gcam='git commit -a -m'
 
 # Ruby/Rails
+alias rl="rails"
 alias rc="rails c"
 alias rs="rails s -b 0.0.0.0"
 alias bi="bundle install"

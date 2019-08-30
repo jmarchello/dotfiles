@@ -10,7 +10,7 @@ set softtabstop=4
 syntax enable
 set background=dark
 " colorscheme zenburn
-colorscheme gruvbox
+colorscheme cobalt2
 set termguicolors
 set guifont=DejaVu\ Sans\ Mono:h14
 set number "show line numbers
@@ -34,16 +34,16 @@ set colorcolumn=120
 set signcolumn=yes
 
 "Ultisnips configuration
-let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsExpandTrigger="<alt-tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsUsePythonVersion = 3
+" let g:UltiSnipsExpandTrigger="<alt-tab>"
+" let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "Wrap at column 80 in Markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -141,7 +141,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'godlygeek/tabular'
 Plugin 'ap/vim-css-color'

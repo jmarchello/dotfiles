@@ -17,7 +17,7 @@ eval `ssh-agent -s`
 # eval "$(jenv init -)"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
-export EDITOR=nvim
+export EDITOR=code
 stty erase '^?'
 
 export GREP_OPTIONS='--exclude-dir=build --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=log'
@@ -40,8 +40,9 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-export PATH="/Users/jmarchello/Library/Python/3.6/bin:$PATH"
 export PATH="/usr/local/share/dotnet:$PATH"
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+eval "$(pyenv init -)"
+export PATH="/Users/jmarchello/.ebcli-virtual-env/executables:$PATH"
