@@ -17,13 +17,10 @@ eval `ssh-agent -s`
 # eval "$(jenv init -)"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
-export EDITOR=code
+export EDITOR=nvim
 stty erase '^?'
 
 export GREP_OPTIONS='--exclude-dir=build --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=log'
-
-# Postgres.app binaries
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
 # export TERM="xterm-256color"
 
@@ -46,3 +43,4 @@ export PATH="/usr/local/share/dotnet:$PATH"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 eval "$(pyenv init -)"
 export PATH="/Users/jmarchello/.ebcli-virtual-env/executables:$PATH"
+eval "$(pyenv virtualenv-init -)"

@@ -3,15 +3,15 @@ let mapleader=","
 
 " Tabs
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 
 " UI
 syntax enable
-set background=dark
+" set background=dark
 " colorscheme zenburn
 colorscheme cobalt2
-set termguicolors
+" set termguicolors
 set guifont=DejaVu\ Sans\ Mono:h14
 set number "show line numbers
 set guioptions-=m  "remove menu bar
@@ -33,17 +33,20 @@ set colorcolumn=120
 
 set signcolumn=yes
 
+" Python support
+let g:python3_host_prog = '/Users/jmarchello/.pyenv/versions/py3neovim/bin/python'
+
 "Ultisnips configuration
-" let g:UltiSnipsUsePythonVersion = 3
-" let g:UltiSnipsExpandTrigger="<alt-tab>"
-" let g:UltiSnipsListSnippets="<c-tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsExpandTrigger="<alt-tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Use deoplete.
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 " deoplete tab-complete
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "Wrap at column 80 in Markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -113,8 +116,8 @@ filetype off                  " required
 "make jsx support work in files other than .jsx
 let g:jsx_ext_required = 0
 
-" Add fzf
-set rtp+=/usr/local/opt/fzf
+" " Add fzf
+" set rtp+=/usr/local/opt/fzf
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -139,9 +142,10 @@ Plugin 'mattn/emmet-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
-Plugin 'junegunn/fzf.vim'
+" Plugin 'junegunn/fzf.vim'
+Plugin 'Yggdroot/LeaderF'
 Plugin 'w0rp/ale'
-" Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'godlygeek/tabular'
 Plugin 'ap/vim-css-color'
@@ -165,10 +169,14 @@ filetype plugin indent on    " required
 " Custom keybindings
 " inoremap ;; <esc>
 
-" FZF
-nmap <Leader>t :FZF<CR>
-nmap <Leader>b :Buffers<CR>
-map <Leader>s :Snippets<CR>
+" LeaderF
+nmap <Leader>f :Leaderf --reverse file<CR>
+nmap <Leader>b :Leaderf --reverse buffer<CR>
+
+" " FZF
+" nmap <Leader>t :FZF<CR>
+" nmap <Leader>b :Buffers<CR>
+" map <Leader>s :Snippets<CR>
 
 " Copy current filename to clipboard
 nmap ,cs :let @*=expand("%")<CR>
@@ -209,6 +217,9 @@ set wildignore+=**/build/**
 let g:ale_fixers = {
 \   'javascript': [
 \       'eslint',
+\   ],
+\   'ruby': [
+\       'rubocop'
 \   ],
 \}
 let g:ale_fix_on_save = 1
