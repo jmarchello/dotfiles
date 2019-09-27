@@ -1,3 +1,4 @@
+
 " Leader
 let mapleader=","
 
@@ -7,13 +8,20 @@ set shiftwidth=2
 set softtabstop=2
 
 " UI
-syntax enable
 " set background=dark
 " colorscheme zenburn
 colorscheme cobalt2
 " set termguicolors
 set guifont=DejaVu\ Sans\ Mono:h14
 set number "show line numbers
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
@@ -38,15 +46,16 @@ let g:python3_host_prog = '/Users/jmarchello/.pyenv/versions/py3neovim/bin/pytho
 
 "Ultisnips configuration
 let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsExpandTrigger="<alt-tab>"
+let g:UltiSnipsExpandTrigger="<Leader>s"
 let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsSnippetsDir="~/.vim/Ultisnips/"
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-" deoplete tab-complete
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" " Use deoplete.
+" let g:deoplete#enable_at_startup = 1
+" " deoplete tab-complete
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "Wrap at column 80 in Markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -119,55 +128,7 @@ let g:jsx_ext_required = 0
 " " Add fzf
 " set rtp+=/usr/local/opt/fzf
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-"" General
-Plugin 'tpope/vim-commentary.git'
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'ekalinin/dockerfile.vim'
-" Plugin 'tpope/vim-surround'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-endwise'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'Yggdroot/indentLine'
-" Plugin 'Raimondi/delimitMate.git'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-" Plugin 'junegunn/fzf.vim'
-Plugin 'Yggdroot/LeaderF'
-Plugin 'w0rp/ale'
-Plugin 'SirVer/ultisnips'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'godlygeek/tabular'
-Plugin 'ap/vim-css-color'
-
-
-"" Ruby
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rvm'
-
-"" JavaScript
-Plugin 'Quramy/tsuquyomi'
-Plugin 'pangloss/vim-javascript.git'
-Plugin 'mxw/vim-jsx'
-
-" " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
 " Custom keybindings
-" inoremap ;; <esc>
 
 " LeaderF
 nmap <Leader>f :Leaderf --reverse file<CR>
@@ -214,12 +175,14 @@ set conceallevel=0
 set wildignore+=**/node_modules/**
 set wildignore+=**/build/**
 
-let g:ale_fixers = {
-\   'javascript': [
-\       'eslint',
-\   ],
-\   'ruby': [
-\       'rubocop'
-\   ],
-\}
-let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+" \   'javascript': [
+" \       'eslint',
+" \   ],
+" \   'ruby': [
+" \       'rubocop'
+" \   ],
+" \}
+" let g:ale_fix_on_save = 1
+source ~/.vim/config/plugins.vim
+source ~/.vim/config/coc.vim
