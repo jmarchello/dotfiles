@@ -2,5 +2,6 @@
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "solargraph.autoformat": true,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": ["ruby"]
 }

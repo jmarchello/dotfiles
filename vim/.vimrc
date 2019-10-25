@@ -113,10 +113,10 @@ let g:airline#extensions#tabline#enabled = 0
 " let g:airline_right_sep='<'
 
 "folding settings
-set foldmethod=manual
-" set foldmethod=indent
-" set foldnestmax=10      "deepest fold is 10 levels
-" set nofoldenable        "dont fold by default
+" set foldmethod=manual
+set foldmethod=indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
 
 set nocompatible              " be iMproved, required
 filetype off                  " required

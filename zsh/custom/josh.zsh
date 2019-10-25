@@ -24,7 +24,6 @@ export GREP_OPTIONS='--exclude-dir=build --exclude-dir=node_modules --exclude-di
 
 # export TERM="xterm-256color"
 
-PATH=/opt/local/bin:$PATH
 
 # npm completion
 if [ -f ~/.npm-completion.bash ]; then
@@ -34,12 +33,12 @@ fi
 # aws cli completion
 # complete -C aws_completer aws
 
+PATH=/opt/local/bin:$PATH
+eval "$(rbenv init -)"
 export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/share/dotnet:$PATH"
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 eval "$(pyenv init -)"
 export PATH="/Users/jmarchello/.ebcli-virtual-env/executables:$PATH"

@@ -37,8 +37,8 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rvm'
 
 "" JavaScript
-Plug 'Quramy/tsuquyomi'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 
 call plug#end()
