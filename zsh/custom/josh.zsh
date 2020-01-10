@@ -5,7 +5,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # start the ssh-agent
-eval `ssh-agent -s`
+# eval `ssh-agent -s`
 
 # set -o vi
 
@@ -17,7 +17,7 @@ eval `ssh-agent -s`
 # eval "$(jenv init -)"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1/
-export EDITOR=nvim
+export EDITOR=vim
 stty erase '^?'
 
 export GREP_OPTIONS='--exclude-dir=build --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=log'
@@ -34,12 +34,14 @@ fi
 # complete -C aws_completer aws
 
 PATH=/opt/local/bin:$PATH
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/share/dotnet:$PATH"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-eval "$(pyenv init -)"
-export PATH="/Users/jmarchello/.ebcli-virtual-env/executables:$PATH"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init -)"
+export PATH="/Users/josh.marchello/.ebcli-virtual-env/executables:$PATH"
+# eval "$(pyenv virtualenv-init -)"
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash

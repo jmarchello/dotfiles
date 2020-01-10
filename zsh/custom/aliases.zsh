@@ -37,3 +37,5 @@ alias bi="bundle install"
 
 #Other
 alias daisy=ncdu
+
+alias edit="code-insiders"
