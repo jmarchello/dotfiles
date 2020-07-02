@@ -11,6 +11,10 @@
 # ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
 
 # ZSH
-ln -sfhiv ~/dotfiles/zsh/.zshrc ~
-mkdir ~/.oh-my-zsh/custom/josh
-ln -sfFhiv ~/dotfiles/zsh/custom/* ~/.oh-my-zsh/custom/josh
+# ln -sfhiv ~/dotfiles/zsh/.zshrc ~
+# mkdir ~/.oh-my-zsh/custom/josh
+# ln -sfFhiv ~/dotfiles/zsh/custom/* ~/.oh-my-zsh/custom/josh
+
+# GIT
+ln -sfhiv ~/dotfiles/git/.gitignore_global ~
+git config --global core.excludesfile '~/.gitignore_global'

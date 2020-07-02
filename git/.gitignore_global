@@ -1,0 +1,15 @@
+.vscode
+
+.my_scripts
+
+node_modules
+
+env/
+env*/
+
+.env
+
+*.swp
+
+.vim
+**/tags

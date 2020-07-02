@@ -5,7 +5,7 @@ export ZSH=/Users/josh.marchello/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="refined"
 
 # if [ ! -n "${BULLETTRAIN_PROMPT_ORDER+1}" ]; then
 #   BULLETTRAIN_PROMPT_ORDER=(
@@ -67,7 +67,7 @@ ZSH_CUSTOM=/Users/josh.marchello/.oh-my-zsh/custom/josh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(z zsh-syntax-highlighting)
 
 # User configuration
 
@@ -110,3 +110,6 @@ source $ZSH/oh-my-zsh.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

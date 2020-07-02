@@ -6,28 +6,25 @@ alias dprune='docker container prune'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dcom='docker-compose'
-alias nom="rm -rf node_modules && npm cache clear && npm i"
-alias portainer="docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer"
-alias scom="docker-compose -f ~/dev/mersoft/splash/mworkp-docker-compose/docker-compose.yml"
-alias mssql="docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=mersoft1!' -e 'MSSQL_PID=Express' -p 1433:1433 -h dmerx-db -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu"
+alias dclog='docker-compose logs -f'
 
 # NPM
+alias nom="rm -rf node_modules && npm cache clear && npm i"
 ## React dev
-alias reactdev='npm start & && npm run dev'
 alias knode='killall node'
 
 # VIM
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-# alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias vi='nvim'
+alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+# alias vi='nvim'
 
 # Git
-# alias gtree='git log --graph --oneline --all --decorate'
-# alias gst='git status'
-# alias gaa='git add --all'
-# alias ga='git add'
-# alias gcm='git commit -m'
-# alias gcam='git commit -a -m'
+alias gtree='git log --graph --oneline --all --decorate'
+alias gst='git status'
+alias gaa='git add --all'
+alias ga='git add'
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
 
 # Ruby/Rails
 alias rl="rails"
@@ -35,7 +32,15 @@ alias rc="rails c"
 alias rs="rails s -b 0.0.0.0"
 alias bi="bundle install"
 
+# Python
+alias activate=". ./env/bin/activate"
+alias newenv="python -m venv env && activate && pip install autopep8 pylint"
+alias pipreqs="pip install -r requirements.txt"
+
 #Other
 alias daisy=ncdu
 
 alias edit="code-insiders"
+alias g="z"
+alias notes="vi ~/notes"
+alias klast="kill -9 %1"

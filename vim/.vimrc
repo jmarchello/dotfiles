@@ -12,45 +12,40 @@ set softtabstop=2
 " colorscheme zenburn
 colorscheme cobalt2
 " set termguicolors
-set guifont=DejaVu\ Sans\ Mono:h14
 set number "show line numbers
-set number relativenumber
+" set number relativenumber
 
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+" augroup numbertoggle
+"   autocmd!
+"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
 
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
 
 " Cursor settings
 if !has('nvim')
     highlight Cursor guibg=lightgreen
     highlight iCursor guifg=white guibg=gray
 endif
-set guicursor=n-v-c:block-Cursor
-set guicursor+=i:ver25-iCursor
-set guicursor+=n-v-c:blinkon0
+" set guicursor=n-v-c:block-Cursor
+" set guicursor+=i:ver25-iCursor
+" set guicursor+=n-v-c:blinkon0
 " set guicursor+=i:blinkwait10
 
 set colorcolumn=120
 
 set signcolumn=yes
 
-" Python support
+" " Python support
 let g:python3_host_prog = '/Users/jmarchello/.pyenv/versions/py3neovim/bin/python'
 
 "Ultisnips configuration
-let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsExpandTrigger="<Leader>s"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsSnippetsDir="~/.vim/Ultisnips/"
+" let g:UltiSnipsUsePythonVersion = 3
+" let g:UltiSnipsExpandTrigger="<Leader>s"
+" let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsSnippetsDir="~/.vim/Ultisnips/"
 
 " " Use deoplete.
 " let g:deoplete#enable_at_startup = 1
@@ -106,15 +101,29 @@ nnoremap <A-l> <C-w>l
 " set laststatus=2
 " set ruler
 
+function GetCurrentDir()
+  let dir_array = split(getcwd(), '/')
+  return dir_array[-1]
+endfunction
+
 " Airline settings
+" call airline#parts#define_function('gtags', '%{gutentags#statusline()}')
+" call airline#parts#define_accent('gtags', 'green')
+
 let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#coc#enabled = 1
 " let g:airline_powerline_fonts = 1
 " let g:airline_left_sep='>'
 " let g:airline_right_sep='<'
+" function! AirlineInit()
+"   let current_section_c = g:airline_section_c
+"   let g:airline_section_c = airline#section#create(['gtags', ' ',  current_section_c])
+" endfunction
+" autocmd User AirlineAfterInit call AirlineInit()
 
 "folding settings
-" set foldmethod=manual
-set foldmethod=indent
+set foldmethod=manual
+" set foldmethod=indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 
@@ -154,11 +163,14 @@ let NERDTreeIgnore=['\.swp']
 
 map <Leader>/ :noh<CR>
 
+" remap go to tag
+nmap <Leader>g <C-]>
+
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Find TODOs and FIXMEs
-command! Todo noautocmd grep /TODO\|FIXME/j ** | cw
+" command! Todo noautocmd grep /TODO\|FIXME/j ** | cw
 
 command! -nargs=+ Grep execute 'silent grep <args>' | copen
 
@@ -168,21 +180,27 @@ command! -nargs=+ Grep execute 'silent grep <args>' | copen
 "   set grepformat^=%f:%l:%c:%m   " file:line:column:message
 " endif
 
+" use ripgrep for grepping
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+endif
+
 let g:indentLine_conceallevel=0
 set conceallevel=0
 
 " Wildignore
 set wildignore+=**/node_modules/**
 set wildignore+=**/build/**
+set wildignore+=env/**
 
-" let g:ale_fixers = {
-" \   'javascript': [
-" \       'eslint',
-" \   ],
-" \   'ruby': [
-" \       'rubocop'
-" \   ],
-" \}
-" let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': [
+\       'eslint',
+\   ],
+\   'ruby': [
+\       'rubocop'
+\   ],
+\}
+let g:ale_fix_on_save = 1
 source ~/.vim/config/plugins.vim
 source ~/.vim/config/coc.vim

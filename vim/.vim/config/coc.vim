@@ -9,6 +9,7 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+let g:coc_node_path = '/Users/josh.marchello/.asdf/shims/node'
 
 
 " Use <Tab> and <S-Tab> to navigate the completion list:
@@ -24,6 +25,7 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 let g:coc_global_extensions = [
       \  'coc-solargraph',
+      \  'coc-python',
       \  'coc-tsserver',
       \  'coc-html',
       \  'coc-eslint',

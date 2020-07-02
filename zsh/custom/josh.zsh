@@ -30,6 +30,9 @@ if [ -f ~/.npm-completion.bash ]; then
   . ~/.npm-completion.bash
 fi
 
+#python debugging with pudb instead of pdb
+export PYTHONBREAKPOINT=pudb.set_trace
+
 # aws cli completion
 # complete -C aws_completer aws
 
@@ -40,6 +43,7 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/share/dotnet:$PATH"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+export PATH="$HOME/bin:$PATH"
 # eval "$(pyenv init -)"
 export PATH="/Users/josh.marchello/.ebcli-virtual-env/executables:$PATH"
 # eval "$(pyenv virtualenv-init -)"

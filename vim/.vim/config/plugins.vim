@@ -24,11 +24,12 @@ Plug 'scrooloose/nerdtree'
 " Plug 'junegunn/fzf.vim'
 Plug 'Yggdroot/LeaderF'
 " Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " Plug 'Shougo/deoplete.nvim'
 Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
+Plug 'ludovicchabant/vim-gutentags'
 
 "" Ruby
 Plug 'tpope/vim-rails'
@@ -40,5 +41,11 @@ Plug 'tpope/vim-rvm'
 Plug 'pangloss/vim-javascript'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+
+"" Python
+Plug 'jmcantrell/vim-virtualenv'
+
+"" Neo4j
+Plug 'neo4j-contrib/cypher-vim-syntax'
 
 call plug#end()
