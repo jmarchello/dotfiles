@@ -22,15 +22,15 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 export EDITOR=vim
 stty erase '^?'
 
-export GREP_OPTIONS='--exclude-dir=build --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=log'
+# export GREP_OPTIONS='--exclude-dir=build --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=log'
 
 # export TERM="xterm-256color"
 
 
 # npm completion
-if [ -f ~/.npm-completion.bash ]; then
-  . ~/.npm-completion.bash
-fi
+# if [ -f ~/.npm-completion.bash ]; then
+#   . ~/.npm-completion.bash
+# fi
 
 #python debugging with pudb instead of pdb
 export PYTHONBREAKPOINT=pudb.set_trace
@@ -45,7 +45,7 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/share/dotnet:$PATH"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH="$HOME/bin:$PATH"
-export PATH="/Users/josh.marchello/.ebcli-virtual-env/executables:$PATH"
+export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 
 # asdf-vm
 . $HOME/.asdf/asdf.sh
