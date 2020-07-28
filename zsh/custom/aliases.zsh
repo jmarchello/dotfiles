@@ -34,7 +34,7 @@ alias bi="bundle install"
 
 # Python
 alias activate=". ./env/bin/activate"
-alias newenv="python -m venv env && activate && pip install autopep8 pylint"
+alias newenv="python -m venv env && activate && pip install black pylint ipython pudb"
 alias pipreqs="pip install -r requirements.txt"
 
 #Other
