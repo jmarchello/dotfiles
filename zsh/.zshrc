@@ -50,11 +50,11 @@ export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 
 # asdf-vm
 . $HOME/.asdf/asdf.sh
-# # append completions to fpath
-# fpath=(${ASDF_DIR}/completions $fpath)
-# # initialise completions with ZSH's compinit
-# autoload -Uz compinit
-# compinit
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit
 
 . $HOME/.zsh/aliases.zsh
 
