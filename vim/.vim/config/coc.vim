@@ -9,7 +9,7 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
-let g:coc_node_path = '/Users/josh.marchello/.asdf/shims/node'
+let g:coc_node_path = '~/.asdf/shims/node'
 
 
 " Use <Tab> and <S-Tab> to navigate the completion list:

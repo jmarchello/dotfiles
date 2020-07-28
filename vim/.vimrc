@@ -36,9 +36,6 @@ set colorcolumn=120
 
 set signcolumn=yes
 
-" " Python support
-let g:python3_host_prog = '/Users/jmarchello/.pyenv/versions/py3neovim/bin/python'
-
 "Ultisnips configuration
 " let g:UltiSnipsUsePythonVersion = 3
 " let g:UltiSnipsExpandTrigger="<Leader>s"
