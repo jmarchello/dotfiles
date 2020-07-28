@@ -61,3 +61,4 @@ compinit
 # Plugins
 . $HOME/.zsh/vendor/zsh-z/zsh-z.plugin.zsh
 . $HOME/.zsh/vendor/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+. $HOME/.zsh/local/init.sh
