@@ -1,5 +1,6 @@
 # Prompt config
-setopt PROMPT_SUBST ; PROMPT='%(?.%F{green}√.%F{red}?) %F{white}%2~%F{cyan}$(__git_ps1 " (%s)") %F{yello}> '
+precmd() { print -rP '%(?.%F{green}√.%F{red}?) %F{white}%2~%F{cyan}$(__git_ps1 " (%s)") ' }
+PROMPT='%F{yello}-> '
 . $HOME/.zsh/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
