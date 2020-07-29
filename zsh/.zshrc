@@ -1,4 +1,5 @@
 # Prompt config
+setopt PROMPT_SUBST
 precmd() { print -rP '%(?.%F{green}√.%F{red}?) %F{white}%2~%F{cyan}$(__git_ps1 " (%s)") ' }
 PROMPT='%F{yello}-> '
 . $HOME/.zsh/git-prompt.sh
@@ -61,4 +62,8 @@ compinit
 # Plugins
 . $HOME/.zsh/vendor/zsh-z/zsh-z.plugin.zsh
 . $HOME/.zsh/vendor/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+. $HOME/.zsh/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
 . $HOME/.zsh/local/init.sh
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down

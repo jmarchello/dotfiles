@@ -45,3 +45,7 @@ alias edit="code-insiders"
 alias g="z"
 alias notes="vi ~/notes"
 alias klast="kill -9 %1"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
