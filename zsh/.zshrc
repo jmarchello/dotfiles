@@ -63,7 +63,9 @@ compinit
 . $HOME/.zsh/vendor/zsh-z/zsh-z.plugin.zsh
 . $HOME/.zsh/vendor/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 . $HOME/.zsh/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
-. $HOME/.zsh/local/init.sh
+if [ -f $HOME/.zsh/local/init.sh ]; then
+  . $HOME/.zsh/local/init.sh
+fi
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
