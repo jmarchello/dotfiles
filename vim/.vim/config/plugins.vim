@@ -43,7 +43,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
 "" Python
-Plug 'jmcantrell/vim-virtualenv'
+" Plug 'jmcantrell/vim-virtualenv'
 
 "" Neo4j
 Plug 'neo4j-contrib/cypher-vim-syntax'

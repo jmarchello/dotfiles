@@ -5,6 +5,8 @@
   "eslint.autoFixOnSave": true,
   "suggest.enablePreview":true,
   "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--config black.toml"],
+  "python.linting.mypyEnabled": true,
   "coc.preferences.formatOnSaveFiletypes": ["ruby", "javascript", "python"],
   "snippets.ultisnips.directories": [
     "~/.vim/snippets",

@@ -14,8 +14,9 @@ alias nom="rm -rf node_modules && npm cache clear && npm i"
 alias knode='killall node'
 
 # VIM
-# alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-# alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+if test -d /Users; then
+  alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+fi
 alias vi='vim'
 # alias vi='nvim'
 
@@ -35,8 +36,9 @@ alias bi="bundle install"
 
 # Python
 alias activate=". ./env/bin/activate"
-alias newenv="python -m venv env && activate && pip install black pylint ipython pudb"
+alias newenv="python -m venv env && activate && pip install black pylint mypy ipython pudb"
 alias pipreqs="pip install -r requirements.txt"
+alias pipdev="pip install -r requirements-dev.txt"
 
 #Other
 alias daisy=ncdu
