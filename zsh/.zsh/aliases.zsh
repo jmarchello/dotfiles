@@ -37,8 +37,14 @@ alias bi="bundle install"
 # Python
 alias activate=". ./env/bin/activate"
 alias newenv="python -m venv env && activate && pip install black pylint mypy ipython pudb"
-alias pipreqs="pip install -r requirements.txt"
-alias pipdev="pip install -r requirements-dev.txt"
+function pipr() {
+  if [ -z "$1" ]
+  then
+    pip install -r "$1"
+  else
+    pip install -r requirements.txt
+  fi
+}
 
 #Other
 alias daisy=ncdu

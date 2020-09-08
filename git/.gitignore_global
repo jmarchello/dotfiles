@@ -13,3 +13,4 @@ env*/
 
 .vim
 **/tags
+.tool-versions

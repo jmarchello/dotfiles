@@ -30,6 +30,7 @@ Plug 'honza/vim-snippets'
 Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 "" Ruby
 Plug 'tpope/vim-rails'
