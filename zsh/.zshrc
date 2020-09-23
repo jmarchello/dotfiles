@@ -1,9 +1,19 @@
 # zsh options
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=100000
 export HISTSIZE=100000
+setopt auto_cd # cd by typing directory name if it's not a command
+setopt correct_all # autocorrect commands
+setopt auto_list # automatically list choices on ambiguous completion
+setopt auto_menu # automatically use menu completion
+setopt always_to_end # move cursor to end if word had one match
+zstyle ':completion:*' menu select # select completions with arrow keys
+zstyle ':completion:*' group-name '' # group results by category
+zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
+# end zsh options
 
 # Prompt config
 setopt PROMPT_SUBST
@@ -12,6 +22,17 @@ PROMPT='%F{yello}-> '
 . $HOME/.zsh/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
+# end prompt config
+
+# cache compinit daily
+autoload -Uz compinit
+typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
+if [ $(date +'%j') != $updated_at ]; then
+  compinit -i
+else
+  compinit -C -i
+fi
+# end cache compinit
 
 export EDITOR=vim
 stty erase '^?'
