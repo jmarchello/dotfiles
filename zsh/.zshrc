@@ -42,6 +42,12 @@ stty erase '^?'
 #python debugging with pudb instead of pdb
 export PYTHONBREAKPOINT=pudb.set_trace
 
+# On linux, remap caps lock to control
+if command -v setxkbmap &> /dev/null
+then
+  /usr/bin/setxkbmap -option "ctrl:nocaps"
+fi
+
 # PATH modification
 PATH=/opt/local/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
