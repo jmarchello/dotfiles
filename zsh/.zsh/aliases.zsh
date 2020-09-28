@@ -27,6 +27,10 @@ alias gaa='git add --all'
 alias ga='git add'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
+alias gpush='git push'
+alias gpull='git pull'
+alias gco='git checkout'
+alias gb='git checkout -b'
 
 # Ruby/Rails
 alias rl="rails"
@@ -37,14 +41,7 @@ alias bi="bundle install"
 # Python
 alias activate=". ./env/bin/activate"
 alias newenv="python -m venv env && activate && pip install black pylint mypy ipython pudb"
-function pipr() {
-  if [ -z "$1" ]
-  then
-    pip install -r "$1"
-  else
-    pip install -r requirements.txt
-  fi
-}
+alias pipr="pip install -r"
 
 #Other
 alias daisy=ncdu
