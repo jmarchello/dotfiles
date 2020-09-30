@@ -37,6 +37,7 @@ alias rl="rails"
 alias rc="rails c"
 alias rs="rails s -b 0.0.0.0"
 alias bi="bundle install"
+alias rr="rails"
 
 # Python
 alias activate=". ./env/bin/activate"
@@ -54,3 +55,11 @@ alias klast="kill -9 %1"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
+if test $(command -v bat); then
+  alias cat="bat"
+fi
+
+if test $(command -v rg); then
+  alias grep="rg"
+fi
