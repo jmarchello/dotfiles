@@ -12,7 +12,7 @@ set softtabstop=2
 " colorscheme zenburn
 colorscheme cobalt2
 " set termguicolors
-set nonumber "show line numbers
+set number "show line numbers
 " set number relativenumber
 
 " augroup numbertoggle
