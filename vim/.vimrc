@@ -171,6 +171,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 command! -nargs=+ Grep execute 'silent grep <args>' | copen
 
+
 " " use ag for grepping
 " if executable('ag')
 "   set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
@@ -184,6 +185,8 @@ endif
 
 let g:indentLine_conceallevel=0
 set conceallevel=0
+
+nnoremap <Leader>y :Goyo<cr>
 
 " Wildignore
 set wildignore+=**/node_modules/**

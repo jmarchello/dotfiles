@@ -6,7 +6,7 @@
   "suggest.enablePreview":true,
   "python.formatting.provider": "black",
   "python.linting.mypyEnabled": true,
-  "coc.preferences.formatOnSaveFiletypes": ["ruby", "javascript", "python"],
+  "coc.preferences.formatOnSaveFiletypes": ["ruby", "javascript", "python", "typescript"],
   "snippets.ultisnips.directories": [
     "~/.vim/snippets",
     "~/.local_snippets"

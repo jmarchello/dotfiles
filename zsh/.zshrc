@@ -6,7 +6,6 @@ export HISTFILE=~/.zsh_history
 export HISTFILESIZE=100000
 export HISTSIZE=100000
 setopt auto_cd # cd by typing directory name if it's not a command
-setopt correct_all # autocorrect commands
 setopt auto_list # automatically list choices on ambiguous completion
 setopt auto_menu # automatically use menu completion
 setopt always_to_end # move cursor to end if word had one match
@@ -60,6 +59,11 @@ export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 
 # asdf-vm
 . $HOME/.asdf/asdf.sh
+# pyenv
+if command -v pyenv &> /dev/null
+then
+  eval "$(pyenv init -)"
+fi
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
@@ -80,3 +84,9 @@ fi
 # bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+
+if command -v kubectl &> /dev/null
+then
+  source <(kubectl completion zsh)
+fi

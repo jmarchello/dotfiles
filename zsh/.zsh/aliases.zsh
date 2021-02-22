@@ -1,12 +1,13 @@
 # Docker
-alias drun='docker run -it --rm'
-alias drunapp='docker run -it --rm -v "$PWD":/app -w /app'
-alias dexec='docker exec -it'
+alias d='docker'
 alias dprune='docker container prune'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dcom='docker-compose'
 alias dclog='docker-compose logs -f'
+
+# Kubernetes
+alias k='kubectl'
 
 # NPM
 alias nom="rm -rf node_modules && npm cache clear && npm i"
@@ -63,3 +64,9 @@ fi
 if test $(command -v rg); then
   alias grep="rg"
 fi
+
+if test $(command -v htop); then
+  alias top="htop"
+fi
+
+alias wgup="sudo wg-quick up wg0"

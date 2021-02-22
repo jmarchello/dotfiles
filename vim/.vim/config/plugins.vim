@@ -31,6 +31,7 @@ Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'junegunn/goyo.vim'
 
 "" Ruby
 Plug 'tpope/vim-rails'
