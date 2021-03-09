@@ -57,15 +57,18 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 
-# asdf-vm
-. $HOME/.asdf/asdf.sh
+
 # pyenv
 if command -v pyenv &> /dev/null
 then
   eval "$(pyenv init -)"
 fi
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # initialise completions with ZSH's compinit
 autoload -Uz compinit
 compinit
