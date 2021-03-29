@@ -8,6 +8,7 @@ alias dclog='docker-compose logs -f'
 
 # Kubernetes
 alias k='kubectl'
+alias kust='kustomize'
 
 # NPM
 alias nom="rm -rf node_modules && npm cache clear && npm i"
@@ -47,6 +48,7 @@ alias pipr="pip install -r"
 
 #Other
 alias daisy=ncdu
+alias t=task
 
 alias edit="code-insiders"
 alias g="z"
