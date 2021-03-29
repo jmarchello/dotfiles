@@ -1,10 +1,10 @@
 # VIM
- ln -sfiv ~/dotfiles/vim/.vimrc ~
- rm -rf ~/.vim
- ln -sfiv ~/dotfiles/vim/.vim ~
+#  ln -sfiv ~/dotfiles/vim/.vimrc ~
+#  rm -rf ~/.vim
+#  ln -sfiv ~/dotfiles/vim/.vim ~
 
 # Tmux
- ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
+#  ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
 
 # ZSH
  ln -sfiv ~/dotfiles/zsh/.zshrc ~
@@ -15,5 +15,5 @@
  git config --global core.excludesfile '~/.gitignore_global'
 
 # Kitty
-mkdir ~/.config/kitty
-ln -sfiv ~/dotfiles/kitty.conf ~/.config/kitty
+# mkdir ~/.config/kitty
+# ln -sfiv ~/dotfiles/kitty.conf ~/.config/kitty
