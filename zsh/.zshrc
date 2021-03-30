@@ -48,7 +48,8 @@ then
 fi
 
 # PATH modification
-PATH=/opt/local/bin:$PATH
+export PATH="/usr/local/bin:${PATH}"
+export PATH=/opt/local/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="/usr/local/share/dotnet:$PATH"
