@@ -50,8 +50,7 @@ fi
 # PATH modification
 PATH=/opt/local/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 export PATH="/usr/local/share/dotnet:$PATH"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH="$HOME/bin:$PATH"
