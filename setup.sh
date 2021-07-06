@@ -6,6 +6,12 @@
 # Tmux
 #  ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
 
+# Homebrew
+if command -v brew &> /dev/null
+then
+  brew bundle
+fi
+
 # ZSH
  ln -sfiv ~/dotfiles/zsh/.zshrc ~
  ln -sfiv ~/dotfiles/zsh/.zsh ~
