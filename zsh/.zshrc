@@ -94,3 +94,6 @@ if command -v kubectl &> /dev/null
 then
   source <(kubectl completion zsh)
 fi
+
+# Created by `pipx` on 2021-04-12 16:19:06
+export PATH="$PATH:/Users/josh.marchello/.local/bin"
