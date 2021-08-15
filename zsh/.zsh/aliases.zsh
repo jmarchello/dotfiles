@@ -19,8 +19,8 @@ alias knode='killall node'
 if test -d /Users; then
   alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 fi
-alias vi='vim'
-# alias vi='nvim'
+# alias vi='vim'
+alias vi='nvim'
 
 # Git
 alias gtree='git log --graph --oneline --all --decorate'

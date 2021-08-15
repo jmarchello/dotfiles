@@ -7,7 +7,7 @@ endif
 call plug#begin('~/.vim/bundle')
 
 "" General
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'ekalinin/dockerfile.vim'
@@ -32,6 +32,8 @@ Plug 'ap/vim-css-color'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'junegunn/goyo.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 
 "" Ruby
 Plug 'tpope/vim-rails'
@@ -48,6 +50,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 " Plug 'jmcantrell/vim-virtualenv'
 
 "" Neo4j
-Plug 'neo4j-contrib/cypher-vim-syntax'
+" Plug 'neo4j-contrib/cypher-vim-syntax'
 
 call plug#end()
