@@ -21,6 +21,7 @@ alias knode='killall node'
 # fi
 # alias vi='vim'
 # alias vi='nvim'
+alias vi='lvim'
 
 # Git
 alias gtree='git log --graph --oneline --all --decorate'
