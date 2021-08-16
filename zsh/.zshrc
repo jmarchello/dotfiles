@@ -56,6 +56,7 @@ export PATH="/usr/local/share/dotnet:$PATH"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 
 # pyenv
@@ -63,6 +64,13 @@ if command -v pyenv &> /dev/null
 then
   eval "$(pyenv init -)"
 fi
+
+# rbenv
+if command -v rbenv &> /dev/null
+then
+  eval "$(rbenv init - zsh)"
+fi
+
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

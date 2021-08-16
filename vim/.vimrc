@@ -193,14 +193,18 @@ set wildignore+=**/node_modules/**
 set wildignore+=**/build/**
 set wildignore+=env/**
 
-let g:ale_fixers = {
-\   'javascript': [
-\       'eslint',
-\   ],
-\   'ruby': [
-\       'rubocop'
-\   ],
-\}
-let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+" \   'javascript': [
+" \       'eslint',
+" \   ],
+" \   'ruby': [
+" \       'rubocop'
+" \   ],
+" \}
+" let g:ale_fix_on_save = 1
 source ~/.vim/config/plugins.vim
-source ~/.vim/config/coc.vim
+" source ~/.vim/config/coc.vim
+"nvim LSP language servers
+if has('nvim')
+  source ~/.vim/config/nvim-lang-servers.vim
+endif
