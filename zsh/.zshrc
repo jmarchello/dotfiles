@@ -74,6 +74,7 @@ autoload -Uz compinit
 compinit
 
 . $HOME/.zsh/aliases.zsh
+. $HOME/.zsh/grx.zsh
 
 # Plugins
 . $HOME/.zsh/vendor/zsh-z/zsh-z.plugin.zsh

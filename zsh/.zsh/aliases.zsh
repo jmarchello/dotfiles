@@ -16,10 +16,10 @@ alias nom="rm -rf node_modules && npm cache clear && npm i"
 alias knode='killall node'
 
 # VIM
-if test -d /Users; then
-  alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-fi
-alias vi='vim'
+# if test -d /Users; then
+#   alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+# fi
+# alias vi='vim'
 # alias vi='nvim'
 
 # Git
