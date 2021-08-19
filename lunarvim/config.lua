@@ -29,6 +29,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.side = "right"
+lvim.builtin.nvimtree.width = 50
 lvim.builtin.nvimtree.show_icons.git = 1
 lvim.builtin.nvimtree.quit_on_open = 1
 lvim.builtin.nvimtree.auto_open = 0
@@ -67,14 +68,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- Additional Plugins
-lvim.plugins = {
+-- lvim.plugins = {
 --     {"folke/tokyonight.nvim"}, {
 --         "ray-x/lsp_signature.nvim",
 --         config = function() require"lsp_signature".on_attach() end,
 --         event = "InsertEnter"
 --     },
-      {"tpope/vim-fugitive"}
-}
+-- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
