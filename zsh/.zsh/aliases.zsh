@@ -34,6 +34,7 @@ alias gpush='git push'
 alias gpull='git pull'
 alias gco='git checkout'
 alias gb='git checkout -b'
+alias lg='lazygit'
 
 # Ruby/Rails
 alias rl="rails"
