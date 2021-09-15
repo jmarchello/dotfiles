@@ -36,6 +36,10 @@ fi
 export EDITOR=vim
 stty erase '^?'
 
+#GPG TTY
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # export TERM="xterm-256color"
 #
 #python debugging with pudb instead of pdb

@@ -23,6 +23,11 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
 -- }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Rspec",
+  t = {"<cmd>Dispatch rspec %<cr>", "Run Specs in current file"},
+  a = {"<cmd>Dispatch rspec<cr>"},
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -35,6 +40,9 @@ lvim.builtin.nvimtree.quit_on_open = 1
 lvim.builtin.nvimtree.auto_open = 0
 lvim.builtin.nvimtree.hide_dotfiles = 0
 vim.g.rooter_patterns = {'.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', 'requirements.txt', 'Gemfile', 'go.mod'}
+vim.wo.wrap = true
+vim.o.foldmethod = 'indent'
+vim.o.foldlevelstart = 99
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
@@ -66,10 +74,22 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     args = {}
 --   }
 -- }
+lvim.lang.ruby.lsp.setup.cmd = {"solargraph", "stdio"}
+lvim.lang.javascript.linters = {"eslint"}
+require('lspconfig').stylelint_lsp.setup {
+  settings = {
+    stylelintplus = {
+      autoFixOnSave = true,
+      autoFixOnFormat = true,
+      -- other settings...
+    }
+  },
+}
 
 -- Additional Plugins
 lvim.plugins = {
-  {"tpope/vim-rails"}
+  {"tpope/vim-rails"},
+  {"tpope/vim-dispatch"}
 --     {"folke/tokyonight.nvim"}, {
 --         "ray-x/lsp_signature.nvim",
 --         config = function() require"lsp_signature".on_attach() end,
