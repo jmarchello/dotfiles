@@ -75,8 +75,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   }
 -- }
 lvim.lang.ruby.lsp.setup.cmd = {"solargraph", "stdio"}
-lvim.lang.javascript.linters = {"eslint"}
+
 require('lspconfig').stylelint_lsp.setup {
+ filetypes = {
+    'css',
+    'less',
+    'scss',
+  },
   settings = {
     stylelintplus = {
       autoFixOnSave = true,
