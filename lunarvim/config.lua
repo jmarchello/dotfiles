@@ -29,6 +29,14 @@ lvim.builtin.which_key.mappings["t"] = {
   a = {"<cmd>Dispatch rspec<cr>"},
 }
 
+lvim.builtin.which_key.mappings["k"] = {
+  name = "+QuickFix",
+  k = {"<cmd>copen<cr>", "Open QuickFix buffer"},
+  c = {"<cmd>cclose<cr>", "close QuickFix buffer"},
+  n = {"<cmd>cnext<cr>", "Next QuickFix item"},
+  p = {"<cmd>cprevious<cr>", "Previous QuickFix item"},
+}
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
@@ -75,6 +83,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   }
 -- }
 lvim.lang.ruby.lsp.setup.cmd = {"solargraph", "stdio"}
+lvim.lang.javascript.linters = {
+  {
+    exe = "eslint_d",
+    args = {}
+  }
+}
 
 require('lspconfig').stylelint_lsp.setup {
  filetypes = {
@@ -86,7 +100,6 @@ require('lspconfig').stylelint_lsp.setup {
     stylelintplus = {
       autoFixOnSave = true,
       autoFixOnFormat = true,
-      -- other settings...
     }
   },
 }
