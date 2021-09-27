@@ -8,7 +8,7 @@
 # ln -sfiv ~/dotfiles/vim/.vimrc ${XDG_CONFIG_HOME:-~\/\.config}/nvim/init.vim
 
 # LUNARVIM
- ln -sfiv ~/dotfiles/lunarvim/config.lua ${XDG_CONFIG_HOME:-~\/\.config}/lvim/config.lua
+# ln -sfiv ~/dotfiles/lunarvim/config.lua ${XDG_CONFIG_HOME:-~\/\.config}/lvim/config.lua
 
 # Tmux
 # ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
@@ -25,6 +25,7 @@
 
 # GIT
 # ln -sfiv ~/dotfiles/git/.gitignore_global ~
+ ln -sfiv ~/dotfiles/git/.gitconfig ~
 # git config --global core.excludesfile '~/.gitignore_global'
 
 # Kitty

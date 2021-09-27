@@ -6,8 +6,16 @@
 	name = Josh Marchello
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
+[difftool "vimdiff"]
+  path = /home/jmarchello/.local/bin/lvim
 [diff]
   tool = vimdiff
   colorMoved = zebra
+[mergetool "vimdiff"]
+  path = /home/jmarchello/.local/bin/lvim
 [merge]
-  tool = vimdiff
+  mergetool = vimdiff
+  ff = only
+  conflictStyle = diff3
+[pull]
+  ff = only
