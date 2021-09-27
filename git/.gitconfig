@@ -1,21 +1,23 @@
 [core]
 	excludesfile = ~/.gitignore_global
-  editor = lvim
+	editor = lvim
 [user]
 	email = josh@jmarchello.com
 	name = Josh Marchello
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
 [difftool "vimdiff"]
-  path = /home/jmarchello/.local/bin/lvim
+	path = /home/jmarchello/.local/bin/lvim
 [diff]
-  tool = vimdiff
-  colorMoved = zebra
+	tool = vimdiff
+	colorMoved = zebra
 [mergetool "vimdiff"]
-  path = /home/jmarchello/.local/bin/lvim
+	path = /home/jmarchello/.local/bin/lvim
 [merge]
-  mergetool = vimdiff
-  ff = only
-  conflictStyle = diff3
+	ff = only
+	conflictStyle = diff3
+	tool = vimdiff
 [pull]
-  ff = only
+	ff = only
+[status]
+	short = true
