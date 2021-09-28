@@ -1,10 +1,11 @@
 # zsh options
-setopt SHARE_HISTORY
+export HISTFILE=~/.zsh_history
+export SAVEHIST=10000
+export HISTFILESIZE=10000
+export HISTSIZE=10000
 setopt HIST_IGNORE_ALL_DUPS
 setopt INC_APPEND_HISTORY
-export HISTFILE=~/.zsh_history
-export HISTFILESIZE=100000
-export HISTSIZE=100000
+setopt SHARE_HISTORY
 setopt auto_cd # cd by typing directory name if it's not a command
 setopt auto_list # automatically list choices on ambiguous completion
 setopt auto_menu # automatically use menu completion
