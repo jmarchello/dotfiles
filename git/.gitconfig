@@ -23,3 +23,5 @@
 	short = true
 [mergetool]
 	keepBackup = false
+[alias]
+	amend = git commit --amend
