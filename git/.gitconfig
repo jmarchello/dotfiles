@@ -25,3 +25,4 @@
 	keepBackup = false
 [alias]
 	amend = commit --amend
+	heatmap = !git-heatmap

@@ -25,7 +25,8 @@
 
 # GIT
 # ln -sfiv ~/dotfiles/git/.gitignore_global ~
- ln -sfiv ~/dotfiles/git/.gitconfig ~
+# ln -sfiv ~/dotfiles/git/.gitconfig ~
+# ln -sfiv ~/dotfiles/git/git-heatmap/git-heatmap ~/.local/bin
 # git config --global core.excludesfile '~/.gitignore_global'
 
 # Kitty

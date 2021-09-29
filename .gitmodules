@@ -7,3 +7,6 @@
 [submodule "zsh/.zsh/vendor/zsh-history-substring-search"]
 	path = zsh/.zsh/vendor/zsh-history-substring-search
 	url = git@github.com:zsh-users/zsh-history-substring-search.git
+[submodule "git/git-heatmap"]
+	path = git/git-heatmap
+	url = git@github.com:jez/git-heatmap.git

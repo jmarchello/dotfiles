@@ -41,6 +41,9 @@ stty erase '^?'
 GPG_TTY=$(tty)
 export GPG_TTY
 
+#Git 
+export REVIEW_BASE=main
+
 # export TERM="xterm-256color"
 #
 #python debugging with pudb instead of pdb
