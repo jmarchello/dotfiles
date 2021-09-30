@@ -36,6 +36,7 @@ alias gpull='git pull'
 alias gco='git checkout'
 alias gb='git checkout -b'
 alias lg='lazygit'
+alias gca='git commit --amend'
 
 # Ruby/Rails
 alias rl="rails"

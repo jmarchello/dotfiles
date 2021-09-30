@@ -107,7 +107,8 @@ require('lspconfig').stylelint_lsp.setup {
 -- Additional Plugins
 lvim.plugins = {
   {"tpope/vim-rails"},
-  {"tpope/vim-dispatch"}
+  {"tpope/vim-dispatch"},
+  {"tpope/vim-fugitive"}
 --     {"folke/tokyonight.nvim"}, {
 --         "ray-x/lsp_signature.nvim",
 --         config = function() require"lsp_signature".on_attach() end,

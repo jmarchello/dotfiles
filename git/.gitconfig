@@ -26,3 +26,9 @@
 [alias]
 	amend = commit --amend
 	heatmap = !git-heatmap
+	open = !/usr/bin/gh browse \"$@\"
+	aa = commit --amend
+	files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
+	stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
+	review = !lvim -p $(git files) +\"tabdo Gvdiffsplit $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
+	reviewone = !lvim -p +\"tabdo Gvdiffsplit $REVIEW_BASE\" +\"let g:gitgutter_diff_base = \"$REVIEW_BASE\"
