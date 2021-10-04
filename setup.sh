@@ -1,7 +1,7 @@
 # VIM
-#  ln -sfiv ~/dotfiles/vim/.vimrc ~
-#  rm -rf ~/.vim
-#  ln -sfiv ~/dotfiles/vim/.vim ~
+# ln -sfiv ~/dotfiles/vim/.vimrc ~
+# rm -rf ~/.vim
+# ln -sfiv ~/dotfiles/vim/.vim ~
 
 # NVIM
 # ln -sfiv ~/dotfiles/vim/.vim ${XDG_CONFIG_HOME:-~\/\.config}/nvim

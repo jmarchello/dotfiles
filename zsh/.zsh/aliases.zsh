@@ -75,4 +75,8 @@ if test $(command -v htop); then
   alias top="htop"
 fi
 
+if test $(command -v xdg-open); then
+  alias open="xdg-open"
+fi
+
 alias wgup="sudo wg-quick up wg0"

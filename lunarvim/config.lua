@@ -1,7 +1,7 @@
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
--- lvim.colorscheme = "spacegray"
+lvim.colorscheme = "solarized"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = ","
@@ -108,7 +108,8 @@ require('lspconfig').stylelint_lsp.setup {
 lvim.plugins = {
   {"tpope/vim-rails"},
   {"tpope/vim-dispatch"},
-  {"tpope/vim-fugitive"}
+  {"tpope/vim-fugitive"},
+  {"ishan9299/nvim-solarized-lua"}
 --     {"folke/tokyonight.nvim"}, {
 --         "ray-x/lsp_signature.nvim",
 --         config = function() require"lsp_signature".on_attach() end,
