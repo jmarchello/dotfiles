@@ -1,7 +1,7 @@
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "solarized"
+-- lvim.colorscheme = "solarized"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = ","
@@ -26,7 +26,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Rspec",
   t = {"<cmd>Dispatch rspec %<cr>", "Run Specs in current file"},
-  a = {"<cmd>Dispatch rspec<cr>"},
+  a = {"<cmd>Dispatch rspec .<cr>"},
 }
 
 lvim.builtin.which_key.mappings["k"] = {
@@ -108,8 +108,7 @@ require('lspconfig').stylelint_lsp.setup {
 lvim.plugins = {
   {"tpope/vim-rails"},
   {"tpope/vim-dispatch"},
-  {"tpope/vim-fugitive"},
-  {"ishan9299/nvim-solarized-lua"}
+  {"tpope/vim-fugitive"}
 --     {"folke/tokyonight.nvim"}, {
 --         "ray-x/lsp_signature.nvim",
 --         config = function() require"lsp_signature".on_attach() end,
@@ -123,3 +122,7 @@ lvim.plugins = {
 -- }
 
 vim.api.nvim_set_option('grepprg', 'rg --vimgrep')
+
+vim.cmd [[
+  au VimEnter * hi DiffText guibg=#0c7d9d guifg=#bbbbbb
+]]

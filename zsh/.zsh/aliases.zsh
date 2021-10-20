@@ -37,6 +37,7 @@ alias gco='git checkout'
 alias gb='git checkout -b'
 alias lg='lazygit'
 alias gca='git commit --amend'
+alias gcaa='git caa'
 
 # Ruby/Rails
 alias rl="rails"
@@ -44,6 +45,7 @@ alias rc="rails c"
 alias rs="rails s -b 0.0.0.0"
 alias bi="bundle install"
 alias rr="rails"
+alias rrr="rails runner"
 
 # Python
 alias activate=". ./env/bin/activate"
