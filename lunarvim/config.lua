@@ -23,6 +23,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
 -- }
+lvim.builtin.which_key.mappings["g"]["g"] = {"<cmd>Git<cr>", "Fugitive status"}
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Rspec",
   t = {"<cmd>Dispatch rspec %<cr>", "Run Specs in current file"},

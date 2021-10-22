@@ -25,6 +25,7 @@ alias vi='lvim'
 alias vim='lvim'
 
 # Git
+alias g="git"
 alias gtree='git log --graph --oneline --all --decorate'
 alias gst='git status'
 alias gaa='git add --all'
@@ -57,7 +58,6 @@ alias daisy=ncdu
 alias t=task
 
 alias edit="code-insiders"
-alias g="z"
 alias notes="vi ~/notes"
 alias klast="kill -9 %1"
 
@@ -82,3 +82,6 @@ if test $(command -v xdg-open); then
 fi
 
 alias wgup="sudo wg-quick up wg0"
+
+# VENDR
+alias vgrok="ngrok http --region=us --hostname=\"*.jmarchello.vendr.dev\" 80"
