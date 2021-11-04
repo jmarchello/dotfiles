@@ -24,6 +24,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
 -- }
 lvim.builtin.which_key.mappings["g"]["g"] = {"<cmd>Git<cr>", "Fugitive status"}
+lvim.builtin.which_key.mappings["b"]["r"] = {"<cmd>bufdo e<cr>", "Reload buffers"}
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Rspec",
   t = {"<cmd>Dispatch rspec %<cr>", "Run Specs in current file"},
@@ -119,11 +120,14 @@ lvim.plugins = {
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
---   { "BufWritePre", "*", "%s/\s\+$//e" },
 -- }
 
 vim.api.nvim_set_option('grepprg', 'rg --vimgrep')
 
 vim.cmd [[
-  au VimEnter * hi DiffText guibg=#0c7d9d guifg=#bbbbbb
+  au VimEnter * hi DiffChange guibg=#264F78 guifg=NONE
+  au VimEnter * hi DiffText guibg=#036614 guifg=NONE
+  au VimEnter * hi DiffAdd guibg=#036614 guifg=NONE
+  au VimEnter * hi DiffDelete guibg=NONE guifg=#aa0000
+  autocmd BufWritePre * :%s/\s\+$//e
 ]]

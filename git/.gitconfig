@@ -36,3 +36,5 @@
 	caa = !git aa && git ca
 	pull-main = !git fetch origin \"$REVIEW_BASE\":\"$REVIEW_BASE\"
 	mt = mergetool
+	co = checkout
+	pr = !gh pr checkout
