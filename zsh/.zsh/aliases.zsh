@@ -56,6 +56,7 @@ alias pipr="pip install -r"
 #Other
 alias daisy=ncdu
 alias t=task
+alias v=vagrant
 
 alias edit="code-insiders"
 alias notes="vi ~/notes"

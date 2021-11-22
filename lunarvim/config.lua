@@ -24,6 +24,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
 -- }
 lvim.builtin.which_key.mappings["g"]["g"] = {"<cmd>Git<cr>", "Fugitive status"}
+lvim.builtin.which_key.mappings["g"]["h"] = {"<cmd>Gclog -- %<cr>", "File History"}
 lvim.builtin.which_key.mappings["b"]["r"] = {"<cmd>bufdo e<cr>", "Reload buffers"}
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Rspec",
@@ -51,7 +52,7 @@ lvim.builtin.nvimtree.auto_open = 0
 lvim.builtin.nvimtree.hide_dotfiles = 0
 vim.g.rooter_patterns = {'.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', 'requirements.txt', 'Gemfile', 'go.mod'}
 vim.wo.wrap = true
-vim.o.foldmethod = 'indent'
+vim.o.foldmethod = 'manual'
 vim.o.foldlevelstart = 99
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -129,5 +130,6 @@ vim.cmd [[
   au VimEnter * hi DiffText guibg=#036614 guifg=NONE
   au VimEnter * hi DiffAdd guibg=#036614 guifg=NONE
   au VimEnter * hi DiffDelete guibg=NONE guifg=#aa0000
+
   autocmd BufWritePre * :%s/\s\+$//e
 ]]
