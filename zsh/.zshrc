@@ -41,7 +41,7 @@ stty erase '^?'
 GPG_TTY=$(tty)
 export GPG_TTY
 
-#Git 
+#Git
 export REVIEW_BASE=main
 
 # export TERM="xterm-256color"
@@ -64,6 +64,7 @@ export PATH=$PATH:$HOME/go/bin
 export PATH="/usr/local/share/dotnet:$PATH"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
