@@ -116,3 +116,9 @@ fi
 
 # Created by `pipx` on 2021-04-12 16:19:06
 export PATH="$PATH:/Users/josh.marchello/.local/bin"
+
+#Homebrew for Linux
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+#direnv
+eval "$(direnv hook zsh)"

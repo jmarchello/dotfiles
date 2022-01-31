@@ -1,6 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = lvim
+	editor = code -w
 [user]
 	email = josh@jmarchello.com
 	name = Josh Marchello
@@ -13,10 +13,12 @@
 	colorMoved = zebra
 [mergetool "vimdiff"]
 	path = /home/jmarchello/.local/bin/lvim
+[mergetool "fugitive"]
+  cmd = '/home/jmarchello/.local/bin/lvim -c Git mergetool'
 [merge]
 	ff = only
 	conflictStyle = diff3
-	tool = vimdiff
+	tool = fugitive
 [pull]
 	ff = only
 [status]
@@ -30,7 +32,7 @@
 	aa = add --all
 	files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
 	stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
-	review = !lvim -p $(git files) +\"tabdo Gvdiffsplit $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
+	review = !lvim -p $(git files) +\"tabdo Ghdiffsplit $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
 	reviewone = !lvim -p +\"tabdo Gvdiffsplit $REVIEW_BASE\" +\"let g:gitgutter_diff_base = \"$REVIEW_BASE\"
 	ca = commit --amend
 	caa = !git aa && git ca

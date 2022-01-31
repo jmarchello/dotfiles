@@ -28,8 +28,8 @@ lvim.builtin.which_key.mappings["g"]["h"] = {"<cmd>Gclog -- %<cr>", "File Histor
 lvim.builtin.which_key.mappings["b"]["r"] = {"<cmd>bufdo e<cr>", "Reload buffers"}
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Rspec",
-  t = {"<cmd>Dispatch rspec %<cr>", "Run Specs in current file"},
-  a = {"<cmd>Dispatch rspec .<cr>"},
+  t = {"<cmd>Dispatch bundle exec rspec %<cr>", "Run Specs in current file"},
+  a = {"<cmd>Dispatch bundle exec rspec .<cr>"},
 }
 
 lvim.builtin.which_key.mappings["k"] = {
