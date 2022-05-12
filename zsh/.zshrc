@@ -65,7 +65,7 @@ export PATH="/usr/local/share/dotnet:$PATH"
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 
@@ -112,13 +112,16 @@ bindkey -M vicmd 'j' history-substring-search-down
 if command -v kubectl &> /dev/null
 then
   source <(kubectl completion zsh)
+  export KUBE_EDITOR="/usr/local/bin/code -w"
 fi
 
 # Created by `pipx` on 2021-04-12 16:19:06
 export PATH="$PATH:/Users/josh.marchello/.local/bin"
 
-#Homebrew for Linux
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+#Homebrew
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval $(/opt/homebrew/bin/brew shellenv)
 
 #direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
+

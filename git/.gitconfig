@@ -19,8 +19,6 @@
 	ff = only
 	conflictStyle = diff3
 	tool = fugitive
-[pull]
-	ff = only
 [status]
 	short = true
 [mergetool]
