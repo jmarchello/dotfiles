@@ -16,7 +16,6 @@
 [mergetool "fugitive"]
   cmd = '/home/jmarchello/.local/bin/lvim -c Git mergetool'
 [merge]
-	ff = only
 	conflictStyle = diff3
 	tool = fugitive
 [status]
