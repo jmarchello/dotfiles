@@ -34,7 +34,7 @@ else
 fi
 # end cache compinit
 
-export EDITOR=vim
+export EDITOR=subl
 stty erase '^?'
 
 #GPG TTY
@@ -67,6 +67,8 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+
 
 
 # pyenv
@@ -122,6 +124,6 @@ export PATH="$PATH:/Users/josh.marchello/.local/bin"
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval $(/opt/homebrew/bin/brew shellenv)
 
-#direnv
-# eval "$(direnv hook zsh)"
+# Disable Spring in Rails environments
+export DISABLE_SPRING=1
 

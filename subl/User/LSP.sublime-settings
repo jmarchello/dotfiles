@@ -1,0 +1,13 @@
+
+{
+    "clients": {
+        "ruby": {
+            "enabled": true,
+            "command": ["~/.rbenv/shims/solargraph", "stdio"],
+            "selector": "source.ruby | text.html.ruby",
+            "initializationOptions": {
+                "diagnostics": false,
+            },
+        },
+    },
+}

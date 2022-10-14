@@ -1,0 +1,4 @@
+{
+	"last_test_run": "ruby -Itest test/controllers/tx/buying_unit_appointments_controller_test.rb -n 'test_should_create_appointment_with_buying_unit'",
+	"last_test_working_dir": "/Users/jmarchello/dev/thanos"
+}

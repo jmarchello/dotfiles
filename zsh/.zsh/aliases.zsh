@@ -42,14 +42,13 @@ alias gcaa='git caa'
 alias grev='git review'
 
 # Ruby/Rails
-alias rl="rails"
 alias rc="rails c"
 alias rs="rails s -b 0.0.0.0"
 alias bi="bundle install"
 alias rr="rails"
 alias rrr="rails runner"
 alias rdm="rails db:migrate"
-alias rup="bundle install && rails db:migrate"
+alias rup="bundle install && yarn && rails db:migrate"
 
 # Python
 alias activate=". ./env/bin/activate"

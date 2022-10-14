@@ -1,0 +1,6 @@
+{
+	"shell_cmd": "/Users/jmarchello/.rbenv/shims/rails test $file",
+	"selector": "source.ruby",
+	"file_patterns": "*_test.rb",
+	"working_dir": "$folder",
+}

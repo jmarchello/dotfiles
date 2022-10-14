@@ -1,0 +1,14 @@
+// SublimeLinter Settings - User
+{
+	// "debug": true,
+	
+	"linters": {
+	},
+    "paths": {
+        "linux": [],
+        "osx": [
+            "~/.rbenv/shims"
+        ],
+        "windows": []
+    }
+}
