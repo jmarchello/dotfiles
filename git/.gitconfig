@@ -1,6 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = subl -w
+	pager = delta
 [user]
 	email = josh@jmarchello.com
 	name = Josh Marchello
@@ -10,7 +11,7 @@
 	path = /home/jmarchello/.local/bin/lvim
 [diff]
 	tool = vimdiff
-	colorMoved = zebra
+	colorMoved = default
 [mergetool "vimdiff"]
 	path = /home/jmarchello/.local/bin/lvim
 [mergetool "fugitive"]
@@ -37,3 +38,16 @@
 	mt = mergetool
 	co = checkout
 	pr = !gh pr checkout
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[interactive]
+  diffFilter = delta --color-only
+[add.interactive]
+  useBuiltin = fals
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
