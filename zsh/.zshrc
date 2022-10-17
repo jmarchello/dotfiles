@@ -114,7 +114,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 if command -v kubectl &> /dev/null
 then
   source <(kubectl completion zsh)
-  export KUBE_EDITOR="/usr/local/bin/code -w"
+  export KUBE_EDITOR="/usr/local/bin/subl -w"
 fi
 
 # Created by `pipx` on 2021-04-12 16:19:06
