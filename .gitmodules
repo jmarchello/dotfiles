@@ -10,3 +10,6 @@
 [submodule "git/git-heatmap"]
 	path = git/git-heatmap
 	url = git@github.com:jez/git-heatmap.git
+[submodule "zsh/.zsh/vendor/kube-ps1"]
+	path = zsh/.zsh/vendor/kube-ps1
+	url = git@github.com:jonmosco/kube-ps1.git
