@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Alignment",
 		"Emmet",
 		"GitGutter",
 		"LSP",
@@ -16,5 +17,6 @@
 		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-rubocop",
+		"zenburn",
 	],
 }
