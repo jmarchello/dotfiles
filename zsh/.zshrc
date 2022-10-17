@@ -17,11 +17,12 @@ zstyle ':completion:::::' completer _expand _complete _ignored _approximate # en
 
 # Prompt config
 setopt PROMPT_SUBST
-precmd() { print -rP '%(?.%F{green}√.%F{red}?) %F{white}%2~%F{cyan}$(__git_ps1 " (%s)") ' }
+precmd() { print -rP '%(?.%F{green}√.%F{red}?) %F{white}%2~%F{cyan}$(__git_ps1 " (%s)") $(kube_ps1) ' }
 PROMPT='%F{yello}# '
 . $HOME/.zsh/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
+. $HOME/.zsh/vendor/kube-ps1/kube-ps1.sh
 # end prompt config
 
 # cache compinit daily
