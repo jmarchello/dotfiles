@@ -15,15 +15,7 @@ zstyle ':completion:*' group-name '' # group results by category
 zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
 # end zsh options
 
-# Prompt config
-setopt PROMPT_SUBST
-precmd() { print -rP '%(?.%F{green}√.%F{red}?) %F{white}%2~%F{cyan}$(__git_ps1 " (%s)") $(kube_ps1) ' }
-PROMPT='%F{yello}# '
-. $HOME/.zsh/git-prompt.sh
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-. $HOME/.zsh/vendor/kube-ps1/kube-ps1.sh
-# end prompt config
+. $HOME/.zsh/prompt.zsh
 
 # cache compinit daily
 autoload -Uz compinit
@@ -115,7 +107,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 if command -v kubectl &> /dev/null
 then
   source <(kubectl completion zsh)
-  export KUBE_EDITOR="/usr/local/bin/subl -w"
+  export KUBE_EDITOR="subl -w"
 fi
 
 # Created by `pipx` on 2021-04-12 16:19:06

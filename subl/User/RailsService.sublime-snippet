@@ -1,0 +1,16 @@
+<snippet>
+  <content><![CDATA[
+# frozen_string_literal: true
+
+# ${1: Comment}
+class ${2: Service Name} < ApplicationService
+  def call
+    ${3: code}
+  end
+end
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>service</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.ruby</scope>
+</snippet>

@@ -5,18 +5,19 @@
 	],
 	"installed_packages":
 	[
+		"A File Icon",
 		"Alignment",
 		"Emmet",
+		"FileManager",
 		"GitGutter",
+		"GitSavvy",
 		"LSP",
-		"LSP-copilot",
 		"LSP-json",
 		"LSP-yaml",
 		"Package Control",
-		"RubyTest",
-		"SideBarEnhancements",
 		"SublimeLinter",
 		"SublimeLinter-rubocop",
+		"Terminal",
 		"zenburn",
 	],
 }
