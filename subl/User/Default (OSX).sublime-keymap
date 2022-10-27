@@ -1,3 +1,8 @@
 [
   { "keys": ["super+."], "command": "toggle_test_file" },
+  { "keys": ["super+g", "super+g"], "command": "gs_show_status" },
+  { "keys": ["super+g", "super+l"], "command": "gs_graph" },
+  { "keys": ["super+g", "super+d"], "command": "gs_diff" },
+  { "keys": ["super+g", "super+b"], "command": "gs_show_branch" },
+  { "keys": ["super+g", "super+c"], "command": "gs_checkout_branch" },
 ]

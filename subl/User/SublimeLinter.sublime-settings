@@ -3,6 +3,12 @@
 	// "debug": true,
 	
 	"linters": {
+        "rubocop": {
+          "use_bundle_exec": true,
+          "env": {
+            "PATH": "~/.rbenv/shims:$PATH"
+          }
+        }
 	},
     "paths": {
         "linux": [],
