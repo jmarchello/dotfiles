@@ -34,42 +34,69 @@ class ToggleTestFileCommand(sublime_plugin.WindowCommand):
 
     self.window.open_file(file_to_open)
 
-class RunRailsTestCommand(sublime_plugin.WindowCommand):
+class RunRailsFileCommand(sublime_plugin.WindowCommand):
+  def run(self):
+    active_file = self.window.active_view().file_name()
+    if active_file.endswith('Gemfile'):
+      self.run_bundle()
+      return
 
+    if not active_file.endswith('.rb'):
+      return
+
+    if 'db/migrate' in active_file:
+      self.run_migrations()
+      return
+
+    self.run_tests(active_file)
+
+  def run_tests(self, active_file):
+    if is_test_file(active_file):
+      test_file_path = active_file
+    else:
+      test_file_path = test_file_name(active_file)
+
+    cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'exec', 'rails', 'test', test_file_path]
+    panel_command = PanelCommand(self.window, cmd_args)
+    panel_command.run()
+
+  def run_migrations(self):
+    cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'exec', 'rails', 'db:migrate']
+    panel_command = PanelCommand(self.window, cmd_args)
+    panel_command.run()
+
+  def run_bundle(self):
+    cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'install']
+    panel_command = PanelCommand(self.window, cmd_args)
+    panel_command.run()
+
+
+
+class PanelCommand():
   encoding = 'utf-8'
   proc = None
   panel = None
   panel_lock = threading.Lock()
+  cmd_args = []
+  window = None
+
+  def __init__(self, window, cmd_args):
+    self.window = window
+    self.cmd_args = cmd_args
 
   def run(self):
-    active_file = self.window.active_view().file_name()
-    if not active_file.endswith('.rb'):
-      return
-
-    if is_test_file(active_file):
-      self.run_tests(active_file)
-    else:
-      self.run_tests(test_file_name(active_file))
-
-  # def active_folder(self):
-  #   folders = self.window.folders()
-  #   active_file = self.window.active_view().file_name()
-  #   return [f for f in folders if active_file.startswith(f)][0]
-
-  def run_tests(self, test_file_path):
     with self.panel_lock:
-      self.panel = self.window.create_output_panel('rails_test')
+      self.panel = self.window.create_output_panel('panel_command')
       self.panel.settings().set("gutter", False)
-      self.window.run_command('show_panel', {'panel': 'output.rails_test'})
+      self.window.run_command('show_panel', {'panel': 'output.panel_command'})
 
     if self.proc is not None:
             self.proc.terminate()
             self.proc = None
 
-    cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'exec', 'rails', 'test', test_file_path]
-    self.queue_write(f'Running test file : {test_file_path}\n\n')
+    self.queue_write(f'Running command: {" ".join(self.cmd_args)}\n\n')
     self.proc = subprocess.Popen(
-        cmd_args,
+        self.cmd_args,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         cwd=self.window.folders()[0]
@@ -117,6 +144,7 @@ class RunRailsTestCommand(sublime_plugin.WindowCommand):
     with self.panel_lock:
       self.panel.set_read_only(False)
       self.panel.run_command('append', {'characters': text})
+      self.panel.run_command("move_to", {"to": "eof"})
       self.panel.set_read_only(True)
 
 

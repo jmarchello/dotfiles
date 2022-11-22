@@ -10,4 +10,6 @@
 	"translate_tabs_to_spaces": true,
 	"tab_size": 2,
 	"theme": "Default.sublime-theme",
+	"find_selected_text": true,
+	"rulers": [120],
 }

@@ -10,4 +10,5 @@
             },
         },
     },
+    "inhibit_word_completions": false,
 }

@@ -1,4 +1,4 @@
 {
-	"target": "run_rails_test",
+	"target": "run_rails_file",
 	"selector": "source.ruby"
 }
