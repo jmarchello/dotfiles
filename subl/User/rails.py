@@ -41,11 +41,12 @@ class RunRailsFileCommand(sublime_plugin.WindowCommand):
       self.run_bundle()
       return
 
-    if not active_file.endswith('.rb'):
+    if 'db/migrate' in active_file and active_file.endswith('.rb'):
+      self.run_migrations()
       return
 
-    if 'db/migrate' in active_file:
-      self.run_migrations()
+    if active_file.endswith('.rake'):
+      self.run_rake()
       return
 
     self.run_tests(active_file)
@@ -69,6 +70,38 @@ class RunRailsFileCommand(sublime_plugin.WindowCommand):
     cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'install']
     panel_command = PanelCommand(self.window, cmd_args)
     panel_command.run()
+
+  def run_rake(self):
+    rake_extractor = RakeTaskExtractor(self.window)
+    rake_task = rake_extractor.run()
+    if rake_task:
+      cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'exec', 'rails', rake_task]
+      panel_command = PanelCommand(self.window, cmd_args)
+      panel_command.run()
+
+class RakeTaskExtractor():
+  NAMESPACE_REGEX = r'(?<=namespace :)\w*'
+  TASK_REGEX = r'(?<=task )\w*(?=:)'
+
+  def __init__(self, window):
+    self.active_view = window.active_view()
+    self.current_point = self.active_view.sel()[0].begin()
+
+  def run(self):
+    namespace = self.find_nearest_name(self.NAMESPACE_REGEX)
+    task = self.find_nearest_name(self.TASK_REGEX)
+
+    if namespace and task:
+      return f'{namespace}:{task}'
+
+  def find_nearest_name(self, regex):
+    regions = self.active_view.find_all(regex)
+    regions.reverse()
+    for region in regions:
+      if region.begin() < self.current_point:
+        return self.active_view.substr(region)
+
+
 
 
 
