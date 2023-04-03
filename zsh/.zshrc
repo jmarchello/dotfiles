@@ -61,6 +61,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:$PATH"
 
 
 
@@ -116,7 +117,3 @@ export PATH="$PATH:/Users/josh.marchello/.local/bin"
 #Homebrew
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval $(/opt/homebrew/bin/brew shellenv)
-
-# Disable Spring in Rails environments
-export DISABLE_SPRING=1
-

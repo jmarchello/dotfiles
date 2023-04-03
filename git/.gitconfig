@@ -7,18 +7,11 @@
 	name = Josh Marchello
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
-[difftool "vimdiff"]
-	path = /home/jmarchello/.local/bin/lvim
 [diff]
 	tool = vimdiff
 	colorMoved = default
-[mergetool "vimdiff"]
-	path = /home/jmarchello/.local/bin/lvim
-[mergetool "fugitive"]
-  cmd = '/home/jmarchello/.local/bin/lvim -c Git mergetool'
 [merge]
-	conflictStyle = diff3
-	tool = fugitive
+	tool = vimdiff
 [status]
 	short = true
 [mergetool]
@@ -51,3 +44,7 @@
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
     side-by-side = true
+[fetch]
+	prune = true
+[pull]
+	rebase = false

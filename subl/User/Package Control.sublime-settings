@@ -12,12 +12,12 @@
 		"GitGutter",
 		"GitSavvy",
 		"LSP",
+		"LSP-copilot",
 		"LSP-json",
 		"LSP-yaml",
 		"Package Control",
 		"SublimeLinter",
 		"SublimeLinter-rubocop",
 		"Terminal",
-		"zenburn",
 	],
 }

@@ -5,4 +5,26 @@
   { "keys": ["super+g", "super+d"], "command": "gs_diff" },
   { "keys": ["super+g", "super+b"], "command": "gs_show_branch" },
   { "keys": ["super+g", "super+c"], "command": "gs_checkout_branch" },
+  {
+    "keys": [
+      "super+shift+."
+    ],
+    "command": "copilot_get_panel_completions",
+    "context": [
+      {
+        "key": "setting.copilot.completion.is_visible"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "super+shift+c"
+    ],
+    "command": "copilot_accept_completion",
+    "context": [
+      {
+        "key": "copilot.is_on_completion"
+      }
+    ]
+  },
 ]

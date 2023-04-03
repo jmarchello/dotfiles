@@ -1,6 +1,6 @@
 {
 	"color_scheme": "Mariana.sublime-color-scheme",
-	"font_size": 12,
+	"font_size": 13,
 	"ignored_packages":
 	[
 		"Vintage",
@@ -12,4 +12,5 @@
 	"theme": "Default.sublime-theme",
 	"find_selected_text": true,
 	"rulers": [120],
+	"word_wrap": true,
 }

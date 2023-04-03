@@ -58,26 +58,27 @@ class RunRailsFileCommand(sublime_plugin.WindowCommand):
       test_file_path = test_file_name(active_file)
 
     cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'exec', 'rails', 'test', test_file_path]
-    panel_command = PanelCommand(self.window, cmd_args)
-    panel_command.run()
+    self.panel_command(cmd_args)
 
   def run_migrations(self):
     cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'exec', 'rails', 'db:migrate']
-    panel_command = PanelCommand(self.window, cmd_args)
-    panel_command.run()
+    self.panel_command(cmd_args)
 
   def run_bundle(self):
     cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'install']
-    panel_command = PanelCommand(self.window, cmd_args)
-    panel_command.run()
+    self.panel_command(cmd_args)
 
   def run_rake(self):
     rake_extractor = RakeTaskExtractor(self.window)
     rake_task = rake_extractor.run()
     if rake_task:
       cmd_args = ['/Users/jmarchello/.rbenv/shims/bundle', 'exec', 'rails', rake_task]
-      panel_command = PanelCommand(self.window, cmd_args)
-      panel_command.run()
+      self.panel_command(cmd_args)
+
+  def panel_command(self, cmd_args):
+    panel_command = PanelCommand(self.window, cmd_args)
+    panel_command.run()
+
 
 class RakeTaskExtractor():
   NAMESPACE_REGEX = r'(?<=namespace :)\w*'
@@ -100,9 +101,6 @@ class RakeTaskExtractor():
     for region in regions:
       if region.begin() < self.current_point:
         return self.active_view.substr(region)
-
-
-
 
 
 class PanelCommand():
