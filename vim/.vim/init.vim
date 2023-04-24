@@ -1,1 +1,1 @@
-/home/jmarchello/dotfiles/vim/.vimrc
+/Users/jmarchello/dotfiles/vim/.vimrc

@@ -4,8 +4,8 @@
 # ln -sfiv ~/dotfiles/vim/.vim ~
 
 # NVIM
-# ln -sfiv ~/dotfiles/vim/.vim ${XDG_CONFIG_HOME:-~\/\.config}/nvim
-# ln -sfiv ~/dotfiles/vim/.vimrc ${XDG_CONFIG_HOME:-~\/\.config}/nvim/init.vim
+ln -sfiv ~/dotfiles/vim/.vim ${XDG_CONFIG_HOME:-~\/\.config}/nvim
+ln -sfiv ~/dotfiles/vim/.vimrc ${XDG_CONFIG_HOME:-~\/\.config}/nvim/init.vim
 
 # LUNARVIM
 # ln -sfiv ~/dotfiles/lunarvim/config.lua ${XDG_CONFIG_HOME:-~\/\.config}/lvim/config.lua

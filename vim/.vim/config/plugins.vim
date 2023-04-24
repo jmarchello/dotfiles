@@ -39,12 +39,11 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-rvm'
 
 "" JavaScript
-Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'pangloss/vim-javascript'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'maxmellon/vim-jsx-pretty'
 
 "" Python
 " Plug 'jmcantrell/vim-virtualenv'

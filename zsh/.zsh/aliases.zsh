@@ -20,9 +20,10 @@ alias knode='killall node'
 #   alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # fi
 # alias vi='vim'
-# alias vi='nvim'
-alias vi='lvim'
-alias vim='lvim'
+alias vi='nvim'
+alias e='nvim'
+# alias vi='lvim'
+# alias vim='lvim'
 
 # Git
 alias g="git"
@@ -40,6 +41,9 @@ alias lg='lazygit'
 alias gca='git commit --amend'
 alias gcaa='git caa'
 alias grev='git review'
+
+# Fossil
+alias ff='fossil'
 
 # Ruby/Rails
 alias rc="rails c"

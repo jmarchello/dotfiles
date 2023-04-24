@@ -202,9 +202,9 @@ set wildignore+=env/**
 " \   ],
 " \}
 " let g:ale_fix_on_save = 1
-source ~/.vim/config/plugins.vim
+source ~/.config/nvim/config/plugins.vim
 " source ~/.vim/config/coc.vim
 "nvim LSP language servers
 if has('nvim')
-  source ~/.vim/config/nvim-lang-servers.vim
+  source ~/.config/nvim/config/nvim-lang-servers.vim
 endif

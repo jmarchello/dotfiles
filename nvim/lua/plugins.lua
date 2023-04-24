@@ -1,0 +1,107 @@
+--
+-- Bootstrap lazy.nvim
+--
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup({
+  'phha/zenburn.nvim',
+  'neovim/nvim-lspconfig',
+  'L3MON4D3/LuaSnip',
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup()
+    end
+  },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+  { 'akinsho/toggleterm.nvim', version = "*", config = true },
+  {
+    "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
+    dependencies = {
+      "cmp-nvim-lsp",
+      "cmp_luasnip",
+      "cmp-buffer",
+      "cmp-path",
+      "cmp-cmdline",
+    },
+  },
+  { "hrsh7th/cmp-nvim-lsp", lazy = true },
+  { "saadparwaiz1/cmp_luasnip", lazy = true },
+  { "hrsh7th/cmp-buffer", lazy = true },
+  { "hrsh7th/cmp-path", lazy = true },
+  { "hrsh7th/cmp-cmdline", lazy = true }
+})
+
+local wk = require('which-key')
+
+require('zenburn').setup()
+
+--
+-- Telescope
+--
+
+wk.register({
+  f = {
+    name = "Find",
+    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    b = { "<cmd>Telescope buffers<cr>", "Find File" },
+    g = { "<cmd>Telescope live_grep<cr>", "Find File" }
+  },
+}, { prefix = "<leader>" })
+
+
+--
+-- NvimTree
+--
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+wk.register({
+  e = {
+    name = "NvimTree",
+    o = { '<cmd>NvimTreeOpen<cr>', 'open' },
+    c = { '<cmd>NvimTreeClose<cr>', 'close' },
+    e = { '<cmd>NvimTreeFocus<cr>', 'focus' },
+  }
+}, { prefix = "<leader>" })
+
+--
+-- LazyGit
+--
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = 'float' })
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+wk.register({
+  g = { '<cmd>lua _lazygit_toggle()<CR>', 'Git' }
+}, { prefix = "<leader>" })
+
