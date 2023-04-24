@@ -15,9 +15,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'phha/zenburn.nvim',
   'neovim/nvim-lspconfig',
   'L3MON4D3/LuaSnip',
+  'github/copilot.vim',
+  { 'folke/tokyonight.nvim', lazy = false },
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  },
   {
     "folke/which-key.nvim",
     config = function()
@@ -48,12 +55,18 @@ require('lazy').setup({
   { "saadparwaiz1/cmp_luasnip", lazy = true },
   { "hrsh7th/cmp-buffer", lazy = true },
   { "hrsh7th/cmp-path", lazy = true },
-  { "hrsh7th/cmp-cmdline", lazy = true }
+  { "hrsh7th/cmp-cmdline", lazy = true },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end
+  }
 })
 
 local wk = require('which-key')
-
-require('zenburn').setup()
 
 --
 -- Telescope
@@ -105,3 +118,26 @@ wk.register({
   g = { '<cmd>lua _lazygit_toggle()<CR>', 'Git' }
 }, { prefix = "<leader>" })
 
+--
+-- ToggleTerm
+--
+require("toggleterm").setup{}
+
+wk.register({
+  t = {
+    name = 'Terminal',
+    t = { '<cmd>ToggleTerm dir=git_dir direction=float<cr>', 'floating terminal' },
+    h = { '<cmd>ToggleTerm dir=git_dir direction=horizontal<cr>', 'horizontal terminal' },
+    v = { '<cmd>ToggleTerm dir=git_dir direction=vertical<cr>', 'vertical terminal' }
+  }
+}, { prefix = '<leader>' })
+
+-- Tokyonight
+require("tokyonight").setup({
+  style = 'night',
+  transparent = true
+})
+
+vim.cmd[[colorscheme tokyonight]]
+
+vim.cmd[[ hi LineNr guibg=NONE guifg=Grey ]]

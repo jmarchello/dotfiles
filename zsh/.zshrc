@@ -27,7 +27,7 @@ else
 fi
 # end cache compinit
 
-export EDITOR=subl
+export EDITOR=e
 stty erase '^?'
 
 #GPG TTY

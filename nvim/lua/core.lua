@@ -8,7 +8,6 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 
 -- UI
--- vim.opt.colorscheme
 vim.opt.number = true
 vim.opt.colorcolumn = '120'
 vim.opt.signcolumn = 'yes'
@@ -39,7 +38,7 @@ vim.opt.wildignore = {
 local map = vim.api.nvim_set_keymap
 
 ---- Terminal
-map('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+map('t', '<esc><esc>', '<C-\\><C-n>', { noremap = true })
 map('t', '<A-h>', '<C-\\><C-N><C-w>h', { noremap = true })
 map('t', '<A-j>', '<C-\\><C-N><C-w>j', { noremap = true })
 map('t', '<A-k>', '<C-\\><C-N><C-w>k', { noremap = true })

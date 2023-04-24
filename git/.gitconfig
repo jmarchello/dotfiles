@@ -1,6 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = subl -w
+	editor = e
 	pager = delta
 [user]
 	email = josh@jmarchello.com
