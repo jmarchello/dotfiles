@@ -5,6 +5,10 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 function _run_rails_test()
   local buffer_path = vim.api.nvim_buf_get_name(0)
+  if not string.match(buffer_path, "test/") then
+    buffer_path = string.gsub(buffer_path, "app/", "test/")
+    buffer_path = string.gsub(buffer_path, ".rb", "_test.rb")
+  end
   cmd = string.format("bin/rails test %s", buffer_path)
   toggleTerm.exec(cmd, 10, 25, git_dir, 'horizontal', true)
 end

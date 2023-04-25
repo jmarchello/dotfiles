@@ -152,3 +152,4 @@ require("tokyonight").setup({
 vim.cmd[[colorscheme tokyonight]]
 
 vim.cmd[[ hi LineNr guibg=NONE guifg=Grey ]]
+vim.cmd[[ hi Comment guifg=Grey ]]
