@@ -9,8 +9,8 @@ vim.opt.softtabstop = 2
 
 -- UI
 vim.opt.number = true
-vim.opt.colorcolumn = '120'
-vim.opt.signcolumn = 'yes'
+-- vim.opt.colorcolumn = '120'
+-- vim.opt.signcolumn = 'yes'
 
 -- netrw
 vim.g.netrw_liststyle = 3

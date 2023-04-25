@@ -18,6 +18,17 @@ require('lazy').setup({
   'neovim/nvim-lspconfig',
   'L3MON4D3/LuaSnip',
   'github/copilot.vim',
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup({
+        options = {
+          theme = 'tokyonight'
+        }
+      })
+    end
+  },
   { 'folke/tokyonight.nvim', lazy = false },
   {
     'numToStr/Comment.nvim',
