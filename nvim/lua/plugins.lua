@@ -138,9 +138,9 @@ require("toggleterm").setup{}
 wk.register({
   t = {
     name = 'Terminal',
-    t = { '<cmd>ToggleTerm dir=git_dir direction=float<cr>', 'floating terminal' },
-    b = { '<cmd>ToggleTerm dir=git_dir direction=horizontal<cr>', 'horizontal terminal' },
-    v = { '<cmd>ToggleTerm dir=git_dir direction=vertical<cr>', 'vertical terminal' },
+    t = { '<cmd>1ToggleTerm dir=git_dir direction=float<cr>', 'floating terminal' },
+    b = { '<cmd>1ToggleTerm dir=git_dir direction=horizontal<cr>', 'horizontal terminal' },
+    v = { '<cmd>1ToggleTerm dir=git_dir direction=vertical<cr>', 'vertical terminal' },
   }
 }, { prefix = '<leader>' })
 

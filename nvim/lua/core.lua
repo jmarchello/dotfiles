@@ -39,7 +39,7 @@ vim.opt.wildignore = {
 local map = vim.api.nvim_set_keymap
 
 ---- Terminal
-map('t', '<esc><esc>', '<C-\\><C-n>', { noremap = true })
+map('t', '<leader><esc>', '<C-\\><C-n>', { noremap = true })
 map('t', '<A-h>', '<C-\\><C-N><C-w>h', { noremap = true })
 map('t', '<A-j>', '<C-\\><C-N><C-w>j', { noremap = true })
 map('t', '<A-k>', '<C-\\><C-N><C-w>k', { noremap = true })
