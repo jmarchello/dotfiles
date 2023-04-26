@@ -9,8 +9,9 @@ vim.opt.softtabstop = 2
 
 -- UI
 vim.opt.number = true
+vim.opt.showmode = false
+vim.opt.signcolumn = 'yes'
 -- vim.opt.colorcolumn = '120'
--- vim.opt.signcolumn = 'yes'
 
 -- netrw
 vim.g.netrw_liststyle = 3
@@ -82,4 +83,7 @@ vim.api.nvim_create_autocmd('BufWritePre', { command = ':%s/\\s\\+$//e' })
 
 ---- No Numbers in terminal
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
+
+---- Alwasy go to insert mode when switching to a terminal
+vim.api.nvim_create_autocmd({ 'BufWinEnter','WinEnter' }, { command = 'startinsert', pattern = 'term://*' })
 

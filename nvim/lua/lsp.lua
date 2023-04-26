@@ -5,3 +5,5 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 lspconfig.solargraph.setup {
   capabilities = capabilities
 }
+
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]

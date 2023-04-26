@@ -74,7 +74,8 @@ require('lazy').setup({
     config = function()
       require("nvim-surround").setup()
     end
-  }
+  },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }
 })
 
 local wk = require('which-key')
@@ -138,8 +139,8 @@ wk.register({
   t = {
     name = 'Terminal',
     t = { '<cmd>ToggleTerm dir=git_dir direction=float<cr>', 'floating terminal' },
-    h = { '<cmd>ToggleTerm dir=git_dir direction=horizontal<cr>', 'horizontal terminal' },
-    v = { '<cmd>ToggleTerm dir=git_dir direction=vertical<cr>', 'vertical terminal' }
+    b = { '<cmd>ToggleTerm dir=git_dir direction=horizontal<cr>', 'horizontal terminal' },
+    v = { '<cmd>ToggleTerm dir=git_dir direction=vertical<cr>', 'vertical terminal' },
   }
 }, { prefix = '<leader>' })
 
