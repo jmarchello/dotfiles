@@ -105,15 +105,21 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- empty setup using defaults
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+  view = {
+    float = {
+      enable = true,
+      quit_on_focus_loss = true
+    },
+    width = {}
+  },
+  update_focused_file = {
+    enable = true
+  }
+})
 
 wk.register({
-  e = {
-    name = "NvimTree",
-    o = { '<cmd>NvimTreeOpen<cr>', 'open' },
-    c = { '<cmd>NvimTreeClose<cr>', 'close' },
-    e = { '<cmd>NvimTreeFocus<cr>', 'focus' },
-  }
+  e = { '<cmd>NvimTreeToggle<cr>', 'NvimTree' },
 }, { prefix = "<leader>" })
 
 --
