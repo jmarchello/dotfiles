@@ -75,7 +75,18 @@ require('lazy').setup({
       require("nvim-surround").setup()
     end
   },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup({
+        current_line_blame = true,
+        current_line_blame_opts = {
+          virt_text_pos = 'right_align'
+        }
+      })
+    end
+  }
 })
 
 local wk = require('which-key')
@@ -104,7 +115,6 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- empty setup using defaults
 require("nvim-tree").setup({
   view = {
     float = {
@@ -115,6 +125,9 @@ require("nvim-tree").setup({
   },
   update_focused_file = {
     enable = true
+  },
+  git = {
+    ignore = false
   }
 })
 
@@ -160,3 +173,8 @@ vim.cmd[[colorscheme tokyonight]]
 
 vim.cmd[[ hi LineNr guibg=NONE guifg=Grey ]]
 vim.cmd[[ hi Comment guifg=Grey ]]
+
+-- Treesitter
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false

@@ -1493,7 +1493,7 @@
 				<real>0.1333333333333333</real>
 			</dict>
 			<key>Background Image Location</key>
-			<string>/Users/jmarchello/Downloads/pexels-hristo-fidanov-1252890.jpg</string>
+			<string>/Users/jmarchello/Downloads/03770_atlantisnebula3_3840x2160.jpg</string>
 			<key>Background Image Mode</key>
 			<integer>2</integer>
 			<key>Badge Color</key>
@@ -1510,7 +1510,7 @@
 				<real>1</real>
 			</dict>
 			<key>Blend</key>
-			<real>0.2038185009057969</real>
+			<real>0.45206436820652174</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -3029,7 +3029,7 @@
 	<key>Print In Black And White</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>Snippets</key>
 	<array>
 		<dict>

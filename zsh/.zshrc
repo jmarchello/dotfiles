@@ -108,7 +108,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 if command -v kubectl &> /dev/null
 then
   source <(kubectl completion zsh)
-  export KUBE_EDITOR="subl -w"
+  export KUBE_EDITOR="nvim"
 fi
 
 # Created by `pipx` on 2021-04-12 16:19:06

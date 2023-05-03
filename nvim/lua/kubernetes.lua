@@ -2,7 +2,7 @@ local wk = require("which-key")
 
 local Terminal = require("toggleterm.terminal").Terminal
 
-local k9sTerm = Terminal:new({ cmd = "k9s", hidden = true, direction = 'float' })
+local k9sTerm = Terminal:new({ cmd = "k9s", hidden = true, direction = 'tab' })
 
 function _k9s_toggle()
   k9sTerm:toggle()
