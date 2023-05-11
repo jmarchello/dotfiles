@@ -2,6 +2,10 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"A File Icon",
+		"LSP-copilot",
+		"LSP-json",
+		"SublimeLinter",
 	],
 	"installed_packages":
 	[

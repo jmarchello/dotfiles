@@ -1,6 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = e
+	editor = nvim
 	pager = delta
 [user]
 	email = josh@jmarchello.com

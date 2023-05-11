@@ -17,9 +17,8 @@ vim.opt.signcolumn = 'yes'
 vim.g.netrw_liststyle = 3
 
 -- Folding
-vim.g.foldmethod = 'manual'
-vim.g.foldnestmax = 10
-vim.g.nofoldenable = true
+vim.cmd('set foldmethod=indent')
+vim.cmd('set nofoldenable')
 
 -- Grepping
 if vim.fn.executable('rg') == 1 then

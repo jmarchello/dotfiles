@@ -152,7 +152,17 @@ wk.register({
 --
 -- ToggleTerm
 --
-require("toggleterm").setup{}
+local toggleTerm = require('toggleterm')
+local TerminalMod = require('toggleterm.terminal')
+
+toggleTerm.setup{}
+
+
+function _toggle_focused_term()
+  local focused_id = TerminalMod.get_focused_id()
+  toggleTerm.toggle(focused_id)
+end
+
 
 wk.register({
   t = {
@@ -162,6 +172,10 @@ wk.register({
     v = { '<cmd>1ToggleTerm dir=git_dir direction=vertical<cr>', 'vertical terminal' },
   }
 }, { prefix = '<leader>' })
+
+wk.register({
+  ['<esc><esc>'] = { '<cmd>lua _toggle_focused_term()<cr>', 'close all terminals' }
+}, { mode = 't' })
 
 -- Tokyonight
 require("tokyonight").setup({
@@ -175,6 +189,6 @@ vim.cmd[[ hi LineNr guibg=NONE guifg=Grey ]]
 vim.cmd[[ hi Comment guifg=Grey ]]
 
 -- Treesitter
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.opt.foldenable = false
+-- vim.opt.foldmethod = 'expr'
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- vim.opt.foldenable = false
