@@ -35,3 +35,6 @@
 # Sublime Text
 # rm -rf ~/Library/Application\ Support/Sublime\ Text/Packages/User
 # ln -sfiv ~/dotfiles/subl/User ~/Library/Application\ Support/Sublime\ Text/Packages
+
+# bin
+# ln -sfiv ~/dotfiles/bin ~/bin
