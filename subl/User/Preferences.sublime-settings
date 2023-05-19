@@ -3,10 +3,6 @@
 	"font_size": 13,
 	"ignored_packages":
 	[
-		"A File Icon",
-		"LSP-copilot",
-		"LSP-json",
-		"SublimeLinter",
 		"Vintage",
 	],
 	"trim_trailing_white_space_on_save": "all",
