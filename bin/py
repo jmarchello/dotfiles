@@ -1,0 +1,49 @@
+#! /bin/bash
+
+# find the nearest virtual env
+function find_nearest_venv {
+    local dir=$(pwd)
+    while [ "$dir" != "/" ]; do
+        if [ -e "$dir/.venv" ]; then
+            echo "$dir"
+            return
+        fi
+        dir=$(dirname "$dir")
+    done
+}
+
+# run python from the nearest virtual env
+function run_from_venv {
+    local venv=$(find_nearest_venv)
+    if [ -n "$venv" ]; then
+      return "$venv/bin/python" "$@"
+    fi
+    python "$@"
+}
+
+
+if $2 == "--which" || $1 == "-w"; then
+    venv=$(find_nearest_venv)
+    echo "$venv/bin/python"
+    exit 0
+fi
+
+if $1 == "--init"; then
+  if [ -n "$(pwd)/.venv" ]; then
+        echo "Virtual env already exists: $venv"
+        exit 1
+    fi
+    python -m venv .venv
+    exit 0
+fi
+
+if $1 == "pip"; then
+    venv=$(find_nearest_venv)
+    if [ -n "$venv" ]; then
+      return "$venv/bin/pip" "$@"
+    fi
+    echo "No virtual env found"
+    exit 1
+fi
+
+run_from_venv "$@"

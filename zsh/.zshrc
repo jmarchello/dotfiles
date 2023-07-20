@@ -63,6 +63,11 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:$PATH"
 
+# CDPATH
+export CDPATH=.:~
+export CDPATH=${CDPATH}:~/dev
+export CDPATH=${CDPATH}:..
+
 
 
 # pyenv
@@ -90,7 +95,6 @@ compinit
 . $HOME/.zsh/aliases.zsh
 
 # Plugins
-. $HOME/.zsh/vendor/zsh-z/zsh-z.plugin.zsh
 . $HOME/.zsh/vendor/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 . $HOME/.zsh/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
 if [ -f $HOME/.zsh/local/init.sh ]; then
