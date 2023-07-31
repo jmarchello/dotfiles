@@ -10,7 +10,7 @@
 # ln -sfiv ~/dotfiles/lunarvim/config.lua ${XDG_CONFIG_HOME:-~\/\.config}/lvim/config.lua
 
 # Tmux
-# ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
+ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
 
 # Homebrew
 # if command -v brew &> /dev/null

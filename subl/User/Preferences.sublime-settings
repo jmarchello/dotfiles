@@ -3,7 +3,13 @@
 	"font_size": 13,
 	"ignored_packages":
 	[
+		"A File Icon",
+		"GitSavvy",
+		"LSP-gopls",
+		"LSP-yaml",
+		"Terminal",
 		"Vintage",
+		"zzz A File Icon zzz",
 	],
 	"trim_trailing_white_space_on_save": "all",
 	"ensure_newline_at_eof_on_save": true,

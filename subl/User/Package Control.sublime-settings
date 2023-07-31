@@ -2,6 +2,11 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"A File Icon",
+		"GitSavvy",
+		"LSP-gopls",
+		"LSP-yaml",
+		"Terminal",
 	],
 	"installed_packages":
 	[
