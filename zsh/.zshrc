@@ -92,22 +92,18 @@ export NVM_DIR="$HOME/.nvm"
 autoload -Uz compinit
 compinit
 
+if command -v jj &> /dev/null
+then
+  source <(jj util completion --zsh)
+fi
+
 . $HOME/.zsh/aliases.zsh
 
 # Plugins
 . $HOME/.zsh/vendor/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-. $HOME/.zsh/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
 if [ -f $HOME/.zsh/local/init.sh ]; then
   . $HOME/.zsh/local/init.sh
 fi
-
-# bindkey "$terminfo[kcuu1]" history-substring-search-up
-# bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
 
 if command -v kubectl &> /dev/null
 then

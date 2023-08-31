@@ -22,7 +22,7 @@ vim.cmd('set nofoldenable')
 
 -- Grepping
 if vim.fn.executable('rg') == 1 then
-  vim.o.grepprg = 'rg --vimgrep'
+  vim.o.grepprg = 'rg --vimgrep --engine=auto'
 end
 
 -- Wildignore
@@ -85,4 +85,7 @@ vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativ
 
 ---- Alwasy go to insert mode when switching to a terminal
 vim.api.nvim_create_autocmd({ 'BufWinEnter','WinEnter' }, { command = 'startinsert', pattern = 'term://*' })
+
+---- Use tabs with a width of 4 in go files (to match gofmt)
+vim.api.nvim_create_autocmd('Filetype', { pattern = 'go', command = 'setlocal noet ts=4 sw=4 sts=4' })
 

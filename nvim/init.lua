@@ -1,6 +1,6 @@
 require('core')
 require('plugins')
 require('lsp')
+require('rails')
 -- require('completion')
--- require('rails')
 -- require('kubernetes')
