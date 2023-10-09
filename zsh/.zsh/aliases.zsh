@@ -1,3 +1,6 @@
+# Make
+alias jmake='make -f .josh/makefile'
+
 # Docker
 alias d='docker'
 alias dprune='docker container prune'
@@ -41,6 +44,9 @@ alias lg='lazygit'
 alias gca='git commit --amend'
 alias gcaa='git caa'
 alias grev='git review'
+
+# Sqlite
+alias db="sqlite3"
 
 # Fossil
 alias ff='fossil'

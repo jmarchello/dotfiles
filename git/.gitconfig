@@ -36,8 +36,8 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[interactive]
-  diffFilter = delta --color-only
+; [interactive]
+;   diffFilter = delta --color-only
 [add.interactive]
   useBuiltin = fals
 [delta]

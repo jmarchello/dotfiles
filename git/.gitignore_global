@@ -13,3 +13,5 @@ node_modules
 .vim
 **/tags
 .tool-versions
+
+dump.rdb
