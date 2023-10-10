@@ -17,10 +17,21 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   'neovim/nvim-lspconfig',
   {
-    'jmarchello/vim-monochrome',
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  'L3MON4D3/LuaSnip',
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      vim.g.monochrome_italic_comments = 1
-      vim.cmd [[ colorscheme monochrome ]]
+      require('lualine').setup({
+        options = {
+          theme = 'tokyonight'
+        }
+      })
     end
   },
   {
@@ -39,9 +50,65 @@ require('lazy').setup({
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
+    dependencies = {
+      "cmp-nvim-lsp",
+      "cmp_luasnip",
+      "cmp-buffer",
+      "cmp-path",
+      "cmp-cmdline",
+    },
+  },
+  { "hrsh7th/cmp-nvim-lsp", lazy = true },
+  { "saadparwaiz1/cmp_luasnip", lazy = true },
+  { "hrsh7th/cmp-buffer", lazy = true },
+  { "hrsh7th/cmp-path", lazy = true },
+  { "hrsh7th/cmp-cmdline", lazy = true },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup({
+        current_line_blame = false,
+        current_line_blame_opts = {
+          virt_text_pos = 'eol'
+        }
+      })
+    end
+  }
 })
 
 local wk = require('which-key')
+
+--
+-- ColorScheme
+--
+require("tokyonight").setup({
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+  styles = {
+    -- Style to be applied to different syntax groups
+    -- Value is any valid attr-list value for `:help nvim_set_hl`
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {},
+    variables = {},
+    -- Background styles. Can be "dark", "transparent" or "normal"
+    sidebars = "dark", -- style for sidebars, see below
+    floats = "dark", -- style for floating windows
+  },
+  lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+})
+
+vim.cmd[[colorscheme tokyonight]]
 
 --
 -- Telescope
@@ -57,7 +124,72 @@ wk.register({
 }, { prefix = "<leader>" })
 
 
+--
+-- NvimTree
+--
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+require("nvim-tree").setup({
+  view = {
+    float = {
+      enable = true,
+      quit_on_focus_loss = true
+    },
+    width = {}
+  },
+  update_focused_file = {
+    enable = true
+  },
+  git = {
+    ignore = false
+  }
+})
+
 wk.register({
-  e = { '<cmd>Explore<cr>', 'Explore' },
+  e = { '<cmd>NvimTreeToggle<cr>', 'NvimTree' },
 }, { prefix = "<leader>" })
+
+-- Treesitter
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all" (the five listed parsers should always be installed)
+  ensure_installed = { "lua", "vim", "vimdoc", "query", "sql", "ruby", "go", "html", "css", "javascript" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
+  -- List of parsers to ignore installing (or "all")
+  ignore_install = {},
+
+  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+  highlight = {
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    disable = {},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false
 
