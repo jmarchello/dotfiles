@@ -59,6 +59,7 @@ alias rr="rails"
 alias rrr="rails runner"
 alias rdm="rails db:migrate"
 alias rup="bundle install && yarn && rails db:migrate"
+alias be="bundle exec"
 
 # Python
 alias activate=". ./env/bin/activate"
