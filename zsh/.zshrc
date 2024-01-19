@@ -27,7 +27,7 @@ else
 fi
 # end cache compinit
 
-export EDITOR=e
+export EDITOR=nvim
 stty erase '^?'
 
 #GPG TTY
@@ -48,40 +48,11 @@ then
   /usr/bin/setxkbmap -option "ctrl:nocaps"
 fi
 
-# PATH modification
-export PATH="/usr/local/bin:${PATH}"
-export PATH=/opt/local/bin:$PATH
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-export PATH="/usr/local/share/dotnet:$PATH"
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/14/bin
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
-export PATH="/Applications/Sublime Merge.app/Contents/SharedSupport/bin:$PATH"
-
-# CDPATH
-export CDPATH=.:~
-export CDPATH=${CDPATH}:~/dev
-export CDPATH=${CDPATH}:..
-
-
-
 # pyenv
 if command -v pyenv &> /dev/null
 then
   eval "$(pyenv init -)"
 fi
-
-# rbenv
-if command -v rbenv &> /dev/null
-then
-  eval "$(rbenv init - zsh)"
-fi
-
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -111,9 +82,31 @@ then
   export KUBE_EDITOR="nvim"
 fi
 
-# Created by `pipx` on 2021-04-12 16:19:06
-export PATH="$PATH:/Users/josh.marchello/.local/bin"
-
 #Homebrew
 # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval $(/opt/homebrew/bin/brew shellenv)
+
+# PATH modification
+export PATH="/usr/local/bin:${PATH}"
+export PATH=/opt/local/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
+export PATH="/usr/local/share/dotnet:$PATH"
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/14/bin
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="./bin:$PATH"
+
+# CDPATH
+export CDPATH=.:~
+export CDPATH=${CDPATH}:~/dev
+export CDPATH=${CDPATH}:..
+
+# rbenv
+if command -v rbenv &> /dev/null
+then
+  eval "$(rbenv init - zsh)"
+fi

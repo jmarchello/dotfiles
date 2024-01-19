@@ -12,9 +12,10 @@ end
 
 -- This is where you actually apply your config choices
 
-config.color_scheme = 'tokyonight_night'
+-- config.color_scheme = 'tokyonight_night'
+config.color_scheme = 'Gruvbox dark, medium (base16)'
 -- config.font = wezterm.font 'DejaVuSansMono Nerd Font'
-config.font_size = 15
+config.font_size = 16
 config.line_height = 1.2
 config.hide_tab_bar_if_only_one_tab = true
 -- config.dpi = 96.0

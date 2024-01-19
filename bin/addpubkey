@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Check if both public key and IP addresses parameters are provided
+if [ "$#" -lt 2 ]; then
+    echo "Usage: $0 <path_to_public_key> <ip_address1> <ip_address2> ..."
+    exit 1
+fi
+
+# Get the public key file and IP addresses from the parameters
+public_key_file="$1"
+shift
+ip_addresses=("$@")
+
+# Loop through each IP address
+for ip in "${ip_addresses[@]}"; do
+    echo "Adding public key to $ip..."
+
+    # SSH into the server and append the public key to authorized_keys
+    ssh "root@$ip" "echo \$(cat) >> ~/.ssh/authorized_keys" < "$public_key_file"
+
+    # Check if the command was successful
+    if [ $? -eq 0 ]; then
+        echo "Public key added successfully to $ip"
+    else
+        echo "Failed to add public key to $ip"
+    fi
+done
+

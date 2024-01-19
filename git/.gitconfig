@@ -7,26 +7,14 @@
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
 [diff]
-	tool = nvimdiff
+	tool = vimdiff
 	colorMoved = default
 [merge]
-	tool = nvimdiff
+	tool = vimdiff
 [status]
 	short = true
 [mergetool]
 	keepBackup = false
-[alias]
-	amend = commit --amend
-	open = !/usr/bin/gh browse \"$@\"
-	aa = add --all
-	files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
-	stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
-	ca = commit --amend
-	caa = !git aa && git ca
-	pull-main = !git fetch origin \"$REVIEW_BASE\":\"$REVIEW_BASE\"
-	mt = mergetool
-	co = checkout
-	pr = !gh pr checkout
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

@@ -52,14 +52,14 @@ alias db="sqlite3"
 alias ff='fossil'
 
 # Ruby/Rails
-alias rc="rails c"
-alias rs="rails s -b 0.0.0.0"
-alias bi="bundle install"
-alias rr="rails"
-alias rrr="rails runner"
-alias rdm="rails db:migrate"
-alias rup="bundle install && yarn && rails db:migrate"
-alias be="bundle exec"
+alias rc="bin/rails c"
+alias rs="bin/rails s -b 0.0.0.0"
+alias bi="bin/bundle install"
+alias rr="bin/rails"
+alias rrr="bin/rails runner"
+alias rdm="bin/rails db:migrate"
+alias rup="bin/setup"
+alias be="bin/bundle exec"
 
 # Python
 alias activate=". ./env/bin/activate"
