@@ -40,4 +40,7 @@
 # ln -sfiv ~/dotfiles/bin ~/bin
 
 # WezTerm
-ln -sfiv ~/dotfiles/wezterm/.wezterm.lua ~
+# ln -sfiv ~/dotfiles/wezterm/.wezterm.lua ~
+
+# Alacritty
+ln -sfiv ~/dotfiles/.alacritty.toml ~

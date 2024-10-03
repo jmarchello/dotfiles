@@ -27,7 +27,7 @@ else
 fi
 # end cache compinit
 
-export EDITOR=nvim
+export EDITOR="nvim --wait"
 stty erase '^?'
 
 #GPG TTY
@@ -110,3 +110,10 @@ if command -v rbenv &> /dev/null
 then
   eval "$(rbenv init - zsh)"
 fi
+
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
+
+# ruby DEBUGGING
+# export RUBY_DEBUG_OPEN=1

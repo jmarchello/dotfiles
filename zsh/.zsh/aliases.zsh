@@ -51,6 +51,12 @@ alias db="sqlite3"
 # Fossil
 alias ff='fossil'
 
+
+function rdebug {
+  local command="$@"
+  eval "RUBY_DEBUG_OPEN=1 $command"
+}
+
 # Ruby/Rails
 alias rc="bin/rails c"
 alias rs="bin/rails s -b 0.0.0.0"
@@ -70,6 +76,7 @@ alias pipr="pip install -r"
 alias daisy=ncdu
 alias t=task
 alias v=vagrant
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 alias edit="code-insiders"
 alias notes="vi ~/notes"
