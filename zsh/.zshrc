@@ -27,7 +27,7 @@ else
 fi
 # end cache compinit
 
-export EDITOR="nvim --wait"
+export EDITOR="nvim"
 stty erase '^?'
 
 #GPG TTY

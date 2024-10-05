@@ -1,6 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = nvim --wait
+	editor = nvim
 [user]
 	email = josh@jmarchello.com
 	name = Josh Marchello
