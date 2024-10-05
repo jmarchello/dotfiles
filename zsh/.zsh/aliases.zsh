@@ -77,6 +77,7 @@ alias daisy=ncdu
 alias t=task
 alias v=vagrant
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+alias z=zellij
 
 alias edit="code-insiders"
 alias notes="vi ~/notes"
@@ -94,8 +95,12 @@ if test $(command -v rg); then
   alias grep="rg"
 fi
 
-if test $(command -v htop); then
-  alias top="htop"
+if test $(command -v btop); then
+  alias top="btop"
+fi
+
+if test $(command -v eza); then
+  alias ls="eza"
 fi
 
 if test $(command -v xdg-open); then
@@ -103,6 +108,3 @@ if test $(command -v xdg-open); then
 fi
 
 alias wgup="sudo wg-quick up wg0"
-
-# VENDR
-alias vgrok="ngrok http --region=us --hostname=\"*.jmarchello.vendr.dev\" 80"
