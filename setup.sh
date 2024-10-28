@@ -18,15 +18,14 @@
 #   brew bundle
 # fi
 
-# ZSH
-# ln -sfiv ~/dotfiles/zsh/.zshrc ~
-# ln -sfiv ~/dotfiles/zsh/.zsh ~
+# SHELL
+ln -sfiv ~/dotfiles/shell/shell ~
 
 # GIT
-# ln -sfiv ~/dotfiles/git/.gitignore_global ~
-# ln -sfiv ~/dotfiles/git/.gitconfig ~
+ln -sfiv ~/dotfiles/git/.gitignore_global ~
+ln -sfiv ~/dotfiles/git/.gitconfig ~
 # ln -sfiv ~/dotfiles/git/git-heatmap/git-heatmap ~/.local/bin
-# git config --global core.excludesfile '~/.gitignore_global'
+git config --global core.excludesfile '~/.gitignore_global'
 
 # Kitty
 # mkdir ~/.config/kitty
@@ -37,10 +36,10 @@
 # ln -sfiv ~/dotfiles/subl/User ~/Library/Application\ Support/Sublime\ Text/Packages
 
 # bin
-# ln -sfiv ~/dotfiles/bin ~/bin
+ln -sfiv ~/dotfiles/bin ~/bin
 
 # WezTerm
 # ln -sfiv ~/dotfiles/wezterm/.wezterm.lua ~
 
 # Alacritty
-ln -sfiv ~/dotfiles/.alacritty.toml ~
+# ln -sfiv ~/dotfiles/.alacritty.toml ~

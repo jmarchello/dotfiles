@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+env_file = ARGV[0] || '.env'
+
+# Check if the file exists
+unless File.exist?(env_file)
+  puts "File not found: #{env_file}"
+  exit 1
+end
+
+# Read and export variables
+File.foreach(env_file) do |line|
+  # Strip whitespace and skip empty lines or comments
+  line.strip!
+  next if line.empty? || line.start_with?('#')
+
+  # Split key and value, then set the environment variable
+  key, value = line.split('=', 2)
+  ENV[key] = value
+  puts "Exported: #{key}"
+end
+

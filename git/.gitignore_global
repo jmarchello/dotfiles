@@ -14,3 +14,4 @@ node_modules
 .tool-versions
 
 dump.rdb
+.mise.toml
