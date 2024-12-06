@@ -1,5 +1,0 @@
-.gitignore
-vim/.vim/bundle/**/*
-zsh/.zsh/local/*
-.DS_Store
-.git

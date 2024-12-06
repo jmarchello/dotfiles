@@ -6,17 +6,8 @@
 # NVIM
 # ln -sfiv ~/dotfiles/nvim ${XDG_CONFIG_HOME:-~\/\.config}
 
-# LUNARVIM
-# ln -sfiv ~/dotfiles/lunarvim/config.lua ${XDG_CONFIG_HOME:-~\/\.config}/lvim/config.lua
-
 # Tmux
 # ln -sfiv ~/dotfiles/tmux/.tmux.conf ~
-
-# Homebrew
-# if command -v brew &> /dev/null
-# then
-#   brew bundle
-# fi
 
 # SHELL
 ln -sfiv ~/dotfiles/shell/shell ~
@@ -27,19 +18,12 @@ ln -sfiv ~/dotfiles/git/.gitconfig ~
 # ln -sfiv ~/dotfiles/git/git-heatmap/git-heatmap ~/.local/bin
 git config --global core.excludesfile '~/.gitignore_global'
 
-# Kitty
-# mkdir ~/.config/kitty
-# ln -sfiv ~/dotfiles/kitty.conf ~/.config/kitty
-
 # Sublime Text
 # rm -rf ~/Library/Application\ Support/Sublime\ Text/Packages/User
 # ln -sfiv ~/dotfiles/subl/User ~/Library/Application\ Support/Sublime\ Text/Packages
 
 # bin
 ln -sfiv ~/dotfiles/bin ~/bin
-
-# WezTerm
-# ln -sfiv ~/dotfiles/wezterm/.wezterm.lua ~
 
 # Alacritty
 # ln -sfiv ~/dotfiles/.alacritty.toml ~
