@@ -7,13 +7,10 @@
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
 [diff]
-	tool = vscode
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+	tool = vimdiff3
+  guitool = vimdiff3
 [merge]
-  tool = vscode
-[mergetool "vscode"]
-  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+  tool = vimdiff3
 [status]
 	short = true
 [mergetool]
@@ -27,3 +24,9 @@
 	prune = true
 [pull]
 	rebase = false
+[difftool "vimdiff3"]
+  path = nvim
+  prompt = false
+[mergetool "vimdiff3"]
+  layout = LOCAL,MERGED,REMOTE
+  path = nvim

@@ -69,8 +69,8 @@ alias rup="bin/setup"
 alias be="bin/bundle exec"
 
 # Python
-alias activate=". ./env/bin/activate"
-alias newenv="python -m venv env && activate && pip install black pylint mypy ipython pudb"
+alias activate=". ./venv/bin/activate"
+alias newenv="python -m venv venv && activate"
 alias pipr="pip install -r"
 
 #Other
@@ -79,6 +79,7 @@ alias t=task
 alias v=vagrant
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias zel=zellij
+alias eenv="source eenv_script"
 
 alias edit="code-insiders"
 alias notes="vi ~/notes"

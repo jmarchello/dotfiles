@@ -13,7 +13,7 @@ export REVIEW_BASE=main
 # export TERM="xterm-256color"
 #
 #python debugging with pudb instead of pdb
-export PYTHONBREAKPOINT=pudb.set_trace
+export PYTHONBREAKPOINT="pudb.set_trace"
 
 # On linux, remap caps lock to control
 # if command -v setxkbmap &> /dev/null
