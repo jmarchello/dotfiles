@@ -13,7 +13,7 @@ task :shell do
       File.join(File.dirname(__FILE__), 'zsh', 'rc'),
       File.join(Dir.home, '.zshrc')
     )
-    return
+    next
   end
 
   puts 'installing bashrc'
@@ -63,34 +63,36 @@ task :shell_tools do
 end
 
 task :zellij do
-  return if command_exists?('zellij')
+  next if command_exists?('zellij')
 
   install_command 'zellij'
 end
 
 task :lazygit do
-  return if command_exists?('lg')
+  next if command_exists?('lg')
 
   install_command 'lazygit'
 end
 
 task :lazydocker do
-  return if command_exists?('lazydocker')
+  next if command_exists?('lazydocker')
 
   install_command 'lazydocker'
 end
 
 task lazyvim: :neovim do
-  return if File.exist?(File.join(Dir.home, '.config', 'nvim', 'lazyvim.json'))
+  # next if File.exist?(File.join(Dir.home, '.config', 'nvim', 'lazyvim.json'))
 
   nvim_dir = File.join(Dir.home, '.config', 'nvim')
-  sh "mv #{nvim_dir}{,.bak}"
-  sh "git clone https://github.com/LazyVim/starter #{nvim_dir}"
-  sh "rm -rf #{nvim_dir}/.git"
+  sh "mv #{nvim_dir} #{nvim_dir}.bak"
+  FileUtils.ln_sf(
+    File.join(File.dirname(__FILE__), 'lazyvim', 'nvim'),
+    File.join(Dir.home, '.config')
+  )
 end
 
 task :neovim do
-  return if command_exists?('nvim')
+  next if command_exists?('nvim')
 
   install_command 'neovim'
 end
