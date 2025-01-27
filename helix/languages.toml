@@ -1,0 +1,9 @@
+[[language]]
+name = "ruby"
+language-servers = ["ruby-lsp"]
+auto-format = true
+diagnostic-severity = "hint"
+
+[language-server.ruby-lsp]
+command = "ruby-lsp"
+config = { linters = ["rubocop"] }

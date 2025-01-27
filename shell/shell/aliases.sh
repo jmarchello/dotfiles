@@ -26,7 +26,7 @@ alias knode='killall node'
 # fi
 # alias vi='vim'
 alias vi='nvim'
-alias e='nvim'
+alias e="$EDITOR"
 # alias vi='lvim'
 # alias vim='lvim'
 
@@ -58,15 +58,17 @@ function rdebug {
   eval "RUBY_DEBUG_OPEN=1 $command"
 }
 
-# Ruby/Rails
+# Ruby
+alias bi="bundle install"
+alias be="bundle exec"
+
+# Rails
 alias rc="bin/rails c"
 alias rs="bin/rails s -b 0.0.0.0"
-alias bi="bin/bundle install"
 alias rr="bin/rails"
 alias rrr="bin/rails runner"
 alias rdm="bin/rails db:migrate"
 alias rup="bin/setup"
-alias be="bin/bundle exec"
 
 # Python
 alias activate=". ./venv/bin/activate"

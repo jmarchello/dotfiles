@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'net/http'
+require 'json'
+
 multitask default: %i[shell shell_tools dev alacritty git bin]
 
 task dev: %i[lazyvim lazygit lazydocker]
@@ -80,6 +83,18 @@ task :lazydocker do
   install_command 'lazydocker'
 end
 
+task :helix do
+  release_number = get_latest_release('helix-editor', 'helix')
+  directory_name = "helix-#{release_number}-x86_64-linux"
+  sh "wget -O ~/Downloads/#{directory_name}.tar.xz https://github.com/helix-editor/helix/releases/download/#{release_number}/#{directory_name}.tar.xz"
+  sh "tar -xvf ~/Downloads/#{directory_name}.tar.xz -C ~/Downloads"
+  sh "sudo mv ~/Downloads/#{directory_name}/hx /usr/local/bin"
+  sh 'sudo chmod +x /usr/local/bin/hx'
+  FileUtils.ln_sf(File.join(File.dirname(__FILE__), 'helix'), File.join(Dir.home, '.config'))
+  sh "mv ~/Downloads/#{directory_name}/runtime ~/.config/helix"
+  sh "rm -rf ~/Downloads/#{directory_name} ~/Downloads/#{directory_name}.tar.xz"
+end
+
 task lazyvim: :neovim do
   # next if File.exist?(File.join(Dir.home, '.config', 'nvim', 'lazyvim.json'))
 
@@ -110,4 +125,13 @@ end
 
 def command_exists?(command)
   system("command -v '#{command}' > /dev/null 2>&1")
+end
+
+def get_latest_release(owner, repo)
+  uri = URI("https://api.github.com/repos/#{owner}/#{repo}/releases/latest")
+  response = Net::HTTP.get_response(uri)
+
+  raise "Error: #{response.code} - #{response.message}" unless response.is_a?(Net::HTTPSuccess)
+
+  JSON.parse(response.body)['tag_name']
 end
