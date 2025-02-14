@@ -1,6 +1,6 @@
 # . $HOME/shell/prompt.sh
 
-export EDITOR="hx"
+export EDITOR="vim"
 stty erase '^?'
 
 #GPG TTY
