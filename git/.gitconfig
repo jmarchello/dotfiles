@@ -1,16 +1,16 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = nvim
+	editor = vim
 [user]
 	email = josh@jmarchello.com
 	name = Josh Marchello
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
 [diff]
-	tool = vimdiff3
-  guitool = vimdiff3
+    tool = vimdiff
+    guitool = vimdiff
 [merge]
-  tool = vimdiff3
+    tool = vimdiff
 [status]
 	short = true
 [mergetool]
@@ -24,9 +24,5 @@
 	prune = true
 [pull]
 	rebase = false
-[difftool "vimdiff3"]
-  path = nvim
-  prompt = false
-[mergetool "vimdiff3"]
-  layout = LOCAL,MERGED,REMOTE
-  path = nvim
+[mergetool "vimdiff"]
+    layout = LOCAL,MERGED,REMOTE
