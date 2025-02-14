@@ -2,3 +2,14 @@ theme = "tokyonight"
 
 [editor]
 default-yank-register = "+"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal.space]
+A-y = '@"%P"+yu'
+
