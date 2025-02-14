@@ -82,6 +82,7 @@ alias v=vagrant
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias zel=zellij
 alias eenv="source eenv_script"
+alias ai="ollama run llama3.2"
 
 alias edit="code-insiders"
 alias notes="vi ~/notes"
@@ -104,7 +105,7 @@ if command -v btop >/dev/null 2>&1; then
 fi
 
 if command -v eza >/dev/null 2>&1; then
-  alias ls="eza"
+  alias ls="eza --sort=type --icons --git"
 fi
 
 if command -v xdg-open >/dev/null 2>&1; then
