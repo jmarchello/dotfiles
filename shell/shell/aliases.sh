@@ -79,7 +79,7 @@ alias pipr="pip install -r"
 alias daisy=ncdu
 alias t=task
 alias v=vagrant
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+# alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias zel=zellij
 alias eenv="source eenv_script"
 alias ai="ollama run llama3.2"
@@ -92,17 +92,17 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-if command -v bat >/dev/null 2>&1; then
-  alias cat="bat"
-fi
-
-if command -v rg >/dev/null 2>&1; then
-  alias grep="rg"
-fi
-
-if command -v btop >/dev/null 2>&1; then
-  alias top="btop"
-fi
+# if command -v bat >/dev/null 2>&1; then
+#   alias cat="bat"
+# fi
+#
+# if command -v rg >/dev/null 2>&1; then
+#   alias grep="rg"
+# fi
+#
+# if command -v btop >/dev/null 2>&1; then
+#   alias top="btop"
+# fi
 
 if command -v eza >/dev/null 2>&1; then
   alias ls="eza --sort=type --icons --git"
@@ -111,5 +111,3 @@ fi
 if command -v xdg-open >/dev/null 2>&1; then
   alias open="xdg-open"
 fi
-
-alias wgup="sudo wg-quick up wg0"
