@@ -1,22 +1,21 @@
+" Start form the defaults
+source $VIMRUNTIME/defaults.vim
 
 " Leader
-let mapleader=","
-
-" Tabs
-set expandtab
-set shiftwidth=2
-set softtabstop=2
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 
 " UI
 set number "show line numbers
+set nowrap
 
 " Cursor settings
 highlight Cursor guibg=lightgreen
 highlight iCursor guifg=white guibg=gray
 
+" Columns
 set colorcolumn=120
-
-set signcolumn=yes
+hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 
 "Wrap at column 80 in Markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
@@ -24,13 +23,6 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 " netrw
 let g:netrw_liststyle=3
 
-"
-" Enable mouse use in all modes
-set mouse=a
-
-" Set this to the name of your terminal that supports mouse codes.
-" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
 " Send more characters for redraws
 set ttyfast
 
@@ -54,6 +46,10 @@ set nofoldenable        "dont fold by default
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" AutoIndent
+set autoindent
+" set cindent
+
 
 " Custom keybindings
 
@@ -66,6 +62,7 @@ map <Leader>cn :cnext<CR>
 map <Leader>cp :cprevious<CR>
 
 map <Leader>/ :noh<CR>
+map <Leader>e :e .<CR>
 
 " remap go to tag
 nmap <Leader>g <C-]>
@@ -78,12 +75,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 command! -nargs=+ Grep execute 'silent grep <args>' | copen
 
-
-" use ripgrep for grepping
-if executable('rg')
-  set grepprg=rg\ --vimgrep
-endif
-
 let g:indentLine_conceallevel=0
 set conceallevel=0
 
@@ -91,3 +82,10 @@ set conceallevel=0
 set wildignore+=**/node_modules/**
 set wildignore+=**/build/**
 set wildignore+=env/**
+
+set wildmenu
+set wildoptions=pum
+set path=**
+
+
+autocmd BufNewFile,BufReadPre * syntax enable
