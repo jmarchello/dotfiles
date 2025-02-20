@@ -5,7 +5,7 @@ require 'json'
 
 multitask default: %i[shell shell_tools dev alacritty git bin]
 
-task dev: %i[lazyvim lazygit lazydocker]
+task dev: %i[vim lazygit lazydocker]
 
 task :shell do
   FileUtils.ln_sf(File.join(File.dirname(__FILE__), 'shell', 'shell'), Dir.home)
@@ -39,18 +39,22 @@ task :alacritty do
 end
 
 task :git do
-  FileUtils.ls_sf(
+  FileUtils.ln_sf(
     File.join(File.dirname(__FILE__), 'git', '.gitignore_global'),
     File.join(Dir.home, '.gitignore_global')
   )
-  FileUtils.ls_sf(
+  FileUtils.ln_sf(
     File.join(File.dirname(__FILE__), 'git', '.gitconfig'),
     File.join(Dir.home, '.gitconfig')
   )
 end
 
+task :vim do
+  FileUtils.ln_sf(File.join(File.dirname(__FILE__), 'vim', '.vimrc'), Dir.home)
+end
+
 task :bin do
-  FileUtils.ls_sf(File.join(File.dirname(__FILE__), 'bin'), Dir.home)
+  FileUtils.ln_sf(File.join(File.dirname(__FILE__), 'bin'), Dir.home)
 end
 
 task :shell_tools do

@@ -85,7 +85,7 @@ set wildignore+=env/**
 
 set wildmenu
 set wildoptions=pum
-set path=**
+set path=app/**,lib/**,**
 
 
 autocmd BufNewFile,BufReadPre * syntax enable
