@@ -1,14 +1,31 @@
-setopt PROMPT_SUBST
+# Enable prompt command substitution
+PROMPT_COMMAND="__prompt_command"
 
 # Plugins
 
 ## git prompt
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
-. $HOME/.zsh/vendor/git-prompt.sh
+. $HOME/shell/vendor/git-prompt.sh
 
-# first line of prompt
-precmd() { print -rP '%(?.%F{green}√.%F{red}?) %F{white}%2~%F{cyan}$(__git_ps1 " (%s)") ' }
+# Define prompt function
+function __prompt_command() {
+  local exit_status=$?
+  local status_symbol
 
-# Second line (the actual prompt)
-PROMPT='%F{yello}# '
+  if [ $exit_status -eq 0 ]; then
+    status_symbol="\[\033[32m\]√"
+  else
+    status_symbol="\[\033[31m\]?"
+  fi
+
+  # First line of prompt
+  PS1="${status_symbol} \[\033[37m\]\W\[\033[36m\]"
+  # Add git status if available
+  if type __git_ps1 &>/dev/null; then
+    PS1+="$(__git_ps1 ' (%s)')"
+  fi
+
+  # Second line
+  PS1+="\n\[\033[33m\]# \[\033[0m\]"
+}

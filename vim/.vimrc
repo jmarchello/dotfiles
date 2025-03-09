@@ -8,6 +8,12 @@ let mapleader=" "
 " UI
 set number "show line numbers
 set nowrap
+set shortmess-=S
+set laststatus=2
+
+" Shell
+set shell=/bin/bash
+set shellcmdflag="-ic"
 
 " Cursor settings
 highlight Cursor guibg=lightgreen

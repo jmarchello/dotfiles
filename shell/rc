@@ -67,5 +67,13 @@ then
   eval "$(rbenv init - zsh)"
 fi
 
+# asdf
+if command -v asdf &> /dev/null
+then
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+  . <(asdf completion bash)
+fi
+
 . $HOME/shell/aliases.sh
 . $HOME/shell/vars.sh
+. $HOME/shell/prompt.sh

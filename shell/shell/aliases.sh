@@ -20,15 +20,8 @@ alias nom="rm -rf node_modules && npm cache clear && npm i"
 ## React dev
 alias knode='killall node'
 
-# VIM
-# if test -d /Users; then
-#   alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-# fi
-# alias vi='vim'
-alias vi='nvim'
+alias vi='vim'
 alias e="$EDITOR"
-# alias vi='lvim'
-# alias vim='lvim'
 
 # Git
 alias g="git"
@@ -92,6 +85,10 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+# Default flags for gnu tools
+alias grep="grep --color=auto"
+alias ls="ls -AXh --color=auto"
+
 # if command -v bat >/dev/null 2>&1; then
 #   alias cat="bat"
 # fi
@@ -103,10 +100,10 @@ alias ....="cd ../../.."
 # if command -v btop >/dev/null 2>&1; then
 #   alias top="btop"
 # fi
-
-if command -v eza >/dev/null 2>&1; then
-  alias ls="eza --sort=type --icons --git"
-fi
+#
+# if command -v eza >/dev/null 2>&1; then
+#   alias ls="eza --sort=type --icons --git"
+# fi
 
 if command -v xdg-open >/dev/null 2>&1; then
   alias open="xdg-open"
