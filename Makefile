@@ -2,22 +2,22 @@ shell:
 	ln -sfv ./shell/shell ~ && \
 	if [[ "$SHELL" == *zsh* ]]; then \
 	  echo "installing zshrc" && \
-	  ln -sfv ./zsh/rc ~/.zshrc; \
+	  ln -sfv ~/dotfiles/zsh/rc ~/.zshrc; \
 	else \
 	  echo "installing bashrc" && \
-	  ln -sfv ./bash/rc ~/.bashrc; \
+	  ln -sfv ~/dotfiles/bash/rc ~/.bashrc; \
 	fi
 alacritty:
 	if command -v brew > /dev/null; then \
 	  brew install --cask alacritty && \
-	  ln -sfv ./alacritty/alacritty.toml ~/.config/.alacritty.toml; \
+	  ln -sfv ~/dotfiles/alacritty/alacritty.toml ~/.config/.alacritty.toml; \
 	else \
 	  echo "skipping alacritty"; \
 	fi
 
 git:
-	ln -sfv ./git/.gitignore_global ~ && \
-	ln -sfv ./git/.gitconfig ~
+	ln -sfv ~/dotfiles/git/.gitignore_global ~ && \
+	ln -sfv ~/dotfiles/git/.gitconfig ~
 
 vim:
 	cd ./tmp && \
@@ -26,10 +26,10 @@ vim:
 	(make install) && \
 	cd ~/dotfiles && \
 	rm -rf ./tmp/vim && \
-	ln -sfv ./vim/.vimrc ~
+	ln -sfv ~/dotfiles/vim/.vimrc ~
 
 bin:
-	ls -sfv ./bin ~
+	ls -sfv ~/dotfiles/bin ~
 
 tmux:
 	ln -sfv ~/dotfiles/tmux/.tmux.conf ~

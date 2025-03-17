@@ -59,9 +59,19 @@ set autoindent
 
 " Custom keybindings
 
+function! CopyRelPath()
+	let @+ = expand("%:p")
+endfunction
+
+function! CopyAbsPath()
+	let @+ = expand("%")
+endfunction
+
 " Copy current filename to clipboard
-nmap ,cs :let @*=expand("%")<CR>
-nmap ,cl :let @*=expand("%:p")<CR>
+nmap ,cs CopyAbsolutePath
+nmap ,cl CopyRelativePath
+command! CopyRelativePath :call CopyRelPath()
+command! CopyAbsolutePath :call CopyAbsPath()
 
 " cnext and cprevious
 map <Leader>cn :cnext<CR>

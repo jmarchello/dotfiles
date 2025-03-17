@@ -38,7 +38,7 @@ fi
 
 if command -v kubectl &> /dev/null
 then
-  source <(kubectl completion zsh)
+  source <(kubectl completion bash)
   export KUBE_EDITOR="nvim"
 fi
 
