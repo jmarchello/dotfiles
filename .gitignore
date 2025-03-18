@@ -1,5 +1,6 @@
 vim/.vim/bundle/**/*
+vim/.vim/tmp/**/*
 zsh/.zsh/local/*
 .DS_Store
 helix/runtime
-tmp/**/*
+./tmp/**/*
