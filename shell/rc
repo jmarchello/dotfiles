@@ -77,3 +77,11 @@ fi
 . $HOME/shell/aliases.sh
 . $HOME/shell/vars.sh
 . $HOME/shell/prompt.sh
+
+if [[ "$-" == *i* ]]; then # if interactive shell
+  if [[ -z "$TMUX" ]]; then
+    if [[ -n "$VSCODE_WORKSPACE" ]]; then
+      exec tmux new -A -t "$VSCODE_WORKSPACE"
+    fi
+  fi
+fi

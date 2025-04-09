@@ -13,7 +13,7 @@ set laststatus=2
 
 " Shell
 set shell=/bin/bash
-set shellcmdflag="-ic"
+set shellcmdflag=-lc
 
 " Cursor settings
 highlight Cursor guibg=lightgreen
@@ -50,7 +50,6 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
 " AutoIndent
 set autoindent
@@ -102,6 +101,14 @@ set wildignore+=env/**
 set wildmenu
 set wildoptions=pum
 set path=app/**,lib/**,**
-
+set backupdir=~/.vim/tmp
 
 autocmd BufNewFile,BufReadPre * syntax enable
+
+function! SetMakeProgram()
+	if filereadable("Gemfile")
+		set makeprg=/home/jmarchello/bin/rubocop-staged
+	endif
+endfunction
+
+autocmd BufNewFile,BufReadPre * :call SetMakeProgram()
