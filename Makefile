@@ -34,4 +34,7 @@ bin:
 tmux:
 	ln -sfv ~/dotfiles/tmux/.tmux.conf ~
 
-.PHONY: shell alacritty git vim bin tmux
+starship:
+	ln -sfv ~/dotfiles/starship/starship.toml ~/.config
+
+.PHONY: shell alacritty git vim bin tmux starship

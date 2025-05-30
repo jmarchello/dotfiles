@@ -57,7 +57,7 @@ alias be="bundle exec"
 
 # Rails
 alias rc="bin/rails c"
-alias rs="bin/rails s -b 0.0.0.0"
+alias rs="bin/rails s"
 alias rr="bin/rails"
 alias rrr="bin/rails runner"
 alias rdm="bin/rails db:migrate"
@@ -75,7 +75,7 @@ alias v=vagrant
 # alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias zel=zellij
 alias eenv="source eenv_script"
-alias ai="ollama run llama3.2"
+alias ai="ollama run gemma3"
 
 alias edit="code-insiders"
 alias notes="vi ~/notes"
