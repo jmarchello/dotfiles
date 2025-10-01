@@ -10,6 +10,7 @@ alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dcom='docker-compose'
 alias dclog='docker-compose logs -f'
+alias ld='lazydocker'
 
 # Kubernetes
 alias k='kubectl'
@@ -20,7 +21,7 @@ alias nom="rm -rf node_modules && npm cache clear && npm i"
 ## React dev
 alias knode='killall node'
 
-alias vi='vim'
+alias vi='nvim'
 alias e="$EDITOR"
 
 # Git

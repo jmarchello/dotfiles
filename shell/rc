@@ -1,6 +1,6 @@
 # . $HOME/shell/prompt.sh
 
-export EDITOR="zed --wait"
+export EDITOR="nvim"
 stty erase '^?'
 
 #GPG TTY
@@ -54,6 +54,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=/opt/neovim/bin:$PATH
 export PATH="./bin:$PATH"
 
 # CDPATH
@@ -78,6 +79,8 @@ fi
 . $HOME/shell/vars.sh
 . $HOME/shell/prompt.sh
 
-if [[ "$-" == *i* ]]; then # if interactive shell
-  tmux new -A -s 0
-fi
+# if [[ "$-" == *i* ]]; then # if interactive shell
+#   if [[ -z $TMUX ]]; then
+#     tmux new -A -s 0
+#   fi
+# fi

@@ -1,6 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = zed --wait
+	editor = vim
 [user]
 	email = josh@jmarchello.com
 	name = Josh Marchello

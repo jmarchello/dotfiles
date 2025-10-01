@@ -28,6 +28,15 @@ vim:
 	rm -rf ./tmp/vim && \
 	ln -sfv ~/dotfiles/vim/.vimrc ~
 
+neovim:
+	( \
+		cd ~/Downloads && \
+		curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz && \
+		sudo tar -xzf nvim-linux-x86_64.tar.gz && \
+		sudo rm -rf /opt/neovim && \
+		sudo cp -r nvim-linux-x86_64 /opt/neovim \
+	)
+
 bin:
 	ls -sfv ~/dotfiles/bin ~
 
@@ -37,4 +46,8 @@ tmux:
 starship:
 	ln -sfv ~/dotfiles/starship/starship.toml ~/.config
 
-.PHONY: shell alacritty git vim bin tmux starship
+lazyvim:
+	ln -sfv ~/dotfiles/lazyvim/nvim ~/.config
+
+
+.PHONY: shell alacritty git vim bin tmux starship lazyvim neovim
