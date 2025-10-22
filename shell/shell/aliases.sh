@@ -21,7 +21,7 @@ alias nom="rm -rf node_modules && npm cache clear && npm i"
 ## React dev
 alias knode='killall node'
 
-alias vi='nvim'
+alias vi='vim'
 alias e="$EDITOR"
 
 # Git
