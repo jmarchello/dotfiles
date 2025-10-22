@@ -1,103 +1,95 @@
-" Start form the defaults
+vim9script
+
+# Start from the defaults
 source $VIMRUNTIME/defaults.vim
 
-" Leader
+# Leader
 nnoremap <SPACE> <Nop>
-let mapleader=" "
+g:mapleader = " "
 
-" UI
-set number "show line numbers
+# UI
+set number
 set nowrap
 set shortmess-=S
 set laststatus=2
 
-" Shell
+# Shell
 set shell=/bin/bash
 set shellcmdflag=-lc
 
-" Cursor settings
+# Cursor settings
 highlight Cursor guibg=lightgreen
 highlight iCursor guifg=white guibg=gray
 
-" Columns
+# Columns
 set colorcolumn=120
 hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 
-"Wrap at column 80 in Markdown files
+# Wrap at column 80 in Markdown files
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
-" netrw
-let g:netrw_liststyle=3
+# netrw
+g:netrw_liststyle = 3
 
-" Send more characters for redraws
+# Send more characters for redraws
 set ttyfast
 
-" window movement simplified
+# Window movement simplified
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-function GetCurrentDir()
-  let dir_array = split(getcwd(), '/')
+def GetCurrentDir(): string
+  var dir_array = split(getcwd(), '/')
   return dir_array[-1]
-endfunction
+enddef
 
-"folding settings
+# Folding settings
 set foldmethod=manual
-" set foldmethod=indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
+set foldnestmax=10
+set nofoldenable
+set nocompatible
 
-set nocompatible              " be iMproved, required
-
-" AutoIndent
+# AutoIndent
 set autoindent
-" set cindent
 
+# Custom keybindings
+def CopyRelPath()
+  @+ = expand("%:p")
+enddef
 
-" Custom keybindings
+def CopyAbsPath()
+  @+ = expand("%")
+enddef
 
-function! CopyRelPath()
-	let @+ = expand("%:p")
-endfunction
-
-function! CopyAbsPath()
-	let @+ = expand("%")
-endfunction
-
-" Copy current filename to clipboard
 nmap ,cs CopyAbsolutePath
 nmap ,cl CopyRelativePath
-command! CopyRelativePath :call CopyRelPath()
-command! CopyAbsolutePath :call CopyAbsPath()
+command! CopyRelativePath CopyRelPath()
+command! CopyAbsolutePath CopyAbsPath()
 
-" cnext and cprevious
+# cnext and cprevious
 map <Leader>cn :cnext<CR>
 map <Leader>cp :cprevious<CR>
-
 map <Leader>/ :noh<CR>
 map <Leader>e :e .<CR>
 
-" remap go to tag
+# Remap go to tag
 nmap <Leader>g <C-]>
 
-" Remove trailing whitespace on save
+# Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Find TODOs and FIXMEs
-" command! Todo noautocmd grep /TODO\|FIXME/j ** | cw
-
+# Find TODOs and FIXMEs
 command! -nargs=+ Grep execute 'silent grep <args>' | copen
 
-let g:indentLine_conceallevel=0
+g:indentLine_conceallevel = 0
 set conceallevel=0
 
-" Wildignore
+# Wildignore
 set wildignore+=**/node_modules/**
 set wildignore+=**/build/**
 set wildignore+=env/**
-
 set wildmenu
 set wildoptions=pum
 set path=app/**,lib/**,**
@@ -105,10 +97,16 @@ set backupdir=~/.vim/tmp
 
 autocmd BufNewFile,BufReadPre * syntax enable
 
-function! SetMakeProgram()
-	if filereadable("Gemfile")
-		set makeprg=/home/jmarchello/bin/rubocop-staged
-	endif
-endfunction
+def FZF()
+  var tempname = tempname()
+  execute 'silent !fzf --multi | awk ''{ print $1":1:0" }'' > ' .. fnameescape(tempname)
+  try
+    execute 'cfile ' .. tempname
+    redraw!
+  finally
+    delete(tempname)
+  endtry
+enddef
 
-autocmd BufNewFile,BufReadPre * :call SetMakeProgram()
+command! Files FZF()
+nnoremap <leader><SPACE> :Files<cr>
