@@ -1,0 +1,22 @@
+---
+- name: Set dev tools package list
+  ansible.builtin.set_fact:
+    dev_tools_packages:
+      - lazygit
+      - lazydocker
+      - zellij
+
+- name: Install dev tools (apt)
+  become: true
+  ansible.builtin.apt:
+    name: "{{ dev_tools_packages }}"
+    state: present
+    update_cache: true
+  when: ansible_os_family == "Debian"
+  ignore_errors: true
+
+- name: Install dev tools (homebrew)
+  community.general.homebrew:
+    name: "{{ dev_tools_packages }}"
+    state: present
+  when: ansible_os_family == "Darwin"

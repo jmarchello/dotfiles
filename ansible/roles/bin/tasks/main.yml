@@ -1,0 +1,7 @@
+---
+- name: Symlink bin directory
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/bin"
+    dest: "{{ ansible_env.HOME }}/bin"
+    state: link
+    force: true

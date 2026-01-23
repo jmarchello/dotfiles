@@ -1,0 +1,98 @@
+---
+- name: Check if helix is installed
+  ansible.builtin.command: which hx
+  register: hx_check
+  changed_when: false
+  failed_when: false
+
+- name: Get latest helix release version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/helix-editor/helix/releases/latest
+    return_content: true
+  register: helix_release
+  when: hx_check.rc != 0
+
+- name: Set helix version fact
+  ansible.builtin.set_fact:
+    helix_version: "{{ helix_release.json.tag_name }}"
+  when: hx_check.rc != 0
+
+- name: Download helix (Linux x86_64)
+  ansible.builtin.get_url:
+    url: "https://github.com/helix-editor/helix/releases/download/{{ helix_version }}/helix-{{ helix_version }}-x86_64-linux.tar.xz"
+    dest: "/tmp/helix-{{ helix_version }}-x86_64-linux.tar.xz"
+    mode: "0644"
+  when:
+    - hx_check.rc != 0
+    - ansible_system == "Linux"
+    - ansible_architecture == "x86_64"
+
+- name: Extract helix archive
+  ansible.builtin.unarchive:
+    src: "/tmp/helix-{{ helix_version }}-x86_64-linux.tar.xz"
+    dest: /tmp
+    remote_src: true
+  when:
+    - hx_check.rc != 0
+    - ansible_system == "Linux"
+    - ansible_architecture == "x86_64"
+
+- name: Install helix binary
+  become: true
+  ansible.builtin.copy:
+    src: "/tmp/helix-{{ helix_version }}-x86_64-linux/hx"
+    dest: /usr/local/bin/hx
+    mode: "0755"
+    remote_src: true
+  when:
+    - hx_check.rc != 0
+    - ansible_system == "Linux"
+    - ansible_architecture == "x86_64"
+
+- name: Ensure .config/helix directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/helix"
+    state: directory
+    mode: "0755"
+
+- name: Symlink helix config.toml
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/helix/config.toml"
+    dest: "{{ ansible_env.HOME }}/.config/helix/config.toml"
+    state: link
+    force: true
+
+- name: Symlink helix languages.toml
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/helix/languages.toml"
+    dest: "{{ ansible_env.HOME }}/.config/helix/languages.toml"
+    state: link
+    force: true
+
+- name: Copy helix runtime
+  ansible.builtin.copy:
+    src: "/tmp/helix-{{ helix_version }}-x86_64-linux/runtime"
+    dest: "{{ ansible_env.HOME }}/.config/helix/"
+    remote_src: true
+    mode: "0755"
+  when:
+    - hx_check.rc != 0
+    - ansible_system == "Linux"
+    - ansible_architecture == "x86_64"
+
+- name: Cleanup helix download
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "/tmp/helix-{{ helix_version }}-x86_64-linux.tar.xz"
+    - "/tmp/helix-{{ helix_version }}-x86_64-linux"
+  when:
+    - hx_check.rc != 0
+    - ansible_system == "Linux"
+
+- name: Install helix (homebrew - macOS)
+  community.general.homebrew:
+    name: helix
+    state: present
+  when: ansible_os_family == "Darwin"

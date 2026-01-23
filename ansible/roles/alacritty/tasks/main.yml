@@ -1,0 +1,19 @@
+---
+- name: Install alacritty (homebrew cask - macOS only)
+  community.general.homebrew_cask:
+    name: alacritty
+    state: present
+  when: ansible_os_family == "Darwin"
+
+- name: Ensure .config/alacritty directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/alacritty"
+    state: directory
+    mode: "0755"
+
+- name: Symlink alacritty.toml
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/alacritty/alacritty.toml"
+    dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.toml"
+    state: link
+    force: true

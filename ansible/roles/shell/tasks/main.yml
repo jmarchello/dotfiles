@@ -1,0 +1,23 @@
+---
+- name: Symlink shell directory
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/shell/shell"
+    dest: "{{ ansible_env.HOME }}/shell"
+    state: link
+    force: true
+
+- name: Symlink zshrc (when using zsh)
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/zsh/rc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    state: link
+    force: true
+  when: ansible_env.SHELL is search('zsh')
+
+- name: Symlink bashrc (when using bash)
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/bash/rc"
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    state: link
+    force: true
+  when: ansible_env.SHELL is search('bash')

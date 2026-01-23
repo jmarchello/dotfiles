@@ -1,0 +1,17 @@
+<snippet>
+  <content><![CDATA[
+# frozen_string_literal: true
+
+require 'test_helper'
+
+class ${2:TestClass} < ${1:ActiveSupport::TestCase}
+  test ${3:subject} do
+    ${4}
+  end
+end
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>testclass</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.ruby</scope>
+</snippet>

@@ -1,0 +1,26 @@
+---
+- name: Ensure sublime-text Packages directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/sublime-text/Packages"
+    state: directory
+    mode: "0755"
+
+- name: Check if User directory exists and is not a symlink
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/sublime-text/Packages/User"
+  register: sublime_user
+
+- name: Remove existing User directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/sublime-text/Packages/User"
+    state: absent
+  when:
+    - sublime_user.stat.exists
+    - not sublime_user.stat.islnk
+
+- name: Symlink sublime User config
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/subl/User"
+    dest: "{{ ansible_env.HOME }}/.config/sublime-text/Packages/User"
+    state: link
+    force: true

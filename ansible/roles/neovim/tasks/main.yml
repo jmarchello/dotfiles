@@ -1,0 +1,49 @@
+---
+- name: Check if neovim is installed
+  ansible.builtin.command: which nvim
+  register: nvim_check
+  changed_when: false
+  failed_when: false
+
+- name: Install neovim (apt)
+  become: true
+  ansible.builtin.apt:
+    name: neovim
+    state: present
+    update_cache: true
+  when:
+    - ansible_os_family == "Debian"
+    - nvim_check.rc != 0
+
+- name: Install neovim (homebrew)
+  community.general.homebrew:
+    name: neovim
+    state: present
+  when:
+    - ansible_os_family == "Darwin"
+    - nvim_check.rc != 0
+
+- name: Ensure .config directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config"
+    state: directory
+    mode: "0755"
+
+- name: Check if nvim config exists and is not a symlink
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/nvim"
+  register: nvim_config
+
+- name: Backup existing nvim config
+  ansible.builtin.command:
+    cmd: "mv {{ ansible_env.HOME }}/.config/nvim {{ ansible_env.HOME }}/.config/nvim.bak"
+  when:
+    - nvim_config.stat.exists
+    - not nvim_config.stat.islnk
+
+- name: Symlink lazyvim config
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/lazyvim/nvim"
+    dest: "{{ ansible_env.HOME }}/.config/nvim"
+    state: link
+    force: true

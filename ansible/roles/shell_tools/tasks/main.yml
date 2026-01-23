@@ -1,0 +1,36 @@
+---
+- name: Set package names for shell tools (Debian/Ubuntu)
+  ansible.builtin.set_fact:
+    shell_tools_packages:
+      - fd-find
+      - fzf
+      - bat
+      - btop
+      - eza
+      - ripgrep
+  when: ansible_os_family == "Debian"
+
+- name: Set package names for shell tools (macOS)
+  ansible.builtin.set_fact:
+    shell_tools_packages:
+      - fd
+      - fzf
+      - bat
+      - btop
+      - eza
+      - ripgrep
+  when: ansible_os_family == "Darwin"
+
+- name: Install shell tools (apt)
+  become: true
+  ansible.builtin.apt:
+    name: "{{ shell_tools_packages }}"
+    state: present
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
+- name: Install shell tools (homebrew)
+  community.general.homebrew:
+    name: "{{ shell_tools_packages }}"
+    state: present
+  when: ansible_os_family == "Darwin"

@@ -1,0 +1,14 @@
+---
+- name: Symlink gitignore_global
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/git/.gitignore_global"
+    dest: "{{ ansible_env.HOME }}/.gitignore_global"
+    state: link
+    force: true
+
+- name: Symlink gitconfig
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/git/.gitconfig"
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    state: link
+    force: true

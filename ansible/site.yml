@@ -1,0 +1,18 @@
+---
+- name: Configure dotfiles
+  hosts: localhost
+  connection: local
+  become: false
+
+  vars:
+    dotfiles_dir: "{{ playbook_dir | dirname }}"
+
+  roles:
+    - shell
+    - git
+    - vim
+    - bin
+    - tmux
+    - shell_tools
+    - alacritty
+    - sublime
