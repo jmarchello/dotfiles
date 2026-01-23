@@ -1,14 +1,16 @@
-
 {
     "clients": {
-        "ruby": {
+        "ruby-lsp": {
             "enabled": true,
-            "command": ["~/.rbenv/shims/solargraph", "stdio"],
-            "selector": "source.ruby | text.html.ruby",
+            "command": ["ruby-lsp"],
+            "selector": "source.ruby | text.html.rails",
             "initializationOptions": {
-                "diagnostics": false,
-            },
-        },
+                "enabledFeatures": {
+                    "diagnostics": true
+                },
+                "experimentalFeaturesEnabled": true
+            }
+        }
     },
-    "inhibit_word_completions": false,
+    "lsp_format_on_save": true
 }

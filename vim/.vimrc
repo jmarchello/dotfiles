@@ -12,6 +12,7 @@ set number
 set nowrap
 set shortmess-=S
 set laststatus=2
+set mouse=
 
 # Shell
 set shell=/bin/bash
@@ -71,6 +72,7 @@ command! CopyAbsolutePath CopyAbsPath()
 # cnext and cprevious
 map <Leader>cn :cnext<CR>
 map <Leader>cp :cprevious<CR>
+
 map <Leader>/ :noh<CR>
 map <Leader>e :e .<CR>
 

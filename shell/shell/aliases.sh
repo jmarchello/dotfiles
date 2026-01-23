@@ -44,6 +44,11 @@ alias grev='git review'
 # Sqlite
 alias db="sqlite3"
 
+# Postgresql
+alias psql14='/usr/lib/postgresql/14/bin/psql'
+alias pg_restore14='/usr/lib/postgresql/14/bin/pg_restore'
+alias pg_dump14='/usr/lib/postgresql/14/bin/pg_dump'
+
 # Fossil
 alias ff='fossil'
 
@@ -77,6 +82,7 @@ alias v=vagrant
 alias zel=zellij
 alias eenv="source eenv_script"
 alias ai="ollama run gemma3"
+alias cc="claude"
 
 alias edit="code-insiders"
 alias notes="vi ~/notes"

@@ -18,3 +18,5 @@ node_modules
 dump.rdb
 .mise.toml
 tags
+*.sublime-project
+*.sublime-workspace

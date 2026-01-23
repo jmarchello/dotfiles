@@ -1,5 +1,5 @@
-import sublime
-import sublime_plugin
+# import sublime
+# import sublime_plugin
 
 
 # class RevealInSidebarListener(sublime_plugin.EventListener):

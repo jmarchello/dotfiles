@@ -1,6 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = vim
+	editor = subl --wait
 [user]
 	email = josh@jmarchello.com
 	name = Josh Marchello

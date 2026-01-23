@@ -1,15 +1,8 @@
 {
 	"color_scheme": "Mariana.sublime-color-scheme",
-	"font_size": 13,
-	"ignored_packages":
-	[
-		"A File Icon",
-		"GitSavvy",
-		"LSP-gopls",
-		"LSP-yaml",
-		"Terminal",
+	"font_size": 11,
+	"ignored_packages": [
 		"Vintage",
-		"zzz A File Icon zzz",
 	],
 	"trim_trailing_white_space_on_save": "all",
 	"ensure_newline_at_eof_on_save": true,
@@ -17,6 +10,11 @@
 	"tab_size": 2,
 	"theme": "Default.sublime-theme",
 	"find_selected_text": true,
-	"rulers": [120],
+	"rulers": [
+		120
+	],
 	"word_wrap": true,
+	"index_files": true,
+	"remember_full_screen": true,
+	"find_in_files_max_result_size": 0,
 }

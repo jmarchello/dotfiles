@@ -28,6 +28,12 @@
 	"rules":
 	[
 		{
+			"background": "#0aa",
+			"foreground": "#0aa1",
+			"name": "GitSavvy Multiselect Marker",
+			"scope": "git_savvy.multiselect"
+		},
+		{
 			"background": "#199",
 			"foreground": "#1991",
 			"name": "GitSavvy Highlighted Matching Commit",
@@ -66,6 +72,11 @@
 			"foreground": "var(green)",
 			"name": "String",
 			"scope": "string"
+		},
+		{
+			"foreground": "var(blue5)",
+			"name": "String Key",
+			"scope": "meta.mapping.key string - meta.mapping.key meta meta | meta.mapping.key meta.mapping.key string - meta.mapping.key meta.mapping.key meta meta"
 		},
 		{
 			"foreground": "var(blue5)",
@@ -344,6 +355,14 @@
 		{
 			"foreground": "var(red)",
 			"scope": "message.error"
+		},
+		{
+			"foreground": "var(orange2)",
+			"scope": "message.warning"
+		},
+		{
+			"foreground": "var(blue)",
+			"scope": "message.info"
 		},
 		{
 			"background": "hsla(357, 45%, 60%, 0.15)",
