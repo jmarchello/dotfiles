@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /home/jmarchello/dotfiles status)",
+      "Bash(git -C /home/jmarchello/dotfiles diff)"
+    ]
+  }
+}
