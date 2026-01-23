@@ -1,4 +1,18 @@
 ---
+- name: Install git (apt)
+  become: true
+  ansible.builtin.apt:
+    name: git
+    state: present
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
+- name: Install git (homebrew)
+  community.general.homebrew:
+    name: git
+    state: present
+  when: ansible_os_family == "Darwin"
+
 - name: Symlink gitignore_global
   ansible.builtin.file:
     src: "{{ dotfiles_dir }}/git/.gitignore_global"

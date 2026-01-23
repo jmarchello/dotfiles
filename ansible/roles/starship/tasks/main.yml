@@ -1,4 +1,18 @@
 ---
+- name: Install starship (apt)
+  become: true
+  ansible.builtin.apt:
+    name: starship
+    state: present
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
+- name: Install starship (homebrew)
+  community.general.homebrew:
+    name: starship
+    state: present
+  when: ansible_os_family == "Darwin"
+
 - name: Ensure .config directory exists
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.config"

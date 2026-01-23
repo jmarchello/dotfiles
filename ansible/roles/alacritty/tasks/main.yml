@@ -1,5 +1,13 @@
 ---
-- name: Install alacritty (homebrew cask - macOS only)
+- name: Install alacritty (apt)
+  become: true
+  ansible.builtin.apt:
+    name: alacritty
+    state: present
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
+- name: Install alacritty (homebrew cask - macOS)
   community.general.homebrew_cask:
     name: alacritty
     state: present

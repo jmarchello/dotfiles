@@ -1,4 +1,18 @@
 ---
+- name: Install tmux (apt)
+  become: true
+  ansible.builtin.apt:
+    name: tmux
+    state: present
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
+- name: Install tmux (homebrew)
+  community.general.homebrew:
+    name: tmux
+    state: present
+  when: ansible_os_family == "Darwin"
+
 - name: Symlink tmux.conf
   ansible.builtin.file:
     src: "{{ dotfiles_dir }}/tmux/.tmux.conf"
