@@ -1,0 +1,9 @@
+[Unit]
+Description=ClamAV full system scan
+After=network-online.target clamav-freshclam.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/usr/bin/clamscan --recursive --infected --exclude-dir="^/proc" --exclude-dir="^/sys" --exclude-dir="^/dev" --exclude-dir="^/run" --exclude-dir="^/snap" --exclude-dir="^/var/log/clamav" / > /var/log/clamav/scan-$(date +%%Y-%%m-%%d).log 2>&1 || true'
+Nice=19
+IOSchedulingClass=idle

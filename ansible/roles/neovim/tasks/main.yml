@@ -10,7 +10,6 @@
   ansible.builtin.apt:
     name: neovim
     state: present
-    update_cache: true
   when:
     - ansible_os_family == "Debian"
     - nvim_check.rc != 0

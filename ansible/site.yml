@@ -3,16 +3,29 @@
   hosts: localhost
   connection: local
   become: false
+  become_method: sudo
+  become_flags: "-S"
+
+  environment:
+    DEBIAN_FRONTEND: noninteractive
 
   vars:
     dotfiles_dir: "{{ playbook_dir | dirname }}"
 
+  pre_tasks:
+    - name: Update apt cache
+      become: true
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      when: ansible_os_family == "Debian"
+
   roles:
     - shell
     - git
-    - vim
     - bin
     - tmux
     - shell_tools
     - alacritty
     - sublime
+    - clamav

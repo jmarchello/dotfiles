@@ -4,7 +4,6 @@
   ansible.builtin.apt:
     name: tmux
     state: present
-    update_cache: true
   when: ansible_os_family == "Debian"
 
 - name: Install tmux (homebrew)

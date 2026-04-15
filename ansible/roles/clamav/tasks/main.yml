@@ -1,0 +1,62 @@
+---
+- name: Install clamav (apt)
+  become: true
+  ansible.builtin.apt:
+    name:
+      - clamav
+      - clamav-daemon
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Install clamav (homebrew)
+  community.general.homebrew:
+    name: clamav
+    state: present
+  when: ansible_os_family == "Darwin"
+
+- name: Enable and start clamav-freshclam service
+  become: true
+  ansible.builtin.systemd:
+    name: clamav-freshclam
+    enabled: true
+    state: started
+  when: ansible_os_family == "Debian"
+
+- name: Ensure clamav log directory exists
+  become: true
+  ansible.builtin.file:
+    path: /var/log/clamav
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  when: ansible_os_family == "Debian"
+
+- name: Install clamav-scan systemd service
+  become: true
+  ansible.builtin.copy:
+    src: clamav-scan.service
+    dest: /etc/systemd/system/clamav-scan.service
+    owner: root
+    group: root
+    mode: "0644"
+  when: ansible_os_family == "Debian"
+
+- name: Install clamav-scan systemd timer
+  become: true
+  ansible.builtin.copy:
+    src: clamav-scan.timer
+    dest: /etc/systemd/system/clamav-scan.timer
+    owner: root
+    group: root
+    mode: "0644"
+  when: ansible_os_family == "Debian"
+
+- name: Enable and start clamav-scan timer
+  become: true
+  ansible.builtin.systemd:
+    name: clamav-scan.timer
+    enabled: true
+    state: started
+    daemon_reload: true
+  when: ansible_os_family == "Debian"

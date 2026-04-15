@@ -4,7 +4,6 @@
   ansible.builtin.apt:
     name: alacritty
     state: present
-    update_cache: true
   when: ansible_os_family == "Debian"
 
 - name: Install alacritty (homebrew cask - macOS)

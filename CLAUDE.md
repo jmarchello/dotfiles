@@ -10,12 +10,12 @@ Personal dotfiles repository for configuring development environments across Lin
 
 ### Apply all configurations
 ```bash
-cd ansible && ansible-playbook site.yml
+cd ansible && ansible-playbook site.yml --ask-become-pass
 ```
 
 ### Apply a specific role only
 ```bash
-cd ansible && ansible-playbook site.yml --tags <role-name>
+cd ansible && ansible-playbook site.yml --tags <role-name> --ask-become-pass
 ```
 
 Available role tags: shell, git, vim, bin, tmux, shell_tools, alacritty, sublime, neovim, helix, starship, dev_tools

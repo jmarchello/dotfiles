@@ -26,7 +26,6 @@
   ansible.builtin.apt:
     name: "{{ shell_tools_packages }}"
     state: present
-    update_cache: true
   when: ansible_os_family == "Debian"
 
 - name: Install shell tools (homebrew)

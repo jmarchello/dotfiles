@@ -20,3 +20,4 @@ dump.rdb
 tags
 *.sublime-project
 *.sublime-workspace
+.claude/settings.local.json

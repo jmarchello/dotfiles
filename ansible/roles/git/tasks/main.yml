@@ -2,9 +2,8 @@
 - name: Install git (apt)
   become: true
   ansible.builtin.apt:
-    name: git
+    name: build-essential
     state: present
-    update_cache: true
   when: ansible_os_family == "Debian"
 
 - name: Install git (homebrew)

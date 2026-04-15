@@ -15,4 +15,4 @@ install-ansible: check-python
 	@echo "Ansible found: $$(ansible --version | head -n1)"
 
 ansible-run: install-ansible
-	cd ansible && ansible-playbook site.yml
+	cd ansible && ansible-playbook site.yml --ask-become-pass
