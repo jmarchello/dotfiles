@@ -20,7 +20,7 @@
 
 - name: Symlink starship.toml
   ansible.builtin.file:
-    src: "{{ dotfiles_dir }}/starship/starship.toml"
+    src: "{{ dotfiles_dir }}/config/starship/starship.toml"
     dest: "{{ ansible_env.HOME }}/.config/starship.toml"
     state: link
     force: true

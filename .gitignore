@@ -1,6 +1,5 @@
-vim/.vim/bundle/**/*
-vim/.vim/tmp/**/*
-zsh/.zsh/local/*
+config/vim/.vim/bundle/**/*
+config/vim/.vim/tmp/**/*
+config/zsh/.zsh/local/*
 .DS_Store
-helix/runtime
-./tmp/**/*
+config/helix/runtime

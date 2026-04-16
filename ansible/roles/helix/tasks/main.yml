@@ -57,14 +57,14 @@
 
 - name: Symlink helix config.toml
   ansible.builtin.file:
-    src: "{{ dotfiles_dir }}/helix/config.toml"
+    src: "{{ dotfiles_dir }}/config/helix/config.toml"
     dest: "{{ ansible_env.HOME }}/.config/helix/config.toml"
     state: link
     force: true
 
 - name: Symlink helix languages.toml
   ansible.builtin.file:
-    src: "{{ dotfiles_dir }}/helix/languages.toml"
+    src: "{{ dotfiles_dir }}/config/helix/languages.toml"
     dest: "{{ ansible_env.HOME }}/.config/helix/languages.toml"
     state: link
     force: true

@@ -42,7 +42,7 @@
 
 - name: Symlink lazyvim config
   ansible.builtin.file:
-    src: "{{ dotfiles_dir }}/lazyvim/nvim"
+    src: "{{ dotfiles_dir }}/config/lazyvim/nvim"
     dest: "{{ ansible_env.HOME }}/.config/nvim"
     state: link
     force: true

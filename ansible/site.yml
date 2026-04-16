@@ -28,4 +28,5 @@
     - shell_tools
     - alacritty
     - sublime
+    - sublime-merge
     - clamav

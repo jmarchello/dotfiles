@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(git -C /home/jmarchello/dotfiles status)",
-      "Bash(git -C /home/jmarchello/dotfiles diff)"
+      "Bash(git -C /home/jmarchello/dotfiles diff)",
+      "Bash(ls -1d /home/jmarchello/dotfiles/*/)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git mv *)",
+      "Read(//home/jmarchello/.config/sublime-merge/Packages/User/**)",
+      "Read(//home/jmarchello/.config/sublime-merge/**)",
+      "Bash(snap list *)",
+      "Bash(dpkg -l)"
     ]
   }
 }

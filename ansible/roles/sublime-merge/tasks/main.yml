@@ -1,0 +1,39 @@
+---
+- name: Install sublime-merge (apt)
+  become: true
+  ansible.builtin.apt:
+    name: sublime-merge
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Install sublime-merge (homebrew cask)
+  community.general.homebrew_cask:
+    name: sublime-merge
+    state: present
+  when: ansible_os_family == "Darwin"
+
+- name: Ensure sublime-merge Packages directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/sublime-merge/Packages"
+    state: directory
+    mode: "0755"
+
+- name: Check if User directory exists and is not a symlink
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/sublime-merge/Packages/User"
+  register: smerge_user
+
+- name: Remove existing User directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/sublime-merge/Packages/User"
+    state: absent
+  when:
+    - smerge_user.stat.exists
+    - not smerge_user.stat.islnk
+
+- name: Symlink sublime-merge User config
+  ansible.builtin.file:
+    src: "{{ dotfiles_dir }}/config/sublime-merge/User"
+    dest: "{{ ansible_env.HOME }}/.config/sublime-merge/Packages/User"
+    state: link
+    force: true

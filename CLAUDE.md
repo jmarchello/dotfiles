@@ -18,7 +18,7 @@ cd ansible && ansible-playbook site.yml --ask-become-pass
 cd ansible && ansible-playbook site.yml --tags <role-name> --ask-become-pass
 ```
 
-Available role tags: shell, git, vim, bin, tmux, shell_tools, alacritty, sublime, neovim, helix, starship, dev_tools
+Available role tags: shell, git, vim, bin, tmux, shell_tools, alacritty, sublime, sublime_merge, neovim, helix, starship, dev_tools
 
 ## Architecture
 
@@ -31,23 +31,23 @@ Each role typically:
 3. Installs packages when needed (using apt on Debian, homebrew on macOS)
 
 ### Directory Structure Pattern
-Configuration for each tool lives in its own directory:
-- `vim/` → Vim configuration (`.vimrc` in Vim9script format)
-- `nvim/` → Neovim configuration (Lua-based)
-- `lazyvim/nvim/` → LazyVim starter configuration (symlinked as primary nvim config)
-- `shell/` → Shared shell configuration sourced by both bash and zsh
-- `zsh/` and `bash/` → Shell-specific rc files
-- `tmux/`, `alacritty/`, `starship/`, `helix/`, `subl/`, `git/` → Tool-specific configs
+Configuration for each tool lives in its own directory under `config/`:
+- `config/vim/` → Vim configuration (`.vimrc` in Vim9script format)
+- `config/nvim/` → Neovim configuration (Lua-based)
+- `config/lazyvim/nvim/` → LazyVim starter configuration (symlinked as primary nvim config)
+- `config/shell/` → Shared shell configuration sourced by both bash and zsh
+- `config/zsh/` and `config/bash/` → Shell-specific rc files
+- `config/tmux/`, `config/alacritty/`, `config/starship/`, `config/helix/`, `config/subl/`, `config/git/` → Tool-specific configs
 
 ### Shell Configuration
-The `shell/` directory contains shared configuration:
-- `shell/aliases.sh` - Command aliases
-- `shell/vars.sh` - Environment variables (sets EDITOR to Sublime Text)
-- `shell/prompt.sh` - Prompt configuration
+The `config/shell/` directory contains shared configuration:
+- `config/shell/aliases.sh` - Command aliases
+- `config/shell/vars.sh` - Environment variables (sets EDITOR to Sublime Text)
+- `config/shell/prompt.sh` - Prompt configuration
 
-Shell rc files (`zsh/rc`, `bash/rc`) source the shared `shell/` directory.
+Shell rc files (`config/zsh/rc`, `config/bash/rc`) source the shared `config/shell/` directory.
 
 ### Multi-Editor Setup
-- **Primary**: Sublime Text (`subl/User/` contains settings, snippets, keybindings)
+- **Primary**: Sublime Text (`config/subl/User/` contains settings, snippets, keybindings)
 - **Secondary**: Vim (`.vimrc` uses Vim9script)
 - **Tertiary**: Neovim (LazyVim configuration)

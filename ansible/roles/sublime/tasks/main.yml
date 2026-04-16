@@ -1,9 +1,8 @@
 ---
-- name: Install sublime-text (snap)
+- name: Install sublime-text (apt)
   become: true
-  community.general.snap:
+  ansible.builtin.apt:
     name: sublime-text
-    classic: true
     state: present
   when: ansible_os_family == "Debian"
 
@@ -34,7 +33,7 @@
 
 - name: Symlink sublime User config
   ansible.builtin.file:
-    src: "{{ dotfiles_dir }}/subl/User"
+    src: "{{ dotfiles_dir }}/config/subl/User"
     dest: "{{ ansible_env.HOME }}/.config/sublime-text/Packages/User"
     state: link
     force: true

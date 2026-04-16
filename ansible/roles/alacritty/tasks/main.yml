@@ -20,7 +20,7 @@
 
 - name: Symlink alacritty.toml
   ansible.builtin.file:
-    src: "{{ dotfiles_dir }}/alacritty/alacritty.toml"
+    src: "{{ dotfiles_dir }}/config/alacritty/alacritty.toml"
     dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.toml"
     state: link
     force: true

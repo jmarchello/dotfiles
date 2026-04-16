@@ -14,7 +14,7 @@
 
 - name: Symlink tmux.conf
   ansible.builtin.file:
-    src: "{{ dotfiles_dir }}/tmux/.tmux.conf"
+    src: "{{ dotfiles_dir }}/config/tmux/.tmux.conf"
     dest: "{{ ansible_env.HOME }}/.tmux.conf"
     state: link
     force: true
