@@ -65,6 +65,13 @@ def session_urls(session):
 
 
 def fetch(urls):
+    out = []
+    for i in range(0, len(urls), 100):
+        out += fetch_batch(urls[i:i + 100])
+    return out
+
+
+def fetch_batch(urls):
     parts = []
     for i, url in enumerate(urls):
         owner, name, number = PR_URL.match(url).groups()
@@ -82,7 +89,13 @@ def fetch(urls):
 def main():
     cmd, args = sys.argv[1], sys.argv[2:]
     try:
-        if cmd == "scan":
+        if cmd == "scan-many":
+            results = {}
+            for address in args:
+                session = session_id(address)
+                results[address] = {"session": session, "urls": session_urls(session) if session else []}
+            print(json.dumps({"results": results}))
+        elif cmd == "scan":
             session = session_id(args[0])
             print(json.dumps({"session": session, "urls": session_urls(session) if session else []}))
         elif cmd == "fetch":

@@ -83,16 +83,17 @@ export function store(key, value) {
   } catch {}
 }
 
-export function section(c, { id, title, open, toggle, badge, grow, max }, body) {
+export function section(c, { id, title, open, toggle, badge, extra, grow, max }, body) {
   return v_flex().id(`halo-sec-${id}`).min_h(0).py(6).mx(8).mb(8).bg(c.plate).border_1().border_color(c.hudEdge)
     .when(open && grow, (el) => el.flex_1())
     .when(!(open && grow), (el) => el.flex_none())
     .when(open && !grow && Boolean(max), (el) => el.max_h(max))
-    .child(h_flex().id(`halo-sec-${id}-head`).flex_none().px(12).pb(open ? 4 : 0).gap(6).items_center().cursor_pointer()
-      .on_click((_e, cx) => toggle(cx))
-      .child(div().w(8).font_family(HUD).text_size(9).text_color(c.armorBright).child(open ? "▾" : "▸"))
-      .child(label(title, c))
-      .child(div().flex_1())
+    .child(h_flex().flex_none().px(12).pb(open ? 4 : 0).gap(6).items_center()
+      .child(h_flex().id(`halo-sec-${id}-head`).flex_1().min_w(0).gap(6).items_center().cursor_pointer()
+        .on_click((_e, cx) => toggle(cx))
+        .child(div().w(8).font_family(HUD).text_size(9).text_color(c.armorBright).child(open ? "▾" : "▸"))
+        .child(label(title, c)))
+      .when(Boolean(extra), (el) => el.child(extra))
       .when(Boolean(badge), (el) => el.child(badge)))
     .when(open, (el) => body(el));
 }
