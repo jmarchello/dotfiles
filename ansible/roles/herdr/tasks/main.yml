@@ -1,0 +1,31 @@
+---
+- name: Ensure herdr-app and herdr-sessions directories exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ ansible_env.HOME }}/.config/herdr-app"
+    - "{{ ansible_env.HOME }}/.local/share/herdr-sessions"
+    - "{{ ansible_env.HOME }}/.claude/hooks"
+
+- name: Copy herdr-app config, layouts, themes and mods
+  ansible.builtin.copy:
+    src: "{{ dotfiles_dir }}/config/herdr-app/"
+    dest: "{{ ansible_env.HOME }}/.config/herdr-app/"
+    mode: preserve
+
+- name: Copy herdr-sessions scripts
+  ansible.builtin.copy:
+    src: "{{ dotfiles_dir }}/config/herdr-sessions/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.local/share/herdr-sessions/{{ item }}"
+    mode: "0755"
+  loop:
+    - session_prs.py
+    - resume.py
+
+- name: Copy Claude session hook for herdr-app
+  ansible.builtin.copy:
+    src: "{{ dotfiles_dir }}/config/herdr-sessions/claude-hook.sh"
+    dest: "{{ ansible_env.HOME }}/.claude/hooks/herdr-app-session.sh"
+    mode: "0755"

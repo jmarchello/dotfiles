@@ -18,7 +18,7 @@ cd ansible && ansible-playbook site.yml --ask-become-pass
 cd ansible && ansible-playbook site.yml --tags <role-name> --ask-become-pass
 ```
 
-Available role tags: shell, git, vim, bin, tmux, shell_tools, alacritty, sublime, sublime_merge, neovim, helix, starship, dev_tools
+Available role tags: shell, git, vim, bin, tmux, shell_tools, alacritty, sublime, sublime_merge, neovim, helix, starship, dev_tools, herdr
 
 ## Architecture
 
@@ -38,6 +38,13 @@ Configuration for each tool lives in its own directory under `config/`:
 - `config/shell/` → Shared shell configuration sourced by both bash and zsh
 - `config/zsh/` and `config/bash/` → Shell-specific rc files
 - `config/tmux/`, `config/alacritty/`, `config/starship/`, `config/helix/`, `config/subl/`, `config/git/` → Tool-specific configs
+
+### herdr-app
+`config/herdr-app/` holds the herdr-app keybinds, settings, the Halo layout and theme, and personal mods (`halo`, `prefix`, `tab-move-left`, `tab-move-right`). `config/herdr-sessions/` holds the session PR lookup, the resume-after-reboot watcher, and the Claude `SessionStart`/`SessionEnd` hook.
+
+The `herdr` role copies these into `~/.config/herdr-app/`, `~/.local/share/herdr-sessions/` and `~/.claude/hooks/` instead of symlinking: herdr-app does not live-reload files edited through symlinks. After changing herdr files on the machine, run `make herdr-sync` to copy them back into the repo before committing. A new mod folder must be copied into `config/herdr-app/mods/` once; after that the sync picks it up.
+
+Not managed by the role: the Hyprland autostart line that runs `resume.py`, and the hook entries in `~/.claude/settings.json`.
 
 ### Shell Configuration
 The `config/shell/` directory contains shared configuration:

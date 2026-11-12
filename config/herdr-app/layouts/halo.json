@@ -1,0 +1,121 @@
+{
+  "id": "root",
+  "type": "column",
+  "titlebar": "none",
+  "theme": "halo",
+  "ui_font": "Orbitron",
+  "font": "JetBrains Mono",
+  "terminal_padding": [
+    10,
+    8
+  ],
+  "background": {
+    "image": "mods/halo/art/armor.svg",
+    "fit": "cover"
+  },
+  "preview": "layouts/halo.svg",
+  "children": [
+    {
+      "id": "visor",
+      "type": "column",
+      "background": {
+        "image": "mods/halo/art/hud-visor.svg",
+        "fit": "cover"
+      },
+      "radius": 0,
+      "padding": 0,
+      "children": [
+        {
+          "id": "hud-top",
+          "type": "block",
+          "size": {
+            "px": 54
+          },
+          "window_drag": true,
+          "content": {
+            "mod": "halo",
+            "props": {
+              "role": "top"
+            }
+          }
+        },
+        {
+          "id": "body",
+          "type": "row",
+          "resizable": false,
+          "children": [
+            {
+              "id": "tracker",
+              "type": "block",
+              "size": {
+                "px": 232
+              },
+              "content": {
+                "mod": "halo",
+                "props": {
+                  "role": "tracker"
+                }
+              }
+            },
+            {
+              "id": "main",
+              "type": "block",
+              "content": {
+                "tab": "active",
+                "pane": {
+                  "gap": 10,
+                  "radius": 0,
+                  "background": "#00000000",
+                  "lone": true,
+                  "border": {
+                    "width": 1,
+                    "color": "#3fc8e440"
+                  },
+                  "focus": {
+                    "width": 1,
+                    "color": "#f0b443"
+                  },
+                  "header": {
+                    "content": {
+                      "mod": "halo",
+                      "props": {
+                        "role": "pane"
+                      }
+                    },
+                    "height": 28,
+                    "position": "top",
+                    "reveal": "always"
+                  }
+                }
+              },
+              "padding": 8
+            }
+          ],
+          "padding": [
+            0,
+            12
+          ],
+          "border": {
+            "width": 2,
+            "color": "#3fc8e4aa"
+          }
+        },
+        {
+          "id": "hud-status",
+          "type": "block",
+          "size": {
+            "px": 30
+          },
+          "content": {
+            "mod": "halo",
+            "props": {
+              "role": "status"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "terminal_opacity": 0.55,
+  "padding": 24
+}

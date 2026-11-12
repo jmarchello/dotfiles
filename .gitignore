@@ -3,3 +3,6 @@ config/vim/.vim/tmp/**/*
 config/zsh/.zsh/local/*
 .DS_Store
 config/helix/runtime
+config/herdr-app/mods/*/jsconfig.json
+config/herdr-app/mods/*/gpui-kit.d.ts
+__pycache__/
