@@ -1,6 +1,6 @@
 import { div } from "gpui-kit";
 import { h_flex } from "gpui-base";
-import { agents, spaces, focused, panes } from "herdr";
+import { spaces, focused, panes, shared } from "herdr";
 import { HUD, palette, chamfer, rims } from "./hud.js";
 
 function counter(c, word, value, color) {
@@ -17,16 +17,14 @@ export default class Status {
 
   render() {
     const c = palette();
-    const all = agents();
     const tabs = spaces().reduce((n, s) => n + s.tabs.length, 0);
     const pane = panes().find((p) => p.pane === focused()?.pane);
     const time = `${String(this.now.getHours()).padStart(2, "0")}:${String(this.now.getMinutes()).padStart(2, "0")}`;
     return h_flex().id("halo-status").relative().size_full().px(28).gap(18).items_center()
       .bg(c.panel)
-      .child(counter(c, "AMMO", all.length, c.gold))
-      .child(counter(c, "ENGAGED", all.filter((a) => a.status === "working").length, c.visor))
-      .child(counter(c, "HOSTILE", all.filter((a) => a.status === "blocked").length, c.hostile))
-      .child(counter(c, "GRENADES", tabs, c.plasma))
+      .child(counter(c, "TABS", tabs, c.gold))
+      .child(counter(c, "SPACES", spaces().length, c.visor))
+      .child(counter(c, "OPEN PRS", shared("halo.prs") ?? "--", c.plasma))
       .child(div().flex_1())
       .when(Boolean(pane?.branch), (el) => el.child(div().text_size(11).text_color(c.dim).child(`⎇ ${pane.branch}`)))
       .child(div().font_family(HUD).text_size(12).font_weight(700).text_color(c.gold).child(time))

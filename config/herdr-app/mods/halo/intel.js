@@ -1,6 +1,6 @@
 import { div } from "gpui-kit";
 import { v_flex, h_flex } from "gpui-base";
-import { agents, focused, exec, home, notify, run } from "herdr";
+import { agents, focused, exec, home, notify, run, setShared, shared } from "herdr";
 import { HUD, BODY, stored, store, section } from "./hud.js";
 
 const SCAN_EVERY = 10000;
@@ -38,15 +38,13 @@ export default class Intel {
     this.allScannedAt = 0;
     this.allFetchedAt = 0;
     cx.timer.every(2000, (cx) => {
-      if (this.all) {
-        if (Date.now() - this.allScannedAt > SCAN_ALL_EVERY) this.updateAll(cx, false);
-        return;
-      }
+      if (Date.now() - this.allScannedAt > SCAN_ALL_EVERY) this.updateAll(cx, false);
+      if (this.all) return;
       const a = this.agent();
       if (a && (a.address !== this.address || Date.now() - this.scannedAt > SCAN_EVERY)) this.update(cx, false);
     });
-    if (this.all) this.updateAll(cx, true);
-    else this.update(cx, true);
+    this.updateAll(cx, true);
+    if (!this.all) this.update(cx, true);
   }
 
   agent() {
@@ -111,6 +109,7 @@ export default class Intel {
         this.allRows = urls.map((u) => ({ pr: this.cache[u], address: owner[u] }))
           .filter((r) => r.pr?.state === "OPEN")
           .sort((x, y) => (y.pr.updatedAt ?? "").localeCompare(x.pr.updatedAt ?? ""));
+        if (shared("halo.prs") !== this.allRows.length) setShared("halo.prs", this.allRows.length);
         this.error = null;
       } catch (e) {
         this.error = String(e?.message ?? e);
