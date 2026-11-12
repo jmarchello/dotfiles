@@ -23,6 +23,6 @@ HERDR_SESSIONS := $(HOME)/.local/share/herdr-sessions
 herdr-sync:
 	@cd config/herdr-app && for f in keys.json settings.json layouts/* themes/*; do cp "$(HERDR_LIVE)/$$f" "$$f"; done
 	@for m in config/herdr-app/mods/*/; do rsync -a --delete --exclude jsconfig.json --exclude gpui-kit.d.ts --exclude __pycache__ "$(HERDR_LIVE)/mods/$$(basename $$m)/" "$$m"; done
-	@cp $(HERDR_SESSIONS)/session_prs.py $(HERDR_SESSIONS)/resume.py config/herdr-sessions/
+	@cp $(HERDR_SESSIONS)/session_prs.py $(HERDR_SESSIONS)/daemon.py config/herdr-sessions/
 	@cp $(HOME)/.claude/hooks/herdr-app-session.sh config/herdr-sessions/claude-hook.sh
 	@git status --short config/herdr-app config/herdr-sessions

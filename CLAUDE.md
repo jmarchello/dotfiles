@@ -40,11 +40,11 @@ Configuration for each tool lives in its own directory under `config/`:
 - `config/tmux/`, `config/alacritty/`, `config/starship/`, `config/helix/`, `config/subl/`, `config/git/` → Tool-specific configs
 
 ### herdr-app
-`config/herdr-app/` holds the herdr-app keybinds, settings, the Halo layout and theme, and personal mods (`halo`, `prefix`, `tab-move-left`, `tab-move-right`). `config/herdr-sessions/` holds the session PR lookup, the resume-after-reboot watcher, and the Claude `SessionStart`/`SessionEnd` hook.
+`config/herdr-app/` holds the herdr-app keybinds, settings, the Halo layout and theme, and personal mods (`halo`, `prefix`, `tab-move-left`, `tab-move-right`). `config/herdr-sessions/` holds the session PR lookup, the background daemon (resumes Claude sessions after a reboot and names tabs after their Claude session), and the Claude `SessionStart`/`SessionEnd` hook.
 
 The `herdr` role copies these into `~/.config/herdr-app/`, `~/.local/share/herdr-sessions/` and `~/.claude/hooks/` instead of symlinking: herdr-app does not live-reload files edited through symlinks. After changing herdr files on the machine, run `make herdr-sync` to copy them back into the repo before committing. A new mod folder must be copied into `config/herdr-app/mods/` once; after that the sync picks it up.
 
-Not managed by the role: the Hyprland autostart line that runs `resume.py`, and the hook entries in `~/.claude/settings.json`.
+Not managed by the role: the Hyprland autostart line that runs `daemon.py`, and the hook entries in `~/.claude/settings.json`.
 
 ### Shell Configuration
 The `config/shell/` directory contains shared configuration:

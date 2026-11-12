@@ -22,7 +22,7 @@
     mode: "0755"
   loop:
     - session_prs.py
-    - resume.py
+    - daemon.py
 
 - name: Copy Claude session hook for herdr-app
   ansible.builtin.copy:
