@@ -29,3 +29,14 @@
     src: "{{ dotfiles_dir }}/config/herdr-sessions/claude-hook.sh"
     dest: "{{ ansible_env.HOME }}/.claude/hooks/herdr-app-session.sh"
     mode: "0755"
+
+- name: Copy Hyprland autostart and bindings for herdr-app
+  ansible.builtin.copy:
+    src: "{{ dotfiles_dir }}/config/hypr/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/.config/hypr/{{ item }}"
+    mode: "0644"
+    backup: true
+  loop:
+    - autostart.lua
+    - bindings.lua
+  when: ansible_system == "Linux"

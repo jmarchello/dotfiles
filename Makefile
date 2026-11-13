@@ -25,4 +25,5 @@ herdr-sync:
 	@for m in config/herdr-app/mods/*/; do rsync -a --delete --exclude jsconfig.json --exclude gpui-kit.d.ts --exclude __pycache__ "$(HERDR_LIVE)/mods/$$(basename $$m)/" "$$m"; done
 	@cp $(HERDR_SESSIONS)/session_prs.py $(HERDR_SESSIONS)/daemon.py config/herdr-sessions/
 	@cp $(HOME)/.claude/hooks/herdr-app-session.sh config/herdr-sessions/claude-hook.sh
-	@git status --short config/herdr-app config/herdr-sessions
+	@cp $(HOME)/.config/hypr/autostart.lua $(HOME)/.config/hypr/bindings.lua config/hypr/
+	@git status --short config/herdr-app config/herdr-sessions config/hypr
