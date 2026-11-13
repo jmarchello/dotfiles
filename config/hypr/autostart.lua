@@ -21,7 +21,7 @@ end
 hl.on("hyprland.start", function()
   hl.exec_cmd("google-chrome-stable", { workspace = "1 silent" })
   hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/herdr-app", { workspace = "2 silent" })
-  hl.exec_cmd("1password", { workspace = "5 silent" })
+  hl.exec_cmd("1password", { workspace = "5 silent", tile = true })
 
   first_window_to("chrome-ompifgpmddkgmclendfeacglnodjjndh-Default", "3")
   first_window_to("chrome-faolnafnngnfdaknnbpnkhgohbobgegn-Default", "3")
