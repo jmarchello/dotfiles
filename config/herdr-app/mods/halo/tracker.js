@@ -6,8 +6,8 @@ import Intel from "./intel.js";
 
 const GOLDEN = Math.PI * (3 - Math.sqrt(5));
 
-const RADAR = 196;
-const DOT = 10;
+const RADAR = 140;
+const DOT = 8;
 const RANK = { blocked: 0, done: 1, working: 2, idle: 3 };
 
 const kidStatus = (k, listed) => {
@@ -203,7 +203,7 @@ export default class Tracker {
     setAgentOrder(squad.map((a) => a.address));
     const count = (s) => list.filter((a) => a.status === s).length;
     return v_flex().id("halo-tracker").size_full().min_h(0).border_r_1().border_color(c.hudEdge)
-      .child(v_flex().flex_none().px(12).pt(12).pb(10).gap(8).items_center()
+      .child(v_flex().flex_none().px(12).pt(10).pb(8).gap(6).items_center()
         .child(h_flex().w_full().justify_between().child(label("Motion tracker", c)).child(label(`${list.length} contacts`, c)))
         .child(radar(c, list))
         .child(h_flex().w_full().justify_between()
